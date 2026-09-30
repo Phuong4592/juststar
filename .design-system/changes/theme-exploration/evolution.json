@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "evolutionId": "theme-exploration",
+  "type": "visual-direction",
+  "scope": "focused",
+  "summary": "Explore a multi-theme direction for En UI through an opt-in Storybook vertical slice covering default light, default dark, neobrutalism, glassmorphism, neumorphism, Bauhaus, terminal, editorial, pop, and high-contrast styles without changing public component APIs or the published theme contract.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "impact": {
+    "accessibilityContract": "none",
+    "behaviorContract": "none",
+    "maturity": "none",
+    "placement": "none",
+    "publicApi": "none",
+    "tokenContract": "none"
+  },
+  "compatibility": "compatible",
+  "impactMap": {
+    "components": [
+      "Exercise Avatar, Badge, Button, Checkbox, Input, Kbd, Page layout, Select, and Table without changing their public props, anatomy, protected behavior, or source contracts."
+    ],
+    "consumers": [
+      "No consumer impact in this exploratory pass because the themes are not exported or included in the package stylesheet."
+    ],
+    "contracts": [
+      "No direct impact in the exploratory slice; public theme contracts remain unchanged until a direction is reviewed and explicitly approved."
+    ],
+    "documentation": [
+      "Record feasibility, token-system limitations, accessibility risks, and the work required to promote selected directions into supported themes."
+    ],
+    "foundations": [
+      "Prototype alternative palettes, radii, elevation, surface translucency, and typography treatment through Storybook-only overrides of the existing CSS-variable foundation."
+    ],
+    "patterns": [
+      "Use one dense renewal-operations composition as the representative vertical slice so every visual direction is evaluated against the same hierarchy, records, controls, and responsive behavior."
+    ],
+    "screenshots": [
+      "Produce candidate Storybook previews for human comparison; do not update or approve pixel baselines as part of this exploration."
+    ]
+  },
+  "releaseClassification": "minor",
+  "decisionRefs": [
+    ".design-system/decisions/001-standalone-extraction.md",
+    ".design-system/changes/dense-data-foundations/evolution.json",
+    ".design-system/changes/visual-quality-redesign/evolution.json"
+  ],
+  "targetRuleIds": [
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "visual.wcag-aa-contrast",
+    "visual.wcag-aaa-report",
+    "visual.responsive-geometry",
+    "visual.baseline-review",
+    "visual.typography-density",
+    "visual.elevation-hierarchy",
+    "visual.interaction-state-contrast"
+  ],
+  "verticalSlice": {
+    "name": "Multi-theme operations dashboard",
+    "workflow": "Scan ten renewal records, filter operational data, select accounts, compare risk and ownership, review activity and capacity, and trigger playbook actions across the proposed visual directions.",
+    "evidence": "Storybook theme toolbar, a responsive comparison story, a built Storybook, deterministic repository checks, and human review before any public contract or baseline change.",
+    "review": {
+      "approved": false,
+      "by": "",
+      "date": ""
+    }
+  },
+  "migration": null,
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-09-03"
+  }
+}

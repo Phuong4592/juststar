@@ -1,0 +1,103 @@
+{
+  "id": "component.page-header",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": { "previousStatus": "planned", "since": "0.4.0" },
+  "documentation": "src/components/page-header/README.md",
+  "exports": ["pageHeaderVariants", "PageHeaderProps", "PageHeader"],
+  "publicParts": [
+    "page-header",
+    "page-header-breadcrumbs",
+    "page-header-copy",
+    "page-header-actions",
+    "page-header-metadata",
+    "page-header-tabs"
+  ],
+  "behaviorOwner": {
+    "kind": "package-managed",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["page-heading", "responsive-action-layout", "optional-navigation-context"]
+  },
+  "anatomy": {
+    "structure": "<PageHeader breadcrumbs={...} eyebrow={...} title={...} description={...} actions={...} metadata={...} tabs={...} />",
+    "parts": [
+      { "part": "page-header", "description": "Header boundary for the page introduction." },
+      {
+        "part": "page-header-breadcrumbs",
+        "description": "Optional navigation context before the page heading."
+      },
+      { "part": "page-header-copy", "description": "Eyebrow, h1, and supporting description." },
+      {
+        "part": "page-header-actions",
+        "description": "Primary and secondary page actions that wrap below the title when needed."
+      },
+      {
+        "part": "page-header-metadata",
+        "description": "Status, ownership, or operational metadata below the introduction."
+      },
+      {
+        "part": "page-header-tabs",
+        "description": "Optional page-level navigation rendered after the introduction."
+      }
+    ]
+  },
+  "slots": [
+    { "name": "title", "required": true, "description": "Single page-level h1 content." },
+    {
+      "name": "description",
+      "required": false,
+      "description": "Supporting description below the title."
+    },
+    { "name": "eyebrow", "required": false, "description": "Short context label above the title." },
+    {
+      "name": "breadcrumbs",
+      "required": false,
+      "description": "Breadcrumb or back-navigation content before the title."
+    },
+    { "name": "actions", "required": false, "description": "Page-level action controls." },
+    {
+      "name": "metadata",
+      "required": false,
+      "description": "Status or operational metadata associated with the page."
+    },
+    {
+      "name": "tabs",
+      "required": false,
+      "description": "Page-level navigation placed after the introduction."
+    }
+  ],
+  "props": [
+    { "name": "title", "kind": "node", "description": "Single page-level h1 content." },
+    {
+      "name": "density",
+      "kind": "enum",
+      "description": "Vertical spacing for routine or information-rich page introductions.",
+      "values": ["compact", "default"],
+      "default": "default"
+    }
+  ],
+  "states": ["default", "compact", "with-actions", "with-tabs", "long-content", "mobile"],
+  "requiredStories": ["Default", "WithNavigation", "LongContent"],
+  "requiredTests": ["page-heading", "responsive-actions", "optional-slots", "native-props"],
+  "tokens": {
+    "required": [
+      "color.neutral.500",
+      "color.neutral.600",
+      "color.neutral.900",
+      "space.xs",
+      "space.sm",
+      "space.lg",
+      "space.xl"
+    ]
+  },
+  "rules": [
+    "component.page-header.single-page-heading",
+    "component.page-header.actions-wrap",
+    "component.page-header.optional-slots"
+  ],
+  "migration": {
+    "introducedIn": "0.4.0",
+    "classification": "compatible",
+    "notes": "Adds a page introduction with protected heading hierarchy and responsive actions."
+  }
+}

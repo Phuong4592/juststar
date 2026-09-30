@@ -1,0 +1,358 @@
+:root,
+[data-theme="default"] {
+  /*------------------------------------------------------------*/
+  /* COLORS                                                     */
+  /*------------------------------------------------------------*/
+  /* Base */
+  --color-white: oklch(100% 0 0);
+  --color-black: oklch(0% 0 0);
+
+  /* Neutral */
+  --color-neutral-25: oklch(0.991 0 0);
+  --color-neutral-50: oklch(0.973 0 0);
+  --color-neutral-100: oklch(0.942 0 0);
+  --color-neutral-200: oklch(0.9 0 0);
+  --color-neutral-300: oklch(0.78 0 0);
+  --color-neutral-400: oklch(0.65 0 0);
+  --color-neutral-500: oklch(0.52 0 0);
+  --color-neutral-600: oklch(0.387 0 0);
+  --color-neutral-700: oklch(0.321 0 0);
+  --color-neutral-800: oklch(0.252 0 0);
+  --color-neutral-900: oklch(0.178 0 0);
+  --color-neutral-950: oklch(0 0 0);
+
+  /* Brand */
+  --color-brand-25: oklch(0.99 0.005 264.53);
+  --color-brand-50: oklch(0.97 0.012 264.53);
+  --color-brand-100: oklch(0.94 0.025 264.53);
+  --color-brand-200: oklch(0.9 0.05 264.53);
+  --color-brand-300: oklch(0.85 0.1 264.53);
+  --color-brand-400: oklch(0.7 0.19 264.53);
+  --color-brand-500: oklch(0.504 0.2782 264.53);
+  --color-brand-600: oklch(0.44 0.25 264.53);
+  --color-brand-700: oklch(0.38 0.22 264.53);
+  --color-brand-800: oklch(0.3 0.17 264.53);
+  --color-brand-900: oklch(0.22 0.13 264.53);
+  --color-brand-950: oklch(0.15 0.09 264.53);
+
+  /* Accent */
+  --color-accent-25: oklch(0.991 0 0);
+  --color-accent-50: oklch(0.973 0 0);
+  --color-accent-100: oklch(0.942 0 0);
+  --color-accent-200: oklch(0.9 0 0);
+  --color-accent-300: oklch(0.78 0 0);
+  --color-accent-400: oklch(0.52 0 0);
+  --color-accent-500: oklch(0.387 0 0);
+  --color-accent-600: oklch(0.321 0 0);
+  --color-accent-700: oklch(0.252 0 0);
+  --color-accent-800: oklch(0.178 0 0);
+  --color-accent-900: oklch(0.09 0 0);
+  --color-accent-950: oklch(0 0 0);
+
+  /* Info */
+  --color-info-25: oklch(0.969 0.007 255);
+  --color-info-50: oklch(0.951 0.015 255);
+  --color-info-100: oklch(0.922 0.03 255);
+  --color-info-200: oklch(0.885 0.06 255);
+  --color-info-300: oklch(0.824 0.11 255);
+  --color-info-400: oklch(0.67 0.18 255);
+  --color-info-500: oklch(0.54 0.21 255);
+  --color-info-600: oklch(0.47 0.19 255);
+  --color-info-700: oklch(0.4 0.16 255);
+  --color-info-800: oklch(0.33 0.13 255);
+  --color-info-900: oklch(0.27 0.1 255);
+  --color-info-950: oklch(0.2 0.07 255);
+
+  /* Success */
+  --color-success-25: oklch(0.994 0.003 174.5);
+  --color-success-50: oklch(0.983 0.011 167.8);
+  --color-success-100: oklch(0.966 0.023 165.9);
+  --color-success-200: oklch(0.948 0.045 165.9);
+  --color-success-300: oklch(0.924 0.079 164.2);
+  --color-success-400: oklch(0.814 0.161 158.8);
+  --color-success-500: oklch(0.686 0.167 154.9);
+  --color-success-600: oklch(0.664 0.16 155.1);
+  --color-success-700: oklch(0.639 0.154 155.2);
+  --color-success-800: oklch(0.546 0.133 154.8);
+  --color-success-900: oklch(0.453 0.107 155.4);
+  --color-success-950: oklch(0.345 0.078 156.7);
+
+  /* Error */
+  --color-error-25: oklch(0.99 0.003 17.2);
+  --color-error-50: oklch(0.973 0.009 26);
+  --color-error-100: oklch(0.942 0.02 21.4);
+  --color-error-200: oklch(0.904 0.038 23.9);
+  --color-error-300: oklch(0.843 0.071 24);
+  --color-error-400: oklch(0.717 0.161 25.9);
+  --color-error-500: oklch(0.637 0.21 28.5);
+  --color-error-600: oklch(0.566 0.202 29.3);
+  --color-error-700: oklch(0.482 0.189 29.9);
+  --color-error-800: oklch(0.399 0.151 29.8);
+  --color-error-900: oklch(0.334 0.121 29.3);
+  --color-error-950: oklch(0.258 0.088 29);
+
+  /* Warning */
+  --color-warning-25: oklch(0.994 0.003 84.6);
+  --color-warning-50: oklch(0.981 0.008 73.7);
+  --color-warning-100: oklch(0.961 0.017 76.1);
+  --color-warning-200: oklch(0.938 0.033 74.8);
+  --color-warning-300: oklch(0.905 0.059 75.3);
+  --color-warning-400: oklch(0.81 0.135 71.2);
+  --color-warning-500: oklch(0.747 0.17 62.1);
+  --color-warning-600: oklch(0.683 0.157 61.9);
+  --color-warning-700: oklch(0.583 0.131 63.2);
+  --color-warning-800: oklch(0.483 0.105 65.1);
+  --color-warning-900: oklch(0.404 0.084 65.8);
+  --color-warning-950: oklch(0.312 0.062 68.1);
+
+  /*------------------------------------------------------------*/
+  /* COLOR PAIRS                                                */
+  /*------------------------------------------------------------*/
+  /* Canvas — page background: app shell, full-bleed areas. No border, no shadow. */
+  --color-canvas: var(--color-white);
+  --color-on-canvas: var(--color-neutral-900);
+
+  /* Surface — default containers: cards, panels, form fields, tables. border-default + shadow-surface. */
+  --color-surface: var(--color-white);
+  --color-on-surface: var(--color-neutral-900);
+
+  /* Container — elevated containers: hovered cards, sticky headers, nested panels. shadow-raised. */
+  --color-container: var(--color-white);
+  --color-on-container: var(--color-neutral-900);
+
+  /* Overlay — floating layers: tooltips, popovers, menus, modals. No border; shadow separates. */
+  --color-overlay: var(--color-white);
+  --color-on-overlay: var(--color-neutral-900);
+
+  /* Brand — primary buttons, links, active emphasis. Hover/pressed step darker. */
+  --color-bg-brand: var(--color-brand-500);
+  --color-on-brand: var(--color-white);
+
+  /* Accent — secondary emphasis: category solids, accent badges, secondary buttons. */
+  --color-bg-accent: var(--color-accent-500);
+  --color-on-accent: var(--color-white);
+
+  /* Error — destructive buttons, error toasts and banners. Soft errors use tinted pair. */
+  --color-bg-error: var(--color-error-600);
+  --color-on-error: var(--color-white);
+
+  /* Warning — warning toasts, status indicators. Light ramp: verify 4.5:1; alerts prefer tinted pair. */
+  --color-bg-warning: var(--color-warning-500);
+  --color-on-warning: var(--color-neutral-900);
+
+  /* Success — success toasts, confirmations, status indicators. Alerts prefer tinted pair. */
+  --color-bg-success: var(--color-success-500);
+  --color-on-success: var(--color-neutral-900);
+
+  /* Info — info toasts, system notices, banners. Tips and hints use tinted pair. */
+  --color-bg-info: var(--color-info-500);
+  --color-on-info: var(--color-white);
+
+  /*------------------------------------------------------------*/
+  /* FONTS                                                      */
+  /*------------------------------------------------------------*/
+  --font-family-sans: "Nunito Variable", system-ui, sans-serif;
+  --font-family-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+  /* Type roles — Nunito is the interface default; mono is an explicit technical exception. */
+  --font-size-caption: 12px;
+  --font-size-body-small: 13px;
+  --font-size-body: 14px;
+  --font-size-body-large: 16px;
+  --font-size-heading-small: 16px;
+  --font-size-heading-medium: 20px;
+  --font-size-heading-large: 28px;
+  --font-size-display: 36px;
+
+  --line-height-caption: 16px;
+  --line-height-body-small: 20px;
+  --line-height-body: 21px;
+  --line-height-body-large: 24px;
+  --line-height-heading-small: 22px;
+  --line-height-heading-medium: 28px;
+  --line-height-heading-large: 36px;
+  --line-height-display: 44px;
+
+  --font-weight-regular: 400;
+  --font-weight-emphasis: 600;
+  --font-weight-strong: 700;
+
+  /*------------------------------------------------------------*/
+  /* TYPOGRAPHY                                                 */
+  /*------------------------------------------------------------*/
+  /* Font sizes — one token per typography role; roles sharing a
+     pixel value stay independent so each family can evolve. */
+  /* Display — mastheads and hero moments. */
+  --font-size-display-2xl: 96px;
+  --font-size-display-xl: 72px;
+  --font-size-display-lg: 56px;
+  --font-size-display-md: 48px;
+  --font-size-display-sm: 40px;
+  /* Heading — page and section titles. */
+  --font-size-heading-1: 32px;
+  --font-size-heading-2: 28px;
+  --font-size-heading-3: 24px;
+  --font-size-heading-4: 20px;
+  --font-size-heading-5: 16px;
+  --font-size-heading-6: 14px;
+  /* Body — reading text. */
+  --font-size-body-xl: 20px;
+  --font-size-body-lg: 18px;
+  --font-size-body-md: 16px;
+  --font-size-body-sm: 14px;
+  --font-size-body-xs: 12px;
+  /* Label — compact control and metadata text. */
+  --font-size-label-lg: 16px;
+  --font-size-label-md: 14px;
+  --font-size-label-sm: 12px;
+  /* Mono — identifiers, timestamps, counts, operational metadata. */
+  --font-size-mono-display: 24px;
+  --font-size-mono-lg: 18px;
+  --font-size-mono-md: 16px;
+  --font-size-mono-sm: 14px;
+  --font-size-mono-xs: 12px;
+  --font-size-mono-2xs: 10px;
+  --font-size-mono-caps: 12px;
+  --font-size-mono-caps-xs: 10px;
+  /* Eyebrow — small uppercase kickers above titles. */
+  --font-size-eyebrow-lg: 13px;
+  --font-size-eyebrow-md: 11px;
+
+  /* Line heights — one per typography role, paired with its size. */
+  --line-height-none: 1;
+  /* Single-line controls, icon labels. */
+  --line-height-display-2xl: 96px;
+  --line-height-display-xl: 76px;
+  --line-height-display-lg: 60px;
+  --line-height-display-md: 53px;
+  --line-height-display-sm: 46px;
+  --line-height-heading-1: 38px;
+  --line-height-heading-2: 34px;
+  --line-height-heading-3: 29px;
+  --line-height-heading-4: 25px;
+  --line-height-heading-5: 21px;
+  --line-height-heading-6: 18px;
+  --line-height-body-xl: 32px;
+  --line-height-body-lg: 28px;
+  --line-height-body-md: 24px;
+  --line-height-body-sm: 20px;
+  --line-height-body-xs: 17px;
+  --line-height-label-lg: 19px;
+  --line-height-label-md: 17px;
+  --line-height-label-sm: 14px;
+  --line-height-mono-display: 31px;
+  --line-height-mono-lg: 27px;
+  --line-height-mono-md: 24px;
+  --line-height-mono-sm: 21px;
+  --line-height-mono-xs: 16px;
+  --line-height-mono-2xs: 14px;
+  --line-height-mono-caps: 14px;
+  --line-height-mono-caps-xs: 12px;
+  --line-height-eyebrow-lg: 16px;
+  --line-height-eyebrow-md: 13px;
+
+  /* Font weights */
+  --font-weight-light: 300;
+  /* body/xl..md */
+  --font-weight-normal: 400;
+  /* body/sm..xs, mono/md..2xs */
+  --font-weight-medium: 500;
+  /* display/md..sm, heading/1-2/6, labels, mono/display/lg/caps, eyebrow/md */
+  --font-weight-semibold: 600;
+  /* eyebrow/lg */
+  --font-weight-bold: 700;
+  /* display/2xl..lg, heading/3-5 */
+
+  /* Letter spacing — one per role that optically adjusts. */
+  --letter-spacing-display-2xl: -1px;
+  --letter-spacing-display-xl: -0.8px;
+  --letter-spacing-display-lg: -0.5px;
+  --letter-spacing-display-md: -0.3px;
+  --letter-spacing-label-sm: 0.5px;
+  --letter-spacing-mono-caps-xs: 1.2px;
+  --letter-spacing-mono-caps: 1.5px;
+  --letter-spacing-eyebrow-md: 1.75px;
+  --letter-spacing-eyebrow-lg: 2px;
+
+  /*------------------------------------------------------------*/
+  /* BORDER RADIUS                                              */
+  /*------------------------------------------------------------*/
+  --radius-none: 0px;
+  --radius-control: 6px;
+  --radius-surface: 8px;
+  --radius-overlay: 12px;
+  --radius-pill: 9999px;
+
+  /*------------------------------------------------------------*/
+  /* SHADOWS                                                    */
+  /*------------------------------------------------------------*/
+  /* Outer */
+  --shadow-none: none;
+  --shadow-hairline: 0 1px rgb(0 0 0 / 0.04);
+  --shadow-surface: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-raised: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-overlay: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-modal: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  /* Inset */
+  --shadow-inset: inset 0 2px 4px rgb(0 0 0 / 0.05);
+
+  /*------------------------------------------------------------*/
+  /* HEIGHT                                                     */
+  /*------------------------------------------------------------*/
+  /* Control — button, input, select, combobox, date picker */
+  --height-control-sm: 28px;
+  --height-control-md: 32px;
+  --height-control-lg: 36px;
+
+  /* Selection — checkbox, radio, switch, toggle, slider */
+  --height-selection-sm: 20px;
+  --height-selection-md: 24px;
+  --height-selection-lg: 28px;
+
+  /* Indicator — chip, tag, badge, lozenge, pill */
+  --height-indicator-sm: 24px;
+  --height-indicator-md: 28px;
+  --height-indicator-lg: 32px;
+
+  /*------------------------------------------------------------*/
+  /* MOTION                                                     */
+  /*------------------------------------------------------------*/
+  --motion-duration-slow: 240ms;
+  --motion-duration-medium: 180ms;
+  --motion-duration-fast: 120ms;
+
+  /*------------------------------------------------------------*/
+  /* FOCUS RING                                                 */
+  /*------------------------------------------------------------*/
+  --focus-ring-gap: 2px;
+  --focus-ring-width: 2px;
+  --focus-ring-color: var(--color-brand-400);
+
+  /*------------------------------------------------------------*/
+  /* SPACE                                                      */
+  /*------------------------------------------------------------*/
+  /* Spacing scale - use for gaps, padding, margins. */
+  --space-2xs: 2px;
+  /* Micro gap: hairline separation, progress dots. */
+  --space-xs: 4px;
+  /* Tight gap: icon-to-label in dense controls; tight item rows. */
+  --space-sm: 6px;
+  /* Compact gap: xs/sm control icon gap; icon-only control padding. */
+  --space-md: 8px;
+  /* Default gap: fields, md controls; menu and option item padding. */
+  --space-lg: 10px;
+  /* sm control horizontal padding; dense table cell padding. */
+  --space-xl: 12px;
+  /* md control horizontal padding; group gaps; menu section padding. */
+  --space-2xl: 14px;
+  /* lg control horizontal padding; table header rows. */
+  --space-3xl: 16px;
+  /* Surface section padding; large stack gaps. */
+  --space-4xl: 20px;
+  /* Surface padding: card, frame, dialog bodies. */
+  --space-5xl: 24px;
+  /* Page section rhythm. */
+  --space-6xl: 32px;
+  /* Page rhythm. */
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "changeId": "contract-anatomy-canvas",
+  "category": "tooling",
+  "summary": "Add a standalone, full-width documentation-site canvas that combines realistic En UI component specimens with existing component and pattern contract anatomy, parts, and slots, with secondary descriptions and metadata behind accessible disclosure controls and no contract-schema or Storybook changes.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "impact": {
+    "accessibilityContract": "none",
+    "behaviorContract": "none",
+    "publicApi": "none",
+    "tokenContract": "none",
+    "consumerMigrationRequired": false
+  },
+  "contractImpact": "Component and pattern contracts remain authoritative and schema-compatible. The documentation build reads their existing anatomy.structure, anatomy.parts, slots, status, and behavior-owner fields for annotations, then uses package components and token-aligned illustrative content to make the geometry recognizable without adding contract fields.",
+  "sourceEdits": ["docs", "scripts"],
+  "consumerEdits": [],
+  "requestedMaturity": null,
+  "targetRuleIds": ["package.single-boundary"],
+  "requiredEvidence": ["docs", "implementation", "tests"],
+  "commands": {
+    "check": "pnpm check",
+    "test": "pnpm test",
+    "typecheck": "pnpm typecheck",
+    "build": "pnpm build",
+    "storybook": "pnpm dev"
+  },
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-09-03"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "components": ["Prove Button, Field/Input, and Alert before any later catalog migration."],
+  "consumers": [
+    "Consumers continue importing one compiled @enosta/en-ui stylesheet and do not install Tailwind."
+  ],
+  "contracts": [
+    "Record component styling variables and generated variant metadata without changing consumer-facing React contracts."
+  ],
+  "documentation": [
+    "Document the hybrid CSS-variable, Tailwind v4, and tailwind-variants authoring model for maintainers and AI agents."
+  ],
+  "foundations": [
+    "Map existing semantic CSS variables into Tailwind CSS v4 theme utilities; CSS variables remain the customization authority."
+  ],
+  "patterns": [
+    "Keep current compositions and interaction behavior unchanged while validating the new styling implementation pattern."
+  ],
+  "screenshots": [
+    "Use Storybook builds and existing stories to review visual parity for the vertical slice."
+  ]
+}

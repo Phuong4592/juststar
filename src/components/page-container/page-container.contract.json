@@ -1,0 +1,53 @@
+{
+  "id": "component.page-container",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": { "previousStatus": "planned", "since": "0.4.0" },
+  "documentation": "src/components/page-container/README.md",
+  "exports": ["pageContainerVariants", "PageContainerProps", "PageContainer"],
+  "publicParts": ["page-container"],
+  "behaviorOwner": {
+    "kind": "native",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["bounded-content-width", "responsive-page-gutters", "native-div-props"]
+  },
+  "anatomy": {
+    "structure": "<PageContainer size=\"default\" gutter=\"default\">Content</PageContainer>",
+    "parts": [
+      {
+        "part": "page-container",
+        "description": "Centered content boundary with a declared maximum width and responsive gutters."
+      }
+    ]
+  },
+  "slots": [{ "name": "children", "required": true, "description": "Page or section content." }],
+  "props": [
+    {
+      "name": "size",
+      "kind": "enum",
+      "description": "Maximum content width appropriate to the page workflow.",
+      "values": ["narrow", "default", "wide", "full"],
+      "default": "default"
+    },
+    {
+      "name": "gutter",
+      "kind": "enum",
+      "description": "Responsive horizontal inset applied inside the content boundary.",
+      "values": ["none", "compact", "default", "spacious"],
+      "default": "default"
+    }
+  ],
+  "states": ["narrow", "default", "wide", "full", "mobile", "desktop"],
+  "requiredStories": ["Widths", "ResponsiveGutters"],
+  "requiredTests": ["container-width", "responsive-gutter", "native-props"],
+  "tokens": { "required": ["space.md", "space.lg", "space.xl", "space.2xl"] },
+  "rules": [
+    "component.page-container.declared-width",
+    "component.page-container.responsive-gutters"
+  ],
+  "migration": {
+    "introducedIn": "0.4.0",
+    "classification": "compatible",
+    "notes": "Adds a responsive page-width and gutter primitive."
+  }
+}

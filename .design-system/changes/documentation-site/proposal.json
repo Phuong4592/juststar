@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "changeId": "documentation-site",
+  "category": "tooling",
+  "summary": "Add a light-mode React documentation site that consumes En UI components for the landing page and installation/customization guide while keeping Storybook as the interactive catalog.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "impact": {
+    "accessibilityContract": "none",
+    "behaviorContract": "none",
+    "publicApi": "none",
+    "tokenContract": "none",
+    "consumerMigrationRequired": false
+  },
+  "contractImpact": "The package exports, component contracts, semantic tokens, runtime behavior, and accessibility guarantees remain unchanged. The repository-hosted documentation becomes a first-party consumer of the existing package source and remains outside the published archive.",
+  "sourceEdits": ["docs", ".storybook"],
+  "consumerEdits": [],
+  "requestedMaturity": null,
+  "targetRuleIds": ["package.single-boundary"],
+  "requiredEvidence": ["docs", "implementation", "tests"],
+  "commands": {
+    "check": "pnpm check",
+    "test": "pnpm test",
+    "typecheck": "pnpm typecheck",
+    "build": "pnpm build",
+    "storybook": "pnpm dev"
+  },
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-24"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "visual.wcag-aa-contrast": {
+    "severity": "error",
+    "requirement": "Declared semantic text and UI-boundary pairs meet WCAG 2.2 AA contrast thresholds in every supported mode."
+  },
+  "visual.wcag-aaa-report": {
+    "severity": "warning",
+    "requirement": "AAA contrast gaps are reported as advisory evidence and are not silently presented as AA failures."
+  },
+  "visual.composition-spacing": {
+    "severity": "error",
+    "requirement": "Page patterns use declared composition spacing roles and preserve their rendered relationship at supported viewports."
+  },
+  "visual.responsive-geometry": {
+    "severity": "error",
+    "requirement": "Approved pattern stories have no unexpected overflow, overlap, clipped controls, or undersized interactive targets at required viewports."
+  },
+  "visual.baseline-review": {
+    "severity": "error",
+    "requirement": "New or intentionally changed visual snapshots require explicit human review before the baseline is accepted."
+  },
+  "visual.typography-density": {
+    "severity": "error",
+    "requirement": "Typography roles use the declared dense-data scale, preserve readable line height, and remain documented for human and AI consumers."
+  },
+  "visual.elevation-hierarchy": {
+    "severity": "warning",
+    "requirement": "Compositions use spacing and typography before adding a separator or independent surface, and components use the smallest declared elevation role that communicates a real stacking relationship."
+  },
+  "visual.interaction-state-contrast": {
+    "severity": "error",
+    "requirement": "Default, hover, checked, selected, and disabled-adjacent interactive color pairs preserve WCAG 2.2 AA contrast in supported modes and brands."
+  }
+}

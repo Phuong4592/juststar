@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "platform": "react-web",
+  "packageManager": "pnpm",
+  "framework": "react",
+  "paths": {
+    "ledger": ".design-system",
+    "contracts": "contracts",
+    "tokens": "src/style",
+    "react": "src/components",
+    "docs": "docs",
+    "stories": ".storybook",
+    "rules": ".design-system/rules"
+  },
+  "commands": {
+    "check": "pnpm check",
+    "test": "pnpm test",
+    "typecheck": "pnpm typecheck",
+    "build": "pnpm build",
+    "storybook": "pnpm dev"
+  },
+  "ownership": {
+    "designSystem": "Enosta design-system maintainers",
+    "maintenance": "Enosta engineering"
+  },
+  "consumers": ["Enosta product team 1", "Enosta product team 2"],
+  "maturityPolicy": "docs/maturity.md",
+  "release": {
+    "publish": true,
+    "registry": "https://npm.pkg.github.com",
+    "versionSource": "package.json"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "id": "component.ai-workspace",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": { "previousStatus": "planned", "since": "0.4.0" },
+  "documentation": "src/patterns/ai-workspace/README.md",
+  "exports": ["AIWorkspaceProps", "AIWorkspace"],
+  "publicParts": [
+    "ai-workspace",
+    "ai-workspace-mobile-switcher",
+    "ai-workspace-conversation",
+    "ai-workspace-separator",
+    "ai-workspace-preview"
+  ],
+  "behaviorOwner": {
+    "kind": "package-managed",
+    "owner": "@enosta/en-ui",
+    "capabilities": [
+      "page-heading",
+      "parallel-chat-preview",
+      "keyboard-resizing",
+      "pointer-resizing",
+      "mobile-view-switching",
+      "preview-state"
+    ]
+  },
+  "anatomy": {
+    "structure": "<AIWorkspace title={...} conversation={...} preview={...} previewState=\"ready\" />",
+    "parts": [
+      {
+        "part": "ai-workspace",
+        "description": "Named page region with a single h1 for the parallel conversation and preview workflow."
+      },
+      {
+        "part": "ai-workspace-mobile-switcher",
+        "description": "Chat/Preview switcher for narrow viewports."
+      },
+      { "part": "ai-workspace-conversation", "description": "Conversation workflow panel." },
+      { "part": "ai-workspace-separator", "description": "Keyboard and pointer resize control." },
+      { "part": "ai-workspace-preview", "description": "Consumer-rendered artifact preview panel." }
+    ]
+  },
+  "slots": [
+    { "name": "title", "required": true, "description": "Single h1 workspace name." },
+    { "name": "conversation", "required": true, "description": "Conversation workflow." },
+    { "name": "preview", "required": true, "description": "Consumer-rendered artifact preview." }
+  ],
+  "props": [
+    { "name": "title", "kind": "node", "description": "Single h1 workspace heading." },
+    { "name": "conversation", "kind": "node", "description": "Conversation workflow." },
+    { "name": "preview", "kind": "node", "description": "Consumer-rendered artifact preview." },
+    {
+      "name": "conversationLabel",
+      "kind": "string",
+      "description": "Conversation panel and mobile tab label.",
+      "default": "Chat"
+    },
+    {
+      "name": "previewLabel",
+      "kind": "string",
+      "description": "Preview panel and mobile tab label.",
+      "default": "Preview"
+    },
+    {
+      "name": "defaultConversationSize",
+      "kind": "number",
+      "description": "Initial desktop conversation width percentage.",
+      "default": 38
+    },
+    {
+      "name": "minConversationSize",
+      "kind": "number",
+      "description": "Minimum conversation width percentage.",
+      "default": 25
+    },
+    {
+      "name": "maxConversationSize",
+      "kind": "number",
+      "description": "Maximum conversation width percentage.",
+      "default": 60
+    },
+    {
+      "name": "defaultMobileView",
+      "kind": "enum",
+      "description": "Initially visible narrow-screen panel.",
+      "values": ["conversation", "preview"],
+      "default": "conversation"
+    },
+    {
+      "name": "previewState",
+      "kind": "enum",
+      "description": "Current artifact preview state.",
+      "values": ["ready", "loading", "empty", "error"],
+      "default": "ready"
+    }
+  ],
+  "states": [
+    "ready",
+    "resizing",
+    "mobile-conversation",
+    "mobile-preview",
+    "preview-loading",
+    "preview-empty",
+    "preview-error"
+  ],
+  "requiredStories": ["Default", "PreviewLoading", "MobilePreview"],
+  "requiredTests": [
+    "workspace-heading",
+    "panel-labels",
+    "keyboard-resize",
+    "mobile-switcher",
+    "preview-state"
+  ],
+  "tokens": {
+    "required": [
+      "color.canvas",
+      "color.container",
+      "color.neutral.100",
+      "color.neutral.200",
+      "color.neutral.600",
+      "color.neutral.900",
+      "focus.ring.color",
+      "radius.control",
+      "space.sm",
+      "space.md"
+    ]
+  },
+  "componentVariables": {
+    "customizable": ["--ai-workspace-conversation-size", "--ai-workspace-height"],
+    "protected": []
+  },
+  "rules": [
+    "pattern.ai-workspace.single-heading",
+    "pattern.ai-workspace.keyboard-resize",
+    "pattern.ai-workspace.mobile-single-panel",
+    "pattern.ai-workspace.consumer-owned-preview"
+  ],
+  "migration": {
+    "introducedIn": "0.4.0",
+    "classification": "compatible",
+    "notes": "Adds a provider-neutral resizable chat-and-preview workspace pattern."
+  }
+}

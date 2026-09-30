@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "changeId": "compact-nested-sidebar-navigation",
+  "category": "component",
+  "summary": "Tighten SidebarNavigation's default operational density and add semantic two-level navigation with accessible unavailable-item guidance.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "impact": {
+    "accessibilityContract": "additive",
+    "behaviorContract": "additive",
+    "publicApi": "additive",
+    "tokenContract": "none",
+    "consumerMigrationRequired": false
+  },
+  "contractImpact": "SidebarNavigation retains existing landmarks, active, disabled, and collapsed behavior while adding nested-list anatomy, a secondary list level, and an optional disabled reason. Default insets and item geometry become more compact without falling below WCAG 2.2 AA target-size requirements.",
+  "sourceEdits": [
+    "src/components/sidebar-navigation",
+    "src/patterns/consumer-pages.stories.tsx",
+    "contracts/design-system.contract.json",
+    "docs/ai-composition.md"
+  ],
+  "consumerEdits": [],
+  "requestedMaturity": null,
+  "targetRuleIds": [
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "component.colocation",
+    "visual.composition-spacing",
+    "visual.responsive-geometry",
+    "visual.typography-density"
+  ],
+  "requiredEvidence": ["contract", "docs", "implementation", "stories", "tests"],
+  "commands": {
+    "check": "pnpm check",
+    "test": "pnpm test",
+    "typecheck": "pnpm typecheck",
+    "build": "pnpm build",
+    "storybook": "pnpm dev"
+  },
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-31"
+  }
+}

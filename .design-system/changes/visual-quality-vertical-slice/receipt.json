@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "changeId": "visual-quality-vertical-slice",
+  "category": "pattern",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "requestedMaturity": null,
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "visual.wcag-aa-contrast",
+    "visual.wcag-aaa-report",
+    "visual.composition-spacing",
+    "visual.responsive-geometry",
+    "visual.baseline-review"
+  ],
+  "evidence": {
+    "contract": [
+      "contracts/visual-quality.contract.json",
+      "src/components/experimental-list-page/experimental-list-page.contract.json",
+      ".design-system/rules/visual-quality.json"
+    ],
+    "implementation": [
+      "src/components/experimental-list-page/experimental-list-page.tsx",
+      "src/components/experimental-list-page/experimental-list-page.stories.tsx",
+      "src/tokens/tokens.css",
+      "scripts/audit-visual-tokens.mjs",
+      ".agents/skills/en-ui-visual-audit/SKILL.md"
+    ],
+    "docs": [
+      "src/components/experimental-list-page/README.md",
+      "docs/ai-composition.md",
+      ".design-system/changes/visual-quality-redesign/evolution.json",
+      ".design-system/audits/visual-quality-baseline/report.md"
+    ],
+    "tests": [
+      "src/components/experimental-list-page/experimental-list-page.test.tsx",
+      "tests/visual/list-page.visual.spec.ts",
+      "tests/visual/__screenshots__/people-list-mobile.png",
+      "tests/visual/__screenshots__/people-list-tablet.png",
+      "tests/visual/__screenshots__/people-list-desktop.png",
+      "tests/visual/__screenshots__/people-list-empty-results.png",
+      "tests/visual/__screenshots__/people-list-long-content.png"
+    ],
+    "accessibility": [
+      "WCAG 2.2 AA axe scan passed for the redesigned results story.",
+      "All declared light and dark token pairs pass AA; four normal-text pairs remain documented AAA opportunities.",
+      "Responsive checks enforce no overflow, required gutters, 24px AA targets, and report 44px AAA target gaps."
+    ]
+  },
+  "checks": [
+    { "command": "pnpm check", "status": "passed" },
+    { "command": "pnpm test", "status": "passed" },
+    { "command": "pnpm design:check", "status": "passed" },
+    { "command": "pnpm build", "status": "passed" },
+    { "command": "pnpm build-storybook", "status": "passed" },
+    { "command": "pnpm package:archive-check", "status": "passed" }
+  ],
+  "migration": [],
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  }
+}

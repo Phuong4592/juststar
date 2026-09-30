@@ -1,0 +1,88 @@
+{
+  "id": "component.avatar",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/avatar/README.md",
+  "exports": ["avatarVariants", "AvatarImageProps", "AvatarFallbackProps", "AvatarProps", "Avatar"],
+  "publicParts": ["root", "image", "fallback"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics"]
+  },
+  "anatomy": {
+    "structure": "<Avatar image={{ alt: \"Ada Lovelace\", src: avatarUrl }} fallback={{ children: \"AL\" }} />",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Non-interactive span container that owns the image loading status."
+      },
+      {
+        "part": "image",
+        "description": "Image element rendered once the image has loaded."
+      },
+      {
+        "part": "fallback",
+        "description": "Fallback element rendered while the image loads or after it fails."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "image",
+      "required": false,
+      "description": "Props for the image element (src, alt, srcSet, ...); the image renders once it has loaded."
+    },
+    {
+      "name": "fallback",
+      "required": false,
+      "description": "Props for the fallback element; children render initials or an icon while the image loads or after it fails."
+    }
+  ],
+  "props": [
+    {
+      "name": "size",
+      "kind": "enum",
+      "description": "Avatar size.",
+      "values": ["xs", "sm", "md", "lg"],
+      "default": "md"
+    },
+    {
+      "name": "image",
+      "kind": "node",
+      "description": "Props passed to the image element, such as src, alt, and srcSet."
+    },
+    {
+      "name": "fallback",
+      "kind": "node",
+      "description": "Props passed to the fallback element; children render the initials or icon."
+    }
+  ],
+  "states": ["default", "loading", "loaded", "error"],
+  "requiredStories": ["Overview", "Basic", "WithImage", "Sizes", "Fallback", "Groups"],
+  "requiredTests": ["renders", "class-name", "sizes", "fallback"],
+  "tokens": {
+    "required": [
+      "color.neutral.100",
+      "color.surface",
+      "radius.pill",
+      "space.4xl",
+      "space.5xl",
+      "space.6xl"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": []
+  },
+  "rules": ["component.avatar.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Styles mapped to En UI theme variables; sizes exposed through the size prop."
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "id": "component.frame",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/frame/README.md",
+  "exports": [
+    "Frame",
+    "FramePanel",
+    "FrameHeader",
+    "FrameTitle",
+    "FrameDescription",
+    "FrameFooter"
+  ],
+  "publicParts": ["root", "panel", "header", "title", "description", "footer"],
+  "behaviorOwner": {
+    "kind": "native",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics"]
+  },
+  "anatomy": {
+    "structure": "<Frame>\n  <FrameHeader>\n    <FrameTitle>Title</FrameTitle>\n    <FrameDescription>Description</FrameDescription>\n  </FrameHeader>\n  <FramePanel>Content</FramePanel>\n  <FrameFooter>Footer</FrameFooter>\n</Frame>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root container element for the frame."
+      },
+      {
+        "part": "panel",
+        "description": "Individual panel section within the frame."
+      },
+      {
+        "part": "header",
+        "description": "Header section of the frame."
+      },
+      {
+        "part": "title",
+        "description": "Title text within the frame header."
+      },
+      {
+        "part": "description",
+        "description": "Description text within the frame header."
+      },
+      {
+        "part": "footer",
+        "description": "Footer section of the frame."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Frame content composed from FrameHeader, FramePanel, and FrameFooter as direct children of Frame."
+    }
+  ],
+  "props": [
+    {
+      "name": "className",
+      "kind": "string",
+      "description": "CSS class name. Available on all Frame sub-components."
+    }
+  ],
+  "states": ["default"],
+  "requiredStories": ["Overview", "Basic", "WithFooter", "MultiplePanels"],
+  "requiredTests": ["renders", "class-name", "panel-structure"],
+  "tokens": {
+    "required": [
+      "color.neutral.100",
+      "color.neutral.200",
+      "color.neutral.500",
+      "color.surface",
+      "radius.overlay",
+      "radius.surface",
+      "shadow.hairline",
+      "shadow.surface",
+      "space.3xl",
+      "space.4xl",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": []
+  },
+  "rules": ["component.frame.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Header, panel, and footer compose as direct children of Frame; styles mapped to En UI theme variables."
+  }
+}

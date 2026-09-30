@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "evolutionId": "typography-composition-consistency",
+  "type": "typography-icons-motion",
+  "scope": "catalog-wide",
+  "summary": "Make Typography the single public text API, align every preset to the compact Nunito foundation, restrict alternate fonts to purposeful technical content, reduce decorative separators, and make alternating table rows the accessible default.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "impact": {
+    "accessibilityContract": "additive",
+    "behaviorContract": "additive",
+    "maturity": "breaking",
+    "placement": "none",
+    "publicApi": "breaking",
+    "tokenContract": "additive"
+  },
+  "compatibility": "breaking",
+  "impactMap": {
+    "components": [
+      "Add semantic compound presets to Typography and migrate component-owned headings, descriptions, labels, and technical text to the shared scale.",
+      "Remove the overlapping Text component export and source contract, and add alternating row surfaces to every Table variant while preserving selected and hover emphasis."
+    ],
+    "consumers": [
+      "New UI must use Typography compound presets instead of ad hoc font family, size, weight, line-height, or tracking utilities.",
+      "Composition guidance uses typography and semantic spacing before separators, independent surfaces, or tabular structure."
+    ],
+    "contracts": [
+      "Declare Typography compound anatomy, compact type roles, purposeful mono usage, and Table row differentiation in component and theme contracts.",
+      "Remove component.text from the generated design-system contract."
+    ],
+    "documentation": [
+      "Update foundations, component guidance, catalog references, AI consumer instructions, and migration notes around the canonical Typography API."
+    ],
+    "foundations": [
+      "Publish semantic font-size, line-height, and weight tokens with Nunito as the primary interface family and Geist Mono reserved for code and technical identifiers."
+    ],
+    "patterns": [
+      "Review PageHeader, PageSection, cards, overlays, navigation, authentication, operational pages, and AI workspaces as the representative typography and separator slice."
+    ],
+    "screenshots": [
+      "Run responsive layout and Storybook visual checks without updating any baseline; intentional screenshot changes remain subject to human approval."
+    ]
+  },
+  "releaseClassification": "major",
+  "decisionRefs": [
+    ".design-system/changes/dense-data-foundations/evolution.json",
+    ".design-system/changes/dense-composition-anti-slop/evolution.json",
+    ".design-system/changes/ai-composition-guardrails/evolution.json"
+  ],
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "visual.wcag-aa-contrast",
+    "visual.wcag-aaa-report",
+    "visual.composition-spacing",
+    "visual.responsive-geometry",
+    "visual.baseline-review",
+    "visual.typography-density",
+    "visual.elevation-hierarchy",
+    "visual.interaction-state-contrast"
+  ],
+  "verticalSlice": {
+    "name": "Canonical operational typography",
+    "workflow": "Scan page and section hierarchy, operate dialogs and cards, compare dense table rows, and review navigation and authentication compositions across narrow, medium, and wide viewports.",
+    "evidence": "Typography and Table contracts, component stories and tests, consumer guardrail tests, package typecheck and build, deterministic token checks, responsive layout checks, and visual diffs held for human approval.",
+    "review": {
+      "approved": true,
+      "by": "User",
+      "date": "2026-09-03"
+    }
+  },
+  "migration": {
+    "summary": "Consumers replace Text with Typography compound presets and remove direct typography utility overrides from generated UI.",
+    "steps": [
+      "Replace Text display, headline, title, body, caption, and label usage with the matching Typography compound preset.",
+      "Use Typography.Mono or Typography.Code only for identifiers, code, timestamps, and other deliberately technical values.",
+      "Remove consumer-authored font family, size, weight, line-height, and tracking utilities where Typography owns the role."
+    ],
+    "consumers": [
+      "All applications importing Text from @enosta/en-ui.",
+      "AI-generated and hand-authored En UI consumers that currently compose typography with raw utility classes."
+    ]
+  },
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-09-03"
+  }
+}

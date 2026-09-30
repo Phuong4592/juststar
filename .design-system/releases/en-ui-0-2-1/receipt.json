@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "en-ui-0-2-1",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "classification": "patch",
+  "packageVersion": "0.2.1",
+  "evidence": {
+    "commands": [
+      {
+        "command": "pnpm check",
+        "status": "passed"
+      },
+      {
+        "command": "pnpm test",
+        "status": "passed"
+      },
+      {
+        "command": "pnpm typecheck",
+        "status": "passed"
+      },
+      {
+        "command": "pnpm build",
+        "status": "passed"
+      },
+      {
+        "command": "pnpm dev",
+        "status": "passed"
+      }
+    ],
+    "accessibility": [
+      ".design-system/releases/en-ui-0-2-1/accessibility.md",
+      ".design-system/changes/minor-ui-release-fixes/receipt.json"
+    ],
+    "auditReports": [
+      ".design-system/audits/visual-quality-baseline/findings.json",
+      ".design-system/audits/dense-data-foundations-baseline/findings.json"
+    ],
+    "changelog": "CHANGELOG.md",
+    "migration": ".design-system/releases/en-ui-0-2-1/migration.md",
+    "archive": {
+      "path": ".design-system/releases/en-ui-0-2-1/enosta-en-ui-0.2.1.tgz",
+      "sha256": "sha256:44d406680a7442f3b82be1ba6891d78210411f9665e1d53bfa0ae312bb68b6bd",
+      "contents": [
+        "package/dist/index.js",
+        "package/dist/index.d.ts",
+        "package/dist/styles.css",
+        "package/contracts/design-system.contract.json",
+        "package/contracts/foundations.contract.json",
+        "package/contracts/visual-quality.contract.json",
+        "package/src/components/*/*.contract.json",
+        "package/src/components/*/README.md",
+        "package/.agents/skills/en-ui-consumer/SKILL.md",
+        "package/.agents/skills/en-ui-visual-audit/SKILL.md"
+      ]
+    },
+    "consumerProof": {
+      "fixture": "scripts/verify-package.mjs",
+      "cleanEnvironment": true,
+      "install": {
+        "command": "pnpm package:archive-check",
+        "status": "passed"
+      },
+      "build": {
+        "command": "pnpm package:archive-check",
+        "status": "passed"
+      }
+    }
+  },
+  "claims": {
+    "commit": false,
+    "deploy": false,
+    "externalMessages": false,
+    "publishPackages": false,
+    "tag": false
+  },
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  },
+  "deferredExternalActions": [
+    "package publication",
+    "deployment",
+    "commit",
+    "tag",
+    "remote release",
+    "external messages"
+  ]
+}

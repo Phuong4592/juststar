@@ -1,0 +1,103 @@
+{
+  "id": "component.page-section",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": { "previousStatus": "planned", "since": "0.4.0" },
+  "documentation": "src/components/page-section/README.md",
+  "exports": ["pageSectionVariants", "PageSectionProps", "PageSection"],
+  "publicParts": [
+    "page-section",
+    "page-section-header",
+    "page-section-copy",
+    "page-section-actions",
+    "page-section-content"
+  ],
+  "behaviorOwner": {
+    "kind": "package-managed",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["section-landmark", "section-heading", "responsive-section-actions"]
+  },
+  "anatomy": {
+    "structure": "<PageSection title={...} description={...} actions={...}>Content</PageSection>",
+    "parts": [
+      { "part": "page-section", "description": "Section landmark named by its heading." },
+      {
+        "part": "page-section-header",
+        "description": "Responsive heading and action arrangement."
+      },
+      {
+        "part": "page-section-copy",
+        "description": "Section heading and optional supporting description."
+      },
+      { "part": "page-section-actions", "description": "Controls scoped to the section." },
+      { "part": "page-section-content", "description": "Section-owned page content." }
+    ]
+  },
+  "slots": [
+    { "name": "title", "required": true, "description": "Section heading content." },
+    {
+      "name": "description",
+      "required": false,
+      "description": "Supporting copy associated with the section heading."
+    },
+    { "name": "actions", "required": false, "description": "Controls scoped to this section." },
+    { "name": "children", "required": true, "description": "Section content." }
+  ],
+  "props": [
+    { "name": "title", "kind": "node", "description": "Section heading content." },
+    {
+      "name": "headingAs",
+      "kind": "enum",
+      "description": "Heading element used for the section hierarchy.",
+      "values": ["h2", "h3"],
+      "default": "h2"
+    },
+    {
+      "name": "variant",
+      "kind": "enum",
+      "description": "Plain page section or bordered surface presentation.",
+      "values": ["plain", "surface"],
+      "default": "plain"
+    },
+    {
+      "name": "density",
+      "kind": "enum",
+      "description": "Spacing density for section rhythm and surface insets.",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable"
+    }
+  ],
+  "states": ["plain", "surface", "compact", "with-actions", "long-content", "mobile"],
+  "requiredStories": ["Default", "Surface", "CompactSurface", "LongContent"],
+  "requiredTests": [
+    "section-landmark",
+    "heading-level",
+    "density",
+    "optional-slots",
+    "native-props"
+  ],
+  "tokens": {
+    "required": [
+      "color.neutral.200",
+      "color.neutral.600",
+      "color.neutral.900",
+      "color.surface",
+      "radius.surface",
+      "shadow.surface",
+      "space.sm",
+      "space.md",
+      "space.lg",
+      "space.xl"
+    ]
+  },
+  "rules": [
+    "component.page-section.named-landmark",
+    "component.page-section.heading-level",
+    "component.page-section.actions-wrap"
+  ],
+  "migration": {
+    "introducedIn": "0.4.0",
+    "classification": "compatible",
+    "notes": "Adds a named in-page section layout with optional surface treatment and additive comfortable or compact density."
+  }
+}

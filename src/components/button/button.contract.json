@@ -1,0 +1,104 @@
+{
+  "id": "component.button",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/button/README.md",
+  "exports": ["buttonVariants", "ButtonProps", "Button"],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics", "keyboard-interaction", "single-line-label"]
+  },
+  "anatomy": {
+    "structure": "<Button>Content</Button>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Single-line component label and optional inline icon content."
+    },
+    {
+      "name": "icon",
+      "required": false,
+      "description": "Icon placement. A single ReactNode renders as a leading icon. Pass an object with start and end for explicit positions."
+    }
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "kind": "enum",
+      "description": "Visual and semantic style.",
+      "values": ["primary", "secondary", "tertiary", "danger", "danger-soft", "ghost", "link"],
+      "default": "primary"
+    },
+    {
+      "name": "size",
+      "kind": "enum",
+      "description": "Control size. icon is for icon-only buttons.",
+      "values": ["xs", "sm", "md", "lg", "icon"],
+      "default": "md"
+    },
+    {
+      "name": "icon",
+      "kind": "node",
+      "description": "Icon placement. A single ReactNode renders as a leading icon. Pass an object with start and end for explicit positions."
+    },
+    {
+      "name": "loading",
+      "kind": "boolean",
+      "description": "Replaces the start icon with a spinner, hides the end icon, keeps the label visible, and sets aria-busy.",
+      "default": false
+    }
+  ],
+  "states": ["default", "loading", "disabled", "long-label"],
+  "requiredStories": ["Overview", "Basic", "Loading", "IconOnly", "Disabled", "LongLabel"],
+  "requiredTests": ["renders", "class-name", "single-line-label"],
+  "tokens": {
+    "required": [
+      "color.brand.500",
+      "color.brand.700",
+      "color.error.500",
+      "color.error.700",
+      "color.neutral.100",
+      "color.neutral.200",
+      "color.neutral.25",
+      "color.neutral.50",
+      "color.neutral.900",
+      "color.on.brand",
+      "color.surface",
+      "radius.control",
+      "shadow.none",
+      "shadow.surface",
+      "space.2xl",
+      "space.3xl",
+      "space.5xl",
+      "space.6xl",
+      "space.lg",
+      "space.md",
+      "space.sm",
+      "space.xl"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": ["--btn-edge", "--btn-highlight", "--btn-press", "--btn-press-scale"]
+  },
+  "rules": ["component.button.preserve-semantics", "component.button.single-line-label"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "breaking",
+    "notes": "Styles mapped to En UI theme variables and fixed-height labels remain on one line."
+  }
+}

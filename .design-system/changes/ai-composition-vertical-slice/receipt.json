@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "changeId": "ai-composition-vertical-slice",
+  "category": "pattern",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "requestedMaturity": null,
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard"
+  ],
+  "evidence": {
+    "contract": [
+      "src/components/experimental-list-page/experimental-list-page.contract.json",
+      ".design-system/changes/ai-composition-guardrails/evolution.json"
+    ],
+    "implementation": [
+      "src/components/experimental-list-page/experimental-list-page.tsx",
+      "scripts/en-ui-check.mjs",
+      "scripts/en-ui-init-ai.mjs",
+      ".agents/skills/en-ui-consumer/SKILL.md"
+    ],
+    "docs": [
+      "src/components/experimental-list-page/README.md",
+      "docs/ai-composition.md",
+      "README.md",
+      "AGENTS.md"
+    ],
+    "stories": ["src/components/experimental-list-page/experimental-list-page.stories.tsx"],
+    "tests": [
+      "src/components/experimental-list-page/experimental-list-page.test.tsx",
+      "scripts/en-ui-check.test.ts",
+      "scripts/verify-experimental.mjs",
+      "scripts/verify-package.mjs"
+    ],
+    "accessibility": [
+      "Verified main landmark, h1/h2 hierarchy, named search region, accessible full-value truncation, empty recovery action, no browser errors, and no horizontal overflow at 375px."
+    ]
+  },
+  "checks": [
+    {
+      "command": "pnpm check",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm test",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm build",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm dev",
+      "status": "passed"
+    }
+  ],
+  "migration": [],
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-24"
+  }
+}

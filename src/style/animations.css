@@ -1,0 +1,27 @@
+@keyframes skeleton {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+@keyframes pulse-toast-even {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(0.96);
+  }
+}
+
+@keyframes pulse-toast-odd {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.04);
+  }
+}

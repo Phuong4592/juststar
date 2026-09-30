@@ -1,0 +1,111 @@
+{
+  "id": "component.table",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/table/README.md",
+  "exports": [
+    "tableVariants",
+    "TableVariant",
+    "TableProps",
+    "Table",
+    "TableHeader",
+    "TableBody",
+    "TableFooter",
+    "TableRow",
+    "TableHead",
+    "TableCell",
+    "TableCaption"
+  ],
+  "publicParts": ["root", "header", "body", "footer", "row", "head", "cell", "caption"],
+  "behaviorOwner": {
+    "kind": "native",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics"]
+  },
+  "anatomy": {
+    "structure": "<Table><TableCaption /><TableHeader><TableRow><TableHead /></TableRow></TableHeader><TableBody><TableRow><TableCell /></TableRow></TableBody><TableFooter><TableRow><TableCell /></TableRow></TableFooter></Table>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Horizontal scroll container wrapping the native table element."
+      },
+      {
+        "part": "header",
+        "description": "Header section containing column header rows."
+      },
+      {
+        "part": "body",
+        "description": "Body section containing data rows."
+      },
+      {
+        "part": "footer",
+        "description": "Footer section for totals and summary rows."
+      },
+      {
+        "part": "row",
+        "description": "A table row used inside header, body, and footer sections."
+      },
+      {
+        "part": "head",
+        "description": "Header cell describing a column."
+      },
+      {
+        "part": "cell",
+        "description": "Data cell within a row."
+      },
+      {
+        "part": "caption",
+        "description": "Accessible caption identifying the dataset."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Table sections composed from TableHeader, TableBody, TableFooter, and TableCaption."
+    }
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "kind": "enum",
+      "description": "Visual treatment. card renders separated borders, rounded corners, and row surfaces that read as cards.",
+      "values": ["default", "card"],
+      "default": "default"
+    }
+  ],
+  "states": ["default", "hover", "selected"],
+  "requiredStories": ["Overview", "Basic", "SelectedRow", "Card"],
+  "requiredTests": ["renders", "class-name", "variant", "selected-row", "preserve-semantics"],
+  "tokens": {
+    "required": [
+      "color.neutral.100",
+      "color.neutral.200",
+      "color.neutral.500",
+      "color.on.surface",
+      "font.family.sans",
+      "radius.overlay",
+      "radius.surface",
+      "shadow.hairline",
+      "shadow.surface",
+      "space.2xl",
+      "space.3xl",
+      "space.lg"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": []
+  },
+  "rules": ["component.table.preserve-semantics", "component.table.preserve-selected-row-emphasis"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Styles composed through tailwind-variants slots with tableVariants exported; rows share a single surface with hover and theme-adaptive selected states remaining stronger."
+  }
+}

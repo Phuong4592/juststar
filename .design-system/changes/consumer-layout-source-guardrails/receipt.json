@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "changeId": "consumer-layout-source-guardrails",
+  "category": "component",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "requestedMaturity": null,
+  "targetRuleIds": [
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "component.colocation",
+    "visual.composition-spacing",
+    "visual.responsive-geometry",
+    "visual.typography-density"
+  ],
+  "evidence": {
+    "contract": [
+      "The Button contract protects single-line labels and requires long-label story and test coverage.",
+      "pnpm component:check button and generated contract checks passed."
+    ],
+    "implementation": [
+      "Button uses shrink-0 and whitespace-nowrap so fixed-height controls do not wrap labels.",
+      "Consumer summary items use 12px inline padding, and incident filters plus AI preview grids reflow against their actual pane width through container queries.",
+      "The rendered-page audit reports overflowing control labels, bordered summaries below 8px inline padding, and nested responsive regions wider than their pane.",
+      "Storybook generates dependency-complete source for helper-rendered compositions and applies it through the global Docs source transform while preserving authored source."
+    ],
+    "stories": [
+      "The long Button label was rendered at 375px, 768px, and 1280px with a 32px control height, nowrap text, and no viewport overflow.",
+      "Operations and AI release panes were rendered at 375px, 768px, and 1280px without document, split-pane, or preview-pane overflow.",
+      "At a 1024px shell the operations primary pane reflowed to its 424px boundary, and at the maximum 60% conversation split the 388px AI preview stacked summaries and findings without text overlap.",
+      "LoginPage Docs displayed a 3,754-character source example containing imports, SignInForm, LoginSpecimen, and DefaultExample with no browser warnings or errors."
+    ],
+    "tests": [
+      "Focused Button, rendered-page-audit, Storybook source, and constrained-pane browser tests passed.",
+      "pnpm check passed 78 unit tests and four deterministic browser checks, including constrained nested-region reflow, together with contract validation, lint, formatting, type checking, builds, Pages assembly, and package smoke testing."
+    ]
+  },
+  "checks": [
+    { "command": "pnpm check", "status": "passed" },
+    { "command": "pnpm test", "status": "passed" },
+    { "command": "pnpm typecheck", "status": "passed" },
+    { "command": "pnpm design:check", "status": "passed" },
+    { "command": "pnpm build-storybook", "status": "passed" }
+  ],
+  "migration": [],
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-31"
+  }
+}

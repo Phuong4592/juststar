@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T00:00:00+07:00",
+  "placement": {
+    "mode": "standalone",
+    "actualLayout": "single-root-package",
+    "toolkitLayout": "workspace-packages"
+  },
+  "package": {
+    "name": "@enosta/en-ui",
+    "version": "0.1.0",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "catalogSize": 20,
+  "sourceRepositoryPreserved": true,
+  "sideEffects": {
+    "remoteCreated": false,
+    "packagePublished": false
+  },
+  "deferred": [
+    "Remote repository URL",
+    "Package publication",
+    "Storybook hosting",
+    "Visual regression service",
+    "Remaining POC components"
+  ]
+}

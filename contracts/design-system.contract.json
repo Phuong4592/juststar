@@ -1,0 +1,2382 @@
+{
+  "schemaVersion": "2.0.0",
+  "designSystemVersion": "1.3.3",
+  "package": "@enosta/en-ui",
+  "documentation": "DESIGN.md",
+  "components": [
+    {
+      "id": "component.alert",
+      "family": "en-ui",
+      "status": "experimental",
+      "maturity": { "previousStatus": "planned", "since": "1.1.0" },
+      "documentation": "src/components/alert/README.md",
+      "exports": [
+        "alertVariants",
+        "AlertProps",
+        "Alert",
+        "AlertTitle",
+        "AlertDescription",
+        "AlertAction"
+      ],
+      "publicParts": ["root", "title", "description", "action"],
+      "behaviorOwner": {
+        "kind": "native",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["content-rendering"]
+      },
+      "anatomy": {
+        "structure": "<Alert><AlertTitle>Title</AlertTitle><AlertDescription>Description</AlertDescription></Alert>",
+        "parts": [
+          {
+            "part": "root",
+            "description": "Callout grid container with the alert role and the variant color scheme; adapts columns when a leading icon or AlertAction is present."
+          },
+          { "part": "title", "description": "Short heading for the alert message." },
+          { "part": "description", "description": "Supporting body text below the title." },
+          {
+            "part": "action",
+            "description": "Container for action buttons pinned to the end and vertically centered on larger screens, below the text column on small screens."
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Alert content: title, description, an optional leading icon, and optional actions."
+        }
+      ],
+      "props": [
+        {
+          "name": "variant",
+          "kind": "enum",
+          "description": "Semantic color scheme rendered with the matching tinted token pair.",
+          "values": ["default", "info", "success", "warning", "error"],
+          "default": "default"
+        }
+      ],
+      "states": ["default"],
+      "requiredStories": [
+        "Overview",
+        "Basic",
+        "Info",
+        "Success",
+        "Warning",
+        "Error",
+        "WithIcon",
+        "WithActions"
+      ],
+      "requiredTests": ["renders-content", "variants", "class-name"],
+      "tokens": {
+        "required": [
+          "color.error.200",
+          "color.error.25",
+          "color.error.800",
+          "color.error.900",
+          "color.info.200",
+          "color.info.25",
+          "color.info.800",
+          "color.info.900",
+          "color.neutral.200",
+          "color.neutral.600",
+          "color.neutral.900",
+          "color.success.200",
+          "color.success.25",
+          "color.success.800",
+          "color.success.900",
+          "color.surface",
+          "color.warning.200",
+          "color.warning.25",
+          "color.warning.800",
+          "color.warning.900",
+          "radius.surface",
+          "space.3xl",
+          "space.lg",
+          "space.md",
+          "space.sm",
+          "space.xs"
+        ]
+      },
+      "componentVariables": { "customizable": [], "protected": [] },
+      "rules": ["component.alert.preserve-semantics", "component.colocation"],
+      "migration": {
+        "introducedIn": "1.1.0",
+        "classification": "compatible",
+        "notes": "Introduces Alert."
+      }
+    },
+    {
+      "id": "component.avatar",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/avatar/README.md",
+      "exports": [
+        "avatarVariants",
+        "AvatarImageProps",
+        "AvatarFallbackProps",
+        "AvatarProps",
+        "Avatar"
+      ],
+      "publicParts": ["root", "image", "fallback"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics"]
+      },
+      "anatomy": {
+        "structure": "<Avatar image={{ alt: \"Ada Lovelace\", src: avatarUrl }} fallback={{ children: \"AL\" }} />",
+        "parts": [
+          {
+            "part": "root",
+            "description": "Non-interactive span container that owns the image loading status."
+          },
+          { "part": "image", "description": "Image element rendered once the image has loaded." },
+          {
+            "part": "fallback",
+            "description": "Fallback element rendered while the image loads or after it fails."
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "image",
+          "required": false,
+          "description": "Props for the image element (src, alt, srcSet, ...); the image renders once it has loaded."
+        },
+        {
+          "name": "fallback",
+          "required": false,
+          "description": "Props for the fallback element; children render initials or an icon while the image loads or after it fails."
+        }
+      ],
+      "props": [
+        {
+          "name": "size",
+          "kind": "enum",
+          "description": "Avatar size.",
+          "values": ["xs", "sm", "md", "lg"],
+          "default": "md"
+        },
+        {
+          "name": "image",
+          "kind": "node",
+          "description": "Props passed to the image element, such as src, alt, and srcSet."
+        },
+        {
+          "name": "fallback",
+          "kind": "node",
+          "description": "Props passed to the fallback element; children render the initials or icon."
+        }
+      ],
+      "states": ["default", "loading", "loaded", "error"],
+      "requiredStories": ["Overview", "Basic", "WithImage", "Sizes", "Fallback", "Groups"],
+      "requiredTests": ["renders", "class-name", "sizes", "fallback"],
+      "tokens": {
+        "required": [
+          "color.neutral.100",
+          "color.surface",
+          "radius.pill",
+          "space.4xl",
+          "space.5xl",
+          "space.6xl"
+        ]
+      },
+      "componentVariables": { "customizable": [], "protected": [] },
+      "rules": ["component.avatar.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables; sizes exposed through the size prop."
+      }
+    },
+    {
+      "id": "component.badge",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/badge/README.md",
+      "exports": ["badgeVariants", "BadgeProps", "Badge"],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics"]
+      },
+      "anatomy": {
+        "structure": "<Badge>Content</Badge>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Compact text, count, or inline icon content."
+        }
+      ],
+      "props": [
+        {
+          "name": "variant",
+          "kind": "enum",
+          "description": "Visual and semantic color style.",
+          "values": [
+            "default",
+            "secondary",
+            "outline",
+            "success",
+            "warning",
+            "error",
+            "info",
+            "destructive"
+          ],
+          "default": "default"
+        },
+        {
+          "name": "size",
+          "kind": "enum",
+          "description": "Badge size.",
+          "values": ["sm", "md", "lg"],
+          "default": "md"
+        }
+      ],
+      "states": ["default"],
+      "requiredStories": ["Overview", "Basic", "Variants", "Sizes", "WithIcon", "Link", "Count"],
+      "requiredTests": [
+        "renders",
+        "class-name",
+        "variants",
+        "sizes",
+        "render",
+        "preserve-semantics"
+      ],
+      "tokens": {
+        "required": [
+          "color.brand.500",
+          "color.error.500",
+          "color.error.600",
+          "color.error.700",
+          "color.info.500",
+          "color.info.700",
+          "color.neutral.100",
+          "color.neutral.300",
+          "color.neutral.50",
+          "color.neutral.900",
+          "color.on.brand",
+          "color.success.500",
+          "color.success.900",
+          "color.surface",
+          "color.warning.500",
+          "color.warning.800",
+          "radius.control",
+          "space.2xl",
+          "space.4xl",
+          "space.sm",
+          "space.xl",
+          "space.xs"
+        ]
+      },
+      "componentVariables": { "customizable": [], "protected": [] },
+      "rules": ["component.badge.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables and render supports element composition."
+      }
+    },
+    {
+      "id": "component.button",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/button/README.md",
+      "exports": ["buttonVariants", "ButtonProps", "Button"],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction", "single-line-label"]
+      },
+      "anatomy": {
+        "structure": "<Button>Content</Button>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Single-line component label and optional inline icon content."
+        },
+        {
+          "name": "icon",
+          "required": false,
+          "description": "Icon placement. A single ReactNode renders as a leading icon. Pass an object with start and end for explicit positions."
+        }
+      ],
+      "props": [
+        {
+          "name": "variant",
+          "kind": "enum",
+          "description": "Visual and semantic style.",
+          "values": ["primary", "secondary", "tertiary", "danger", "danger-soft", "ghost", "link"],
+          "default": "primary"
+        },
+        {
+          "name": "size",
+          "kind": "enum",
+          "description": "Control size. icon is for icon-only buttons.",
+          "values": ["xs", "sm", "md", "lg", "icon"],
+          "default": "md"
+        },
+        {
+          "name": "icon",
+          "kind": "node",
+          "description": "Icon placement. A single ReactNode renders as a leading icon. Pass an object with start and end for explicit positions."
+        },
+        {
+          "name": "loading",
+          "kind": "boolean",
+          "description": "Replaces the start icon with a spinner, hides the end icon, keeps the label visible, and sets aria-busy.",
+          "default": false
+        }
+      ],
+      "states": ["default", "loading", "disabled", "long-label"],
+      "requiredStories": ["Overview", "Basic", "Loading", "IconOnly", "Disabled", "LongLabel"],
+      "requiredTests": ["renders", "class-name", "single-line-label"],
+      "tokens": {
+        "required": [
+          "color.brand.500",
+          "color.brand.700",
+          "color.error.500",
+          "color.error.700",
+          "color.neutral.100",
+          "color.neutral.200",
+          "color.neutral.25",
+          "color.neutral.50",
+          "color.neutral.900",
+          "color.on.brand",
+          "color.surface",
+          "radius.control",
+          "shadow.none",
+          "shadow.surface",
+          "space.2xl",
+          "space.3xl",
+          "space.5xl",
+          "space.6xl",
+          "space.lg",
+          "space.md",
+          "space.sm",
+          "space.xl"
+        ]
+      },
+      "componentVariables": {
+        "customizable": [],
+        "protected": ["--btn-edge", "--btn-highlight", "--btn-press", "--btn-press-scale"]
+      },
+      "rules": ["component.button.preserve-semantics", "component.button.single-line-label"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "breaking",
+        "notes": "Styles mapped to En UI theme variables and fixed-height labels remain on one line."
+      }
+    },
+    {
+      "id": "component.calendar",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "planned", "since": "1.4.0" },
+      "documentation": "src/components/calendar/README.md",
+      "exports": ["Calendar", "CalendarProps"],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction"]
+      },
+      "anatomy": {
+        "structure": "<Calendar mode=\"single\" selected={date} onSelect={setDate} />",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "caption",
+          "required": true,
+          "description": "Month caption: the month label, or month and year dropdowns with captionLayout=\"dropdown\"."
+        },
+        {
+          "name": "nav",
+          "required": true,
+          "description": "Previous and next month navigation buttons rendered as icon buttons."
+        },
+        {
+          "name": "day",
+          "required": true,
+          "description": "Day cells with selected, today, outside, disabled, and range states."
+        },
+        {
+          "name": "footer",
+          "required": false,
+          "description": "Optional footer content announced by screen readers via the footer prop."
+        }
+      ],
+      "props": [],
+      "states": ["default", "selected", "today", "outside", "disabled"],
+      "requiredStories": ["Overview", "Basic", "Multiple", "Range", "DropdownNavigation"],
+      "requiredTests": ["renders", "class-name", "selection", "navigation"],
+      "tokens": {
+        "required": [
+          "color.brand.500",
+          "color.neutral.100",
+          "color.neutral.200",
+          "color.neutral.600",
+          "color.neutral.900",
+          "color.on.brand",
+          "color.surface",
+          "radius.control",
+          "radius.none",
+          "radius.pill",
+          "shadow.surface",
+          "space.3xl",
+          "space.6xl",
+          "space.md",
+          "space.sm",
+          "space.xl",
+          "space.xs"
+        ]
+      },
+      "componentVariables": { "customizable": ["--cell-size"], "protected": [] },
+      "rules": ["component.calendar.preserve-semantics"],
+      "migration": {
+        "introducedIn": "1.4.0",
+        "classification": "compatible",
+        "notes": "Introduces Calendar built on @daypicker/react."
+      }
+    },
+    {
+      "id": "component.card",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/card/README.md",
+      "exports": [
+        "cardVariants",
+        "CardProps",
+        "Card",
+        "CardHeader",
+        "CardTitle",
+        "CardDescription",
+        "CardAction",
+        "CardPanel",
+        "CardFooter",
+        "CardFrame",
+        "CardFrameHeader",
+        "CardFrameTitle",
+        "CardFrameDescription",
+        "CardFrameAction",
+        "CardFrameFooter",
+        "CardContent"
+      ],
+      "publicParts": [
+        "root",
+        "header",
+        "title",
+        "description",
+        "action",
+        "panel",
+        "footer",
+        "frame",
+        "frame-header",
+        "frame-title",
+        "frame-description",
+        "frame-action",
+        "frame-footer"
+      ],
+      "behaviorOwner": {
+        "kind": "native",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics"]
+      },
+      "anatomy": {
+        "structure": "<Card><CardHeader><CardTitle /><CardDescription /><CardAction /></CardHeader><CardPanel /><CardFooter /></Card>",
+        "parts": [
+          { "part": "root", "description": "Root surface that groups related card content." },
+          {
+            "part": "header",
+            "description": "Header region containing the title, description, and optional action."
+          },
+          { "part": "title", "description": "Card title content." },
+          { "part": "description", "description": "Supporting description for the card title." },
+          { "part": "action", "description": "Optional action aligned opposite the card heading." },
+          {
+            "part": "panel",
+            "description": "Primary content region, also exported as CardContent."
+          },
+          { "part": "footer", "description": "Footer region for supporting actions or metadata." },
+          {
+            "part": "frame",
+            "description": "Framed container that groups a heading with cards or tabular content."
+          },
+          { "part": "frame-header", "description": "Header region for a framed card layout." },
+          { "part": "frame-title", "description": "Title content for a framed card layout." },
+          {
+            "part": "frame-description",
+            "description": "Supporting description for a framed card title."
+          },
+          {
+            "part": "frame-action",
+            "description": "Optional action aligned opposite the frame heading."
+          },
+          { "part": "frame-footer", "description": "Footer region for a framed card layout." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Card parts, framed cards, tabular content, or consumer content."
+        }
+      ],
+      "props": [],
+      "states": ["default"],
+      "requiredStories": ["Overview", "Basic", "WithActions", "CardFrame"],
+      "requiredTests": ["renders", "class-name", "render", "preserve-semantics"],
+      "tokens": {
+        "required": [
+          "color.neutral.100",
+          "color.neutral.200",
+          "color.neutral.500",
+          "color.neutral.900",
+          "color.surface",
+          "radius.overlay",
+          "radius.surface",
+          "shadow.hairline",
+          "shadow.none",
+          "shadow.surface",
+          "space.3xl",
+          "space.4xl",
+          "space.sm"
+        ]
+      },
+      "componentVariables": { "customizable": ["--clip-bottom", "--clip-top"], "protected": [] },
+      "rules": ["component.card.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables and render supports element composition."
+      }
+    },
+    {
+      "id": "component.checkbox",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/checkbox/README.md",
+      "exports": ["checkboxVariants", "CheckboxProps", "Checkbox", "CheckboxGroupProps"],
+      "publicParts": ["root", "group"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction"]
+      },
+      "anatomy": {
+        "structure": "<Checkbox.Group><Checkbox /></Checkbox.Group>",
+        "parts": [
+          {
+            "part": "root",
+            "description": "Checkbox control with a built-in check and indeterminate indicator."
+          },
+          {
+            "part": "group",
+            "description": "Compound part (Checkbox.Group) sharing value and disabled state across child checkboxes."
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [],
+      "states": ["default", "checked", "indeterminate", "disabled", "invalid"],
+      "requiredStories": ["Overview", "Basic", "Indeterminate", "GroupBasic", "GroupDisabled"],
+      "requiredTests": ["renders", "class-name", "group-renders", "group-class-name"],
+      "tokens": {
+        "required": [
+          "color.brand.500",
+          "color.error.400",
+          "color.error.500",
+          "color.neutral.300",
+          "color.neutral.900",
+          "color.on.brand",
+          "color.surface",
+          "radius.control",
+          "shadow.hairline",
+          "shadow.surface",
+          "space.xl"
+        ]
+      },
+      "componentVariables": { "customizable": [], "protected": [] },
+      "rules": ["component.checkbox.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "breaking",
+        "notes": "CheckboxGroup merged into Checkbox as the compound part Checkbox.Group; the standalone CheckboxGroup export and the component.checkbox-group contract are removed."
+      }
+    },
+    {
+      "id": "component.combobox",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/combobox/README.md",
+      "exports": [
+        "comboboxVariants",
+        "Combobox",
+        "ComboboxChipsInputProps",
+        "ComboboxChipsInput",
+        "ComboboxTrigger",
+        "ComboboxClear",
+        "ComboboxInputProps",
+        "ComboboxInput",
+        "ComboboxPopupProps",
+        "ComboboxPopup",
+        "ComboboxItem",
+        "ComboboxSeparator",
+        "ComboboxGroup",
+        "ComboboxGroupLabel",
+        "ComboboxEmpty",
+        "ComboboxRow",
+        "ComboboxStatus",
+        "ComboboxList",
+        "ComboboxChipRemove",
+        "ComboboxChipProps",
+        "ComboboxChip",
+        "ComboboxChipsProps",
+        "ComboboxChips",
+        "ComboboxValue",
+        "ComboboxCollection",
+        "useComboboxFilter"
+      ],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": [
+          "native-semantics",
+          "keyboard-interaction",
+          "filterable-listbox",
+          "multiple-selection",
+          "form-integration"
+        ]
+      },
+      "anatomy": {
+        "structure": "<Combobox items={items}><ComboboxInput /><ComboboxPopup><ComboboxEmpty /><ComboboxList><ComboboxItem /></ComboboxList></ComboboxPopup></Combobox>",
+        "parts": [
+          {
+            "part": "root",
+            "description": "State root managing value, open state, and item filtering for every part."
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": true,
+          "description": "Input part plus popup parts (empty state, list, items) composed by the consumer."
+        }
+      ],
+      "props": [
+        {
+          "name": "size",
+          "kind": "enum",
+          "description": "Control height of ComboboxInput and ComboboxChipsInput, aligned with Input sizes.",
+          "values": ["sm", "md", "lg"],
+          "default": "md"
+        },
+        {
+          "name": "startAddon",
+          "kind": "node",
+          "description": "Leading addon inside ComboboxInput or ComboboxChips, typically a search icon. A string renders as an Iconify icon name."
+        },
+        {
+          "name": "showTrigger",
+          "kind": "boolean",
+          "description": "Renders the chevron trigger that opens the popup at the end of ComboboxInput.",
+          "default": true
+        },
+        {
+          "name": "showClear",
+          "kind": "boolean",
+          "description": "Renders a clear selection button at the end of ComboboxInput.",
+          "default": false
+        },
+        {
+          "name": "side",
+          "kind": "enum",
+          "description": "Preferred side of the input to position the popup.",
+          "values": ["top", "bottom", "left", "right"],
+          "default": "bottom"
+        },
+        {
+          "name": "align",
+          "kind": "enum",
+          "description": "Alignment of the popup relative to the anchor on the chosen side.",
+          "values": ["start", "center", "end"],
+          "default": "start"
+        },
+        {
+          "name": "sideOffset",
+          "kind": "number",
+          "description": "Distance in pixels between the popup and the anchor along the side axis.",
+          "default": 4
+        },
+        {
+          "name": "alignOffset",
+          "kind": "number",
+          "description": "Offset in pixels along the alignment axis."
+        },
+        {
+          "name": "anchor",
+          "kind": "node",
+          "description": "Element or ref the popup anchors to. Defaults to the chips container in multiple selection mode."
+        }
+      ],
+      "states": ["default", "disabled", "invalid", "empty", "multiple-selection"],
+      "requiredStories": [
+        "Overview",
+        "Basic",
+        "Sizes",
+        "Disabled",
+        "ClearButton",
+        "StartAddon",
+        "Groups",
+        "Multiple",
+        "InputInsidePopup",
+        "Form"
+      ],
+      "requiredTests": [
+        "renders",
+        "class-name",
+        "single-selection",
+        "multiple-selection",
+        "sizes",
+        "disabled"
+      ],
+      "tokens": {
+        "required": [
+          "color.brand.400",
+          "color.brand.500",
+          "color.error.400",
+          "color.error.500",
+          "color.neutral.100",
+          "color.neutral.200",
+          "color.neutral.400",
+          "color.neutral.50",
+          "color.neutral.500",
+          "color.neutral.900",
+          "color.surface",
+          "radius.control",
+          "shadow.hairline",
+          "shadow.overlay",
+          "shadow.surface",
+          "space.2xs",
+          "space.3xl",
+          "space.4xl",
+          "space.5xl",
+          "space.6xl",
+          "space.lg",
+          "space.md",
+          "space.sm",
+          "space.xl",
+          "space.xs"
+        ]
+      },
+      "componentVariables": {
+        "customizable": [],
+        "protected": [
+          "--anchor-width",
+          "--available-height",
+          "--available-width",
+          "--transform-origin"
+        ]
+      },
+      "rules": ["component.combobox.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "breaking",
+        "notes": "Styles mapped to En UI theme variables; ComboboxInput size value default renamed to md."
+      }
+    },
+    {
+      "id": "component.dialog",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/dialog/README.md",
+      "exports": [
+        "dialogVariants",
+        "Dialog",
+        "DialogCreateHandle",
+        "DialogPortal",
+        "DialogTrigger",
+        "DialogClose",
+        "DialogBackdrop",
+        "DialogViewport",
+        "DialogPopupProps",
+        "DialogPopup",
+        "DialogHeader",
+        "DialogFooterProps",
+        "DialogFooter",
+        "DialogTitle",
+        "DialogDescription",
+        "DialogPanelProps",
+        "DialogPanel",
+        "DialogOverlay",
+        "DialogContent"
+      ],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction"]
+      },
+      "anatomy": {
+        "structure": "<Dialog><DialogTrigger /><DialogPopup><DialogHeader><DialogTitle /><DialogDescription /></DialogHeader><DialogPanel /><DialogFooter /></DialogPopup></Dialog>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [
+        {
+          "name": "showCloseButton",
+          "kind": "boolean",
+          "description": "Renders a ghost icon close button in the popup's top corner.",
+          "default": true
+        },
+        {
+          "name": "bottomStickOnMobile",
+          "kind": "boolean",
+          "description": "Anchors the popup to the viewport bottom on small screens with a slide-up transition.",
+          "default": true
+        },
+        {
+          "name": "variant",
+          "kind": "enum",
+          "description": "DialogFooter treatment. default renders a separated footer surface; bare renders actions without separation.",
+          "values": ["default", "bare"],
+          "default": "default"
+        },
+        {
+          "name": "scrollFade",
+          "kind": "boolean",
+          "description": "DialogPanel scroll fade effect on overflowing content.",
+          "default": true
+        }
+      ],
+      "states": ["default"],
+      "requiredStories": ["Overview", "Basic"],
+      "requiredTests": ["renders", "class-name", "footer-variant", "close-button"],
+      "tokens": {
+        "required": [
+          "color.neutral.200",
+          "color.neutral.50",
+          "color.neutral.500",
+          "color.neutral.900",
+          "color.on.surface",
+          "color.surface",
+          "radius.none",
+          "radius.overlay",
+          "shadow.hairline",
+          "shadow.overlay",
+          "space.3xl",
+          "space.4xl",
+          "space.md",
+          "space.sm",
+          "space.xl",
+          "space.xs"
+        ]
+      },
+      "componentVariables": { "customizable": [], "protected": ["--nested-dialogs"] },
+      "rules": ["component.dialog.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.field",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/field/README.md",
+      "exports": [
+        "Field",
+        "FieldLabel",
+        "FieldItem",
+        "FieldDescription",
+        "FieldError",
+        "FieldControl",
+        "FieldValidity",
+        "FieldProps",
+        "fieldVariants"
+      ],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics"]
+      },
+      "anatomy": {
+        "structure": "<Field><FieldLabel /><FieldControl /><FieldDescription /><FieldError /></Field>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Field label, control, description, error, or validity content."
+        }
+      ],
+      "props": [],
+      "states": ["default", "disabled", "invalid", "valid"],
+      "requiredStories": [
+        "Overview",
+        "Basic",
+        "Required",
+        "Disabled",
+        "Invalid",
+        "Validity",
+        "Item"
+      ],
+      "requiredTests": [
+        "renders",
+        "class-name",
+        "label-association",
+        "invalid",
+        "disabled",
+        "validity"
+      ],
+      "tokens": {
+        "required": ["color.error.600", "color.neutral.500", "color.neutral.900", "space.md"]
+      },
+      "componentVariables": { "customizable": [], "protected": [] },
+      "rules": ["component.field.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.frame",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/frame/README.md",
+      "exports": [
+        "Frame",
+        "FramePanel",
+        "FrameHeader",
+        "FrameTitle",
+        "FrameDescription",
+        "FrameFooter"
+      ],
+      "publicParts": ["root", "panel", "header", "title", "description", "footer"],
+      "behaviorOwner": {
+        "kind": "native",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics"]
+      },
+      "anatomy": {
+        "structure": "<Frame>\n  <FrameHeader>\n    <FrameTitle>Title</FrameTitle>\n    <FrameDescription>Description</FrameDescription>\n  </FrameHeader>\n  <FramePanel>Content</FramePanel>\n  <FrameFooter>Footer</FrameFooter>\n</Frame>",
+        "parts": [
+          { "part": "root", "description": "Root container element for the frame." },
+          { "part": "panel", "description": "Individual panel section within the frame." },
+          { "part": "header", "description": "Header section of the frame." },
+          { "part": "title", "description": "Title text within the frame header." },
+          { "part": "description", "description": "Description text within the frame header." },
+          { "part": "footer", "description": "Footer section of the frame." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Frame content composed from FrameHeader, FramePanel, and FrameFooter as direct children of Frame."
+        }
+      ],
+      "props": [
+        {
+          "name": "className",
+          "kind": "string",
+          "description": "CSS class name. Available on all Frame sub-components."
+        }
+      ],
+      "states": ["default"],
+      "requiredStories": ["Overview", "Basic", "WithFooter", "MultiplePanels"],
+      "requiredTests": ["renders", "class-name", "panel-structure"],
+      "tokens": {
+        "required": [
+          "color.neutral.100",
+          "color.neutral.200",
+          "color.neutral.500",
+          "color.surface",
+          "radius.overlay",
+          "radius.surface",
+          "shadow.hairline",
+          "shadow.surface",
+          "space.3xl",
+          "space.4xl",
+          "space.xs"
+        ]
+      },
+      "componentVariables": { "customizable": [], "protected": [] },
+      "rules": ["component.frame.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Header, panel, and footer compose as direct children of Frame; styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.input",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/input/README.md",
+      "exports": ["inputVariants", "InputProps", "Input"],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction"]
+      },
+      "anatomy": {
+        "structure": "<Input />",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "prefix",
+          "required": false,
+          "description": "Decorative content before the input. A string renders an icon, a ReactNode renders as-is."
+        },
+        {
+          "name": "suffix",
+          "required": false,
+          "description": "Decorative content after the input. A string renders an icon, a ReactNode renders as-is."
+        }
+      ],
+      "props": [
+        {
+          "name": "size",
+          "kind": "enum",
+          "description": "Control height and text size.",
+          "values": ["sm", "md", "lg"],
+          "default": "md"
+        },
+        {
+          "name": "unstyled",
+          "kind": "boolean",
+          "description": "Removes surface styling while keeping layout and the input element.",
+          "default": false
+        },
+        {
+          "name": "prefix",
+          "kind": "node",
+          "description": "Decorative content before the input. A string renders an icon."
+        },
+        {
+          "name": "suffix",
+          "kind": "node",
+          "description": "Decorative content after the input. A string renders an icon."
+        }
+      ],
+      "states": ["default", "disabled", "readonly", "invalid", "autofill"],
+      "requiredStories": [
+        "Overview",
+        "Basic",
+        "Sizes",
+        "WithAffixes",
+        "Disabled",
+        "Invalid",
+        "InputTypes",
+        "Unstyled"
+      ],
+      "requiredTests": ["renders", "class-name"],
+      "tokens": {
+        "required": [
+          "color.brand.400",
+          "color.brand.500",
+          "color.error.400",
+          "color.error.500",
+          "color.neutral.200",
+          "color.neutral.400",
+          "color.neutral.50",
+          "color.neutral.500",
+          "color.neutral.900",
+          "color.surface",
+          "radius.control",
+          "shadow.surface",
+          "space.3xl",
+          "space.6xl",
+          "space.md"
+        ]
+      },
+      "componentVariables": { "customizable": ["--input-autofill-bg"], "protected": [] },
+      "rules": ["component.input.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "breaking",
+        "notes": "Styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.kbd",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/kbd/README.md",
+      "exports": ["kbdVariants", "KbdProps", "Kbd", "KbdGroupProps"],
+      "publicParts": ["root", "group"],
+      "behaviorOwner": {
+        "kind": "native",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics"]
+      },
+      "anatomy": {
+        "structure": "<Kbd.Group><Kbd>⌘</Kbd><Kbd>K</Kbd></Kbd.Group>",
+        "parts": [
+          {
+            "part": "root",
+            "description": "Native kbd element that labels a single keyboard key."
+          },
+          {
+            "part": "group",
+            "description": "Non-interactive span that joins a sequence or combination of keys."
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Single key label, such as a character, key name, or modifier."
+        }
+      ],
+      "props": [],
+      "states": ["default"],
+      "requiredStories": ["Overview", "Basic", "Shortcut"],
+      "requiredTests": ["renders", "class-name", "technical-font"],
+      "tokens": {
+        "required": [
+          "color.neutral.100",
+          "color.neutral.600",
+          "font.family.mono",
+          "radius.control",
+          "space.4xl",
+          "space.xl",
+          "space.xs"
+        ]
+      },
+      "componentVariables": { "customizable": [], "protected": [] },
+      "rules": ["component.kbd.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Keyboard keys use the mono technical typography role through theme tokens."
+      }
+    },
+    {
+      "id": "component.popover",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/popover/README.md",
+      "exports": [
+        "Popover",
+        "PopoverCreateHandle",
+        "PopoverPopupProps",
+        "PopoverTrigger",
+        "PopoverPopup",
+        "PopoverClose",
+        "PopoverTitle",
+        "PopoverDescription"
+      ],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction"]
+      },
+      "anatomy": {
+        "structure": "<Popover>Content</Popover>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [
+        {
+          "name": "side",
+          "kind": "enum",
+          "values": ["top", "bottom", "left", "right"],
+          "default": "bottom",
+          "description": "Preferred side of the anchor to position the popup."
+        },
+        {
+          "name": "align",
+          "kind": "enum",
+          "values": ["start", "center", "end"],
+          "default": "center",
+          "description": "Alignment of the popup relative to the anchor on the chosen side."
+        },
+        {
+          "name": "sideOffset",
+          "kind": "number",
+          "default": 4,
+          "description": "Distance in pixels between the popup and the anchor along the side axis."
+        },
+        {
+          "name": "alignOffset",
+          "kind": "number",
+          "default": 0,
+          "description": "Offset in pixels along the alignment axis."
+        },
+        {
+          "name": "anchor",
+          "kind": "node",
+          "description": "Element or virtual element the popup anchors to instead of the trigger."
+        },
+        {
+          "name": "tooltipStyle",
+          "kind": "boolean",
+          "description": "Renders the popup as a compact, tooltip-like panel.",
+          "default": false
+        }
+      ],
+      "states": ["default"],
+      "requiredStories": ["Basic"],
+      "requiredTests": ["renders", "class-name"],
+      "tokens": {
+        "required": [
+          "color.neutral.200",
+          "color.neutral.500",
+          "color.neutral.900",
+          "color.surface",
+          "radius.control",
+          "shadow.hairline",
+          "shadow.overlay",
+          "shadow.raised",
+          "space.md",
+          "space.xs"
+        ]
+      },
+      "componentVariables": {
+        "customizable": [],
+        "protected": [
+          "--available-height",
+          "--available-width",
+          "--positioner-height",
+          "--positioner-width",
+          "--transform-origin"
+        ]
+      },
+      "rules": ["component.popover.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.scroll-area",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/scroll-area/README.md",
+      "exports": ["scrollAreaVariants", "ScrollAreaProps", "ScrollBarProps", "ScrollArea"],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction"]
+      },
+      "anatomy": {
+        "structure": "<ScrollArea>Content</ScrollArea>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [
+        {
+          "name": "fill",
+          "kind": "boolean",
+          "description": "fill option for the component.",
+          "default": false
+        },
+        {
+          "name": "overscrollContain",
+          "kind": "boolean",
+          "description": "overscrollContain option for the component.",
+          "default": false
+        },
+        {
+          "name": "scrollFade",
+          "kind": "boolean",
+          "description": "scrollFade option for the component.",
+          "default": false
+        },
+        {
+          "name": "scrollbarGutter",
+          "kind": "boolean",
+          "description": "scrollbarGutter option for the component.",
+          "default": false
+        },
+        {
+          "name": "clampContentMinWidth",
+          "kind": "boolean",
+          "description": "clampContentMinWidth option for the component.",
+          "default": true
+        }
+      ],
+      "states": ["default"],
+      "requiredStories": ["Demo"],
+      "requiredTests": ["renders", "class-name"],
+      "tokens": {
+        "required": ["color.brand.500", "color.neutral.950", "radius.pill", "space.lg", "space.xs"]
+      },
+      "componentVariables": {
+        "customizable": ["--fade-size"],
+        "protected": [
+          "--scroll-area-overflow-x-end",
+          "--scroll-area-overflow-x-start",
+          "--scroll-area-overflow-y-end",
+          "--scroll-area-overflow-y-start"
+        ]
+      },
+      "rules": ["component.scroll-area.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.select",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/select/README.md",
+      "exports": [
+        "selectVariants",
+        "Select",
+        "SelectTrigger",
+        "SelectValue",
+        "SelectPopupProps",
+        "SelectPopup",
+        "SelectItem",
+        "SelectSeparator",
+        "SelectGroup",
+        "SelectLabel",
+        "SelectGroupLabel"
+      ],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction"]
+      },
+      "anatomy": {
+        "structure": "<Select>Content</Select>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [],
+      "states": ["default"],
+      "requiredStories": ["Basic"],
+      "requiredTests": ["renders", "class-name"],
+      "tokens": {
+        "required": [
+          "color.brand.400",
+          "color.brand.500",
+          "color.error.400",
+          "color.error.500",
+          "color.neutral.100",
+          "color.neutral.200",
+          "color.neutral.50",
+          "color.neutral.500",
+          "color.neutral.600",
+          "color.neutral.900",
+          "color.surface",
+          "radius.control",
+          "shadow.hairline",
+          "shadow.overlay",
+          "shadow.surface",
+          "space.3xl",
+          "space.5xl",
+          "space.6xl",
+          "space.lg",
+          "space.md",
+          "space.sm",
+          "space.xl",
+          "space.xs"
+        ]
+      },
+      "componentVariables": {
+        "customizable": [],
+        "protected": ["--anchor-width", "--available-height", "--transform-origin"]
+      },
+      "rules": ["component.select.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.separator",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/separator/README.md",
+      "exports": ["separatorVariants", "SeparatorProps", "Separator"],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics"]
+      },
+      "anatomy": {
+        "structure": "<Separator />",
+        "parts": [
+          {
+            "part": "root",
+            "description": "Non-interactive separator element rendered by the Base UI adapter."
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [
+        {
+          "name": "orientation",
+          "kind": "enum",
+          "description": "Orientation of the separator line.",
+          "values": ["horizontal", "vertical"],
+          "default": "horizontal"
+        }
+      ],
+      "states": ["default"],
+      "requiredStories": ["Overview"],
+      "requiredTests": ["renders", "class-name"],
+      "tokens": { "required": ["color.neutral.200"] },
+      "componentVariables": { "customizable": [], "protected": [] },
+      "rules": ["component.separator.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.sheet",
+      "family": "en-ui",
+      "status": "experimental",
+      "maturity": { "previousStatus": "planned", "since": "1.3.1" },
+      "documentation": "src/components/sheet/README.md",
+      "exports": [
+        "sheetVariants",
+        "Sheet",
+        "SheetPortal",
+        "SheetTrigger",
+        "SheetClose",
+        "SheetBackdrop",
+        "SheetPopupProps",
+        "SheetPopup",
+        "SheetHeader",
+        "SheetFooterProps",
+        "SheetFooter",
+        "SheetTitle",
+        "SheetDescription",
+        "SheetPanelProps",
+        "SheetPanel",
+        "SheetOverlay",
+        "SheetContent"
+      ],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction"]
+      },
+      "anatomy": {
+        "structure": "<Sheet><SheetTrigger /><SheetPopup side=\"right\"><SheetHeader><SheetTitle /><SheetDescription /></SheetHeader><SheetPanel /><SheetFooter /></SheetPopup></Sheet>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [
+        {
+          "name": "side",
+          "kind": "enum",
+          "description": "Screen edge the sheet opens from.",
+          "values": ["right", "left", "top", "bottom"],
+          "default": "right"
+        },
+        {
+          "name": "variant",
+          "kind": "enum",
+          "description": "SheetPopup treatment. inset floats the sheet with spacing and rounded corners on desktop screens.",
+          "values": ["default", "inset"],
+          "default": "default"
+        },
+        {
+          "name": "showCloseButton",
+          "kind": "boolean",
+          "description": "Renders a ghost icon close button in the popup's top corner.",
+          "default": true
+        },
+        {
+          "name": "variant",
+          "kind": "enum",
+          "description": "SheetFooter treatment. default renders a separated footer surface; bare renders actions without separation.",
+          "values": ["default", "bare"],
+          "default": "default"
+        },
+        {
+          "name": "scrollFade",
+          "kind": "boolean",
+          "description": "SheetPanel scroll fade effect on overflowing content.",
+          "default": true
+        }
+      ],
+      "states": ["default"],
+      "requiredStories": ["Overview", "Basic", "Sides", "Inset", "BareFooter", "Scrollable"],
+      "requiredTests": ["renders", "class-name", "sides", "footer-variant", "close-button"],
+      "tokens": {
+        "required": [
+          "color.neutral.200",
+          "color.neutral.50",
+          "color.neutral.500",
+          "color.neutral.900",
+          "color.on.surface",
+          "color.surface",
+          "radius.overlay",
+          "shadow.hairline",
+          "shadow.overlay",
+          "space.3xl",
+          "space.4xl",
+          "space.md",
+          "space.sm",
+          "space.xl",
+          "space.xs"
+        ]
+      },
+      "componentVariables": { "customizable": [], "protected": ["--nested-dialogs"] },
+      "rules": ["component.sheet.preserve-semantics"],
+      "migration": {
+        "introducedIn": "1.3.1",
+        "classification": "compatible",
+        "notes": "Introduces Sheet as a dialog-based edge flyout mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.skeleton",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/skeleton/README.md",
+      "exports": ["Skeleton"],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "native",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics"]
+      },
+      "anatomy": {
+        "structure": "<Skeleton>Content</Skeleton>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [],
+      "states": ["default"],
+      "requiredStories": [
+        "Overview",
+        "Basic",
+        "Text",
+        "Profile",
+        "Card",
+        "TableRows",
+        "ToggleLoading"
+      ],
+      "requiredTests": ["renders", "class-name"],
+      "tokens": { "required": ["color.neutral.100", "color.white", "radius.control"] },
+      "componentVariables": { "customizable": [], "protected": ["--skeleton-highlight"] },
+      "rules": ["component.skeleton.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.spinner",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/spinner/README.md",
+      "exports": ["SpinnerProps", "Spinner"],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "native",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics"]
+      },
+      "anatomy": {
+        "structure": "<Spinner>Content</Spinner>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [],
+      "states": ["default"],
+      "requiredStories": ["Basic"],
+      "requiredTests": ["renders", "class-name"],
+      "tokens": { "required": ["space.3xl"] },
+      "componentVariables": { "customizable": [], "protected": [] },
+      "rules": ["component.spinner.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.table",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/table/README.md",
+      "exports": [
+        "tableVariants",
+        "TableVariant",
+        "TableProps",
+        "Table",
+        "TableHeader",
+        "TableBody",
+        "TableFooter",
+        "TableRow",
+        "TableHead",
+        "TableCell",
+        "TableCaption"
+      ],
+      "publicParts": ["root", "header", "body", "footer", "row", "head", "cell", "caption"],
+      "behaviorOwner": {
+        "kind": "native",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics"]
+      },
+      "anatomy": {
+        "structure": "<Table><TableCaption /><TableHeader><TableRow><TableHead /></TableRow></TableHeader><TableBody><TableRow><TableCell /></TableRow></TableBody><TableFooter><TableRow><TableCell /></TableRow></TableFooter></Table>",
+        "parts": [
+          {
+            "part": "root",
+            "description": "Horizontal scroll container wrapping the native table element."
+          },
+          { "part": "header", "description": "Header section containing column header rows." },
+          { "part": "body", "description": "Body section containing data rows." },
+          { "part": "footer", "description": "Footer section for totals and summary rows." },
+          {
+            "part": "row",
+            "description": "A table row used inside header, body, and footer sections."
+          },
+          { "part": "head", "description": "Header cell describing a column." },
+          { "part": "cell", "description": "Data cell within a row." },
+          { "part": "caption", "description": "Accessible caption identifying the dataset." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Table sections composed from TableHeader, TableBody, TableFooter, and TableCaption."
+        }
+      ],
+      "props": [
+        {
+          "name": "variant",
+          "kind": "enum",
+          "description": "Visual treatment. card renders separated borders, rounded corners, and row surfaces that read as cards.",
+          "values": ["default", "card"],
+          "default": "default"
+        }
+      ],
+      "states": ["default", "hover", "selected"],
+      "requiredStories": ["Overview", "Basic", "SelectedRow", "Card"],
+      "requiredTests": ["renders", "class-name", "variant", "selected-row", "preserve-semantics"],
+      "tokens": {
+        "required": [
+          "color.neutral.100",
+          "color.neutral.200",
+          "color.neutral.500",
+          "color.on.surface",
+          "font.family.sans",
+          "radius.overlay",
+          "radius.surface",
+          "shadow.hairline",
+          "shadow.surface",
+          "space.2xl",
+          "space.3xl",
+          "space.lg"
+        ]
+      },
+      "componentVariables": { "customizable": [], "protected": [] },
+      "rules": [
+        "component.table.preserve-semantics",
+        "component.table.preserve-selected-row-emphasis"
+      ],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles composed through tailwind-variants slots with tableVariants exported; rows share a single surface with hover and theme-adaptive selected states remaining stronger."
+      }
+    },
+    {
+      "id": "component.tabs",
+      "family": "en-ui",
+      "status": "experimental",
+      "maturity": { "previousStatus": "planned", "since": "1.1.0" },
+      "documentation": "src/components/tabs/README.md",
+      "exports": [
+        "tabsVariants",
+        "TabsProps",
+        "TabsListProps",
+        "TabsTabProps",
+        "TabsPanelProps",
+        "TabsSize",
+        "TabsVariant",
+        "Tabs",
+        "TabsList",
+        "TabsTab",
+        "TabsPanel"
+      ],
+      "publicParts": ["root", "list", "tab", "panel", "indicator"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction", "content-rendering"]
+      },
+      "anatomy": {
+        "structure": "<Tabs><TabsList><TabsTab /></TabsList><TabsPanel /></Tabs>",
+        "parts": [
+          {
+            "part": "root",
+            "description": "Groups the tab list and panels; owner of the tab semantics."
+          },
+          {
+            "part": "list",
+            "description": "Container for tab triggers; renders the active-tab indicator automatically."
+          },
+          { "part": "tab", "description": "Individual tab trigger button." },
+          { "part": "panel", "description": "Content panel shown for the active tab." },
+          {
+            "part": "indicator",
+            "description": "Animated active-tab indicator rendered internally by TabsList."
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Tab triggers and panels composed inside the root."
+        }
+      ],
+      "props": [
+        {
+          "name": "variant",
+          "kind": "enum",
+          "description": "Visual style of the tab list. underline renders a track line with a brand indicator; the track border comes from the consumer wrapper.",
+          "values": ["default", "underline"],
+          "default": "default"
+        },
+        {
+          "name": "size",
+          "kind": "enum",
+          "description": "Control size of all tab triggers. Set on TabsList and propagated through context; a single TabsTab may override it.",
+          "values": ["sm", "default", "lg"],
+          "default": "default"
+        }
+      ],
+      "states": ["default", "active", "disabled"],
+      "requiredStories": [
+        "Overview",
+        "Basic",
+        "Small",
+        "Large",
+        "Underline",
+        "Vertical",
+        "UnderlineVertical",
+        "Disabled"
+      ],
+      "requiredTests": ["renders", "class-name", "variants", "sizes", "keyboard"],
+      "tokens": {
+        "required": [
+          "color.brand.500",
+          "color.neutral.100",
+          "color.neutral.500",
+          "color.neutral.600",
+          "color.neutral.900",
+          "color.surface",
+          "radius.control",
+          "radius.surface",
+          "shadow.hairline",
+          "space.2xs",
+          "space.3xl",
+          "space.lg",
+          "space.md",
+          "space.sm",
+          "space.xl",
+          "space.xs"
+        ]
+      },
+      "componentVariables": {
+        "customizable": [],
+        "protected": [
+          "--active-tab-bottom",
+          "--active-tab-height",
+          "--active-tab-left",
+          "--active-tab-width"
+        ]
+      },
+      "rules": ["component.tabs.preserve-semantics", "component.colocation"],
+      "migration": {
+        "introducedIn": "1.1.0",
+        "classification": "compatible",
+        "notes": "Introduces Tabs."
+      }
+    },
+    {
+      "id": "component.textarea",
+      "family": "en-ui",
+      "status": "experimental",
+      "maturity": { "previousStatus": "planned", "since": "1.3.1" },
+      "documentation": "src/components/textarea/README.md",
+      "exports": ["textareaVariants", "Textarea", "TextareaProps"],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "native",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction"]
+      },
+      "anatomy": {
+        "structure": "<Textarea />",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [
+        {
+          "name": "size",
+          "kind": "enum",
+          "description": "Control min-height, padding, and text size.",
+          "values": ["sm", "md", "lg"],
+          "default": "md"
+        },
+        {
+          "name": "unstyled",
+          "kind": "boolean",
+          "description": "Removes surface styling while keeping the native textarea element.",
+          "default": false
+        }
+      ],
+      "states": ["default", "disabled", "readonly", "invalid"],
+      "requiredStories": [
+        "Overview",
+        "Basic",
+        "Sizes",
+        "Rows",
+        "WithLabel",
+        "Disabled",
+        "Invalid",
+        "Unstyled"
+      ],
+      "requiredTests": ["renders", "class-name"],
+      "tokens": {
+        "required": [
+          "color.brand.400",
+          "color.brand.500",
+          "color.error.400",
+          "color.error.500",
+          "color.neutral.200",
+          "color.neutral.400",
+          "color.neutral.50",
+          "color.neutral.900",
+          "color.surface",
+          "height.control.lg",
+          "height.control.md",
+          "height.control.sm",
+          "radius.control",
+          "shadow.surface",
+          "space.2xs",
+          "space.md",
+          "space.sm"
+        ]
+      },
+      "rules": ["component.textarea.preserve-semantics"],
+      "migration": {
+        "introducedIn": "1.3.1",
+        "classification": "compatible",
+        "notes": "Introduces Textarea."
+      }
+    },
+    {
+      "id": "component.toast",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/toast/README.md",
+      "exports": [
+        "ToastPosition",
+        "ToastsProps",
+        "toast",
+        "ToastProviderProps",
+        "ToastProvider",
+        "Toast"
+      ],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction"]
+      },
+      "anatomy": {
+        "structure": "<ToastProvider>Content</ToastProvider>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [
+        {
+          "name": "position",
+          "kind": "enum",
+          "description": "position option for the component.",
+          "values": [
+            "top-left",
+            "top-center",
+            "top-right",
+            "bottom-left",
+            "bottom-center",
+            "bottom-right"
+          ],
+          "default": "bottom-right"
+        }
+      ],
+      "states": ["default"],
+      "requiredStories": ["Basic"],
+      "requiredTests": ["renders", "class-name"],
+      "tokens": {
+        "required": [
+          "color.error.500",
+          "color.info.500",
+          "color.neutral.200",
+          "color.neutral.400",
+          "color.neutral.50",
+          "color.neutral.500",
+          "color.neutral.600",
+          "color.neutral.900",
+          "color.success.500",
+          "color.surface",
+          "color.warning.500",
+          "radius.control",
+          "shadow.overlay",
+          "space.2xl",
+          "space.2xs",
+          "space.3xl",
+          "space.4xl",
+          "space.6xl",
+          "space.lg",
+          "space.md",
+          "space.xl",
+          "space.xs"
+        ]
+      },
+      "componentVariables": {
+        "customizable": [
+          "--toast-calc-height",
+          "--toast-calc-offset-y",
+          "--toast-frontmost-height",
+          "--toast-gap",
+          "--toast-height",
+          "--toast-index",
+          "--toast-inset",
+          "--toast-offset-y",
+          "--toast-peek",
+          "--toast-scale",
+          "--toast-shrink",
+          "--toast-swipe-movement-x",
+          "--toast-swipe-movement-y"
+        ],
+        "protected": []
+      },
+      "rules": ["component.toast.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "breaking",
+        "notes": "Styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.tooltip",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/tooltip/README.md",
+      "exports": [
+        "TooltipProps",
+        "Tooltip",
+        "tooltipVariants",
+        "TooltipProvider",
+        "TooltipRoot",
+        "TooltipCreateHandle",
+        "TooltipTriggerProps",
+        "TooltipTrigger",
+        "TooltipPopupProps",
+        "TooltipPopup"
+      ],
+      "publicParts": ["root"],
+      "behaviorOwner": {
+        "kind": "protected-adapter",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics", "keyboard-interaction"]
+      },
+      "anatomy": {
+        "structure": "<Tooltip>Content</Tooltip>",
+        "parts": [
+          { "part": "root", "description": "Root element or behavior owner for the component." }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [
+        {
+          "name": "trigger",
+          "kind": "node",
+          "description": "Trigger content. An element renders as-is; otherwise a default focusable button wraps the content."
+        },
+        {
+          "name": "popup",
+          "kind": "node",
+          "description": "Tooltip content shown on hover or keyboard focus."
+        },
+        {
+          "name": "side",
+          "kind": "enum",
+          "values": ["top", "bottom", "left", "right"],
+          "default": "top",
+          "description": "Preferred side of the trigger to position the popup."
+        },
+        {
+          "name": "align",
+          "kind": "enum",
+          "values": ["start", "center", "end"],
+          "default": "center",
+          "description": "Alignment of the popup relative to the trigger on the chosen side."
+        },
+        {
+          "name": "sideOffset",
+          "kind": "number",
+          "default": 4,
+          "description": "Distance in pixels between the popup and the trigger along the side axis."
+        },
+        {
+          "name": "anchor",
+          "kind": "node",
+          "description": "Element or virtual element the popup anchors to instead of the trigger."
+        }
+      ],
+      "states": ["default"],
+      "requiredStories": ["Basic", "Grouped", "Animated"],
+      "requiredTests": ["renders", "class-name", "grouped", "animated"],
+      "tokens": {
+        "required": [
+          "color.neutral.200",
+          "color.neutral.900",
+          "color.surface",
+          "radius.control",
+          "shadow.hairline",
+          "shadow.raised",
+          "space.md",
+          "space.xs"
+        ]
+      },
+      "componentVariables": {
+        "customizable": [],
+        "protected": [
+          "--available-width",
+          "--positioner-height",
+          "--positioner-width",
+          "--transform-origin"
+        ]
+      },
+      "rules": ["component.tooltip.preserve-semantics"],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "compatible",
+        "notes": "Styles mapped to En UI theme variables."
+      }
+    },
+    {
+      "id": "component.typography",
+      "family": "en-ui",
+      "status": "beta",
+      "maturity": { "previousStatus": "external", "since": "0.3.0" },
+      "documentation": "src/components/typography/README.md",
+      "exports": [
+        "typographyVariants",
+        "TypographyElement",
+        "TypographyVariant",
+        "TypographyProps",
+        "Typography"
+      ],
+      "publicParts": [
+        "root",
+        "display",
+        "heading-1",
+        "heading-2",
+        "heading-3",
+        "heading-4",
+        "heading-5",
+        "heading-6",
+        "lead",
+        "text",
+        "small",
+        "caption",
+        "label",
+        "mono",
+        "mono-strong",
+        "mono-small",
+        "mono-caption",
+        "code",
+        "eyebrow"
+      ],
+      "behaviorOwner": {
+        "kind": "native",
+        "owner": "@enosta/en-ui",
+        "capabilities": ["native-semantics"]
+      },
+      "anatomy": {
+        "structure": "<Typography.H1>Heading</Typography.H1><Typography.Text>Content</Typography.Text>",
+        "parts": [
+          {
+            "part": "root",
+            "description": "Polymorphic escape hatch for an explicitly selected typography role."
+          },
+          {
+            "part": "display",
+            "description": "Rare 40px masthead text rendered in Nunito with strong emphasis."
+          },
+          { "part": "heading-1", "description": "Primary 32px page heading." },
+          { "part": "heading-2", "description": "28px section or overlay heading." },
+          { "part": "heading-3", "description": "24px card or panel heading." },
+          { "part": "heading-4", "description": "20px compact subsection heading." },
+          {
+            "part": "heading-5",
+            "description": "16px nested heading with preserved h5 semantics."
+          },
+          {
+            "part": "heading-6",
+            "description": "14px nested heading with preserved h6 semantics."
+          },
+          { "part": "lead", "description": "18px introductory or emphasized prose." },
+          { "part": "text", "description": "Default 16px interface and body text." },
+          { "part": "small", "description": "14px supporting text for dense interfaces." },
+          { "part": "caption", "description": "12px short metadata or captions." },
+          { "part": "label", "description": "14px control, field, or compact data label." },
+          {
+            "part": "mono",
+            "description": "Purposeful 16px machine-oriented text such as code fragments, commands, file paths, hashes, or serialized values."
+          },
+          {
+            "part": "mono-strong",
+            "description": "Emphasized 18px machine-oriented text without consumer-authored font-weight overrides."
+          },
+          { "part": "mono-small", "description": "Compact 14px machine-oriented text." },
+          {
+            "part": "mono-caption",
+            "description": "Compact 12px code-like or machine-oriented text."
+          },
+          {
+            "part": "code",
+            "description": "Inline 16px code rendered with code semantics and the technical mono family."
+          },
+          {
+            "part": "eyebrow",
+            "description": "Restrained 11px Nunito category label; not routine decoration."
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "children",
+          "required": false,
+          "description": "Component content where supported."
+        }
+      ],
+      "props": [
+        {
+          "name": "variant",
+          "kind": "enum",
+          "description": "Explicit visual role for Typography.Root; compound presets are preferred.",
+          "values": [
+            "display/2xl",
+            "display/xl",
+            "display/lg",
+            "display/md",
+            "display/sm",
+            "heading/1",
+            "heading/2",
+            "heading/3",
+            "heading/4",
+            "heading/5",
+            "heading/6",
+            "body/xl",
+            "body/lg",
+            "body/md",
+            "body/sm",
+            "body/xs",
+            "label/lg",
+            "label/md",
+            "label/sm",
+            "mono/display",
+            "mono/lg",
+            "mono/md",
+            "mono/sm",
+            "mono/xs",
+            "mono/2xs",
+            "mono/caps",
+            "mono/caps-xs",
+            "eyebrow/lg",
+            "eyebrow/md"
+          ],
+          "default": "body/md"
+        },
+        {
+          "name": "as",
+          "kind": "string",
+          "description": "Overrides the rendered semantic element when the document outline requires it."
+        }
+      ],
+      "states": ["default"],
+      "requiredStories": ["Demo", "Compound", "Scale", "Technical"],
+      "requiredTests": [
+        "renders",
+        "class-name",
+        "compound-semantics",
+        "compact-scale",
+        "nunito-default",
+        "purposeful-mono"
+      ],
+      "tokens": { "required": ["font.family.sans", "font.family.mono"] },
+      "componentVariables": { "customizable": [], "protected": [] },
+      "rules": [
+        "component.typography.preserve-semantics",
+        "component.typography.use-nunito-by-default",
+        "component.typography.use-compact-roles",
+        "component.typography.reserve-mono-for-technical-content"
+      ],
+      "migration": {
+        "introducedIn": "0.3.0",
+        "classification": "breaking",
+        "notes": "Typography becomes the canonical public text API with compound presets and a compact Nunito scale; the overlapping Text export is removed."
+      }
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "component.popover",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/popover/README.md",
+  "exports": [
+    "Popover",
+    "PopoverCreateHandle",
+    "PopoverPopupProps",
+    "PopoverTrigger",
+    "PopoverPopup",
+    "PopoverClose",
+    "PopoverTitle",
+    "PopoverDescription"
+  ],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics", "keyboard-interaction"]
+  },
+  "anatomy": {
+    "structure": "<Popover>Content</Popover>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Component content where supported."
+    }
+  ],
+  "props": [
+    {
+      "name": "side",
+      "kind": "enum",
+      "values": ["top", "bottom", "left", "right"],
+      "default": "bottom",
+      "description": "Preferred side of the anchor to position the popup."
+    },
+    {
+      "name": "align",
+      "kind": "enum",
+      "values": ["start", "center", "end"],
+      "default": "center",
+      "description": "Alignment of the popup relative to the anchor on the chosen side."
+    },
+    {
+      "name": "sideOffset",
+      "kind": "number",
+      "default": 4,
+      "description": "Distance in pixels between the popup and the anchor along the side axis."
+    },
+    {
+      "name": "alignOffset",
+      "kind": "number",
+      "default": 0,
+      "description": "Offset in pixels along the alignment axis."
+    },
+    {
+      "name": "anchor",
+      "kind": "node",
+      "description": "Element or virtual element the popup anchors to instead of the trigger."
+    },
+    {
+      "name": "tooltipStyle",
+      "kind": "boolean",
+      "description": "Renders the popup as a compact, tooltip-like panel.",
+      "default": false
+    }
+  ],
+  "states": ["default"],
+  "requiredStories": ["Basic"],
+  "requiredTests": ["renders", "class-name"],
+  "tokens": {
+    "required": [
+      "color.neutral.200",
+      "color.neutral.500",
+      "color.neutral.900",
+      "color.surface",
+      "radius.control",
+      "shadow.hairline",
+      "shadow.overlay",
+      "shadow.raised",
+      "space.md",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": [
+      "--available-height",
+      "--available-width",
+      "--positioner-height",
+      "--positioner-width",
+      "--transform-origin"
+    ]
+  },
+  "rules": ["component.popover.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Styles mapped to En UI theme variables."
+  }
+}

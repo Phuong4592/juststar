@@ -1,0 +1,142 @@
+{
+  "id": "component.login-page",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": { "previousStatus": "new", "since": "0.3.0" },
+  "documentation": "src/patterns/login-page/README.md",
+  "exports": ["LoginPage", "LoginPageProps"],
+  "publicParts": ["login-page", "login-brand", "login-form"],
+  "behaviorOwner": {
+    "kind": "package-managed",
+    "owner": "@enosta/en-ui",
+    "capabilities": [
+      "page-landmark",
+      "heading-hierarchy",
+      "responsive-auth-layout",
+      "bounded-form-width",
+      "product-context",
+      "error-composition"
+    ]
+  },
+  "anatomy": {
+    "structure": "<LoginPage brand={...} title={...} form={...} asideTitle={...} asideItems={[...]} />",
+    "parts": [
+      {
+        "part": "login-page",
+        "description": "Main authentication landmark and responsive two-panel shell."
+      },
+      { "part": "login-brand", "description": "Product or organization identity." },
+      {
+        "part": "login-form",
+        "description": "Bounded slot for En UI authentication controls and feedback."
+      }
+    ]
+  },
+  "slots": [
+    { "name": "brand", "required": true, "description": "Accessible product identity." },
+    {
+      "name": "title",
+      "required": true,
+      "description": "Single page-level authentication heading."
+    },
+    {
+      "name": "form",
+      "required": true,
+      "description": "En UI sign-in fields, actions, and feedback."
+    },
+    {
+      "name": "description",
+      "required": false,
+      "description": "Supporting copy under the heading."
+    },
+    { "name": "eyebrow", "required": false, "description": "Short label above the heading." },
+    {
+      "name": "footer",
+      "required": false,
+      "description": "Recovery and support links under the form."
+    },
+    {
+      "name": "brandMark",
+      "required": false,
+      "description": "Decorative mark inside the brand row."
+    },
+    {
+      "name": "asideTitle",
+      "required": false,
+      "description": "Heading for the product-context aside."
+    },
+    {
+      "name": "asideDescription",
+      "required": false,
+      "description": "Supporting copy for the product-context aside."
+    },
+    {
+      "name": "asideItems",
+      "required": false,
+      "description": "Short product-context statements for wide layouts."
+    }
+  ],
+  "props": [
+    {
+      "name": "brand",
+      "kind": "node",
+      "description": "Product or organization identity shown beside the brand mark."
+    },
+    { "name": "title", "kind": "node", "description": "The single h1 authentication heading." },
+    { "name": "form", "kind": "node", "description": "Sign-in fields, actions, and feedback." },
+    {
+      "name": "brandMark",
+      "kind": "node",
+      "description": "Decorative mark rendered inside the brand tile. Hidden from assistive tech.",
+      "default": "EN"
+    },
+    {
+      "name": "eyebrow",
+      "kind": "node",
+      "description": "Short uppercase label above the heading.",
+      "default": "Secure workspace access"
+    },
+    {
+      "name": "asideItems",
+      "kind": "node",
+      "description": "Product-context statements numbered in the aside."
+    }
+  ],
+  "states": ["default", "validation-error", "submitting", "mobile", "desktop"],
+  "requiredStories": ["Default", "ValidationError"],
+  "requiredTests": ["page-landmark", "heading-hierarchy", "bounded-form", "product-context"],
+  "tokens": {
+    "required": [
+      "color.canvas",
+      "color.surface",
+      "color.neutral.25",
+      "color.neutral.100",
+      "color.neutral.200",
+      "color.neutral.600",
+      "color.neutral.700",
+      "color.neutral.900",
+      "color.brand.400",
+      "color.brand.600",
+      "radius.control",
+      "radius.surface",
+      "shadow.surface",
+      "shadow.raised",
+      "height.control.md",
+      "space.3xl",
+      "space.4xl",
+      "space.5xl",
+      "space.6xl",
+      "space.xl"
+    ]
+  },
+  "rules": [
+    "pattern.login-page.en-ui-only",
+    "pattern.login-page.single-heading",
+    "pattern.login-page.responsive-boundary"
+  ],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Adds a stable authentication page composition."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "changeId": "consumer-layout-source-guardrails",
+  "category": "component",
+  "summary": "Prevent wrapped fixed-height button labels, under-padded summary cells, and nested-pane overflow, and require composed Storybook stories to expose complete copyable source.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "impact": {
+    "accessibilityContract": "additive",
+    "behaviorContract": "additive",
+    "publicApi": "none",
+    "tokenContract": "none",
+    "consumerMigrationRequired": false
+  },
+  "contractImpact": "Button preserves existing APIs and interaction behavior while guaranteeing a single-line visible label within its fixed control height. Consumer compositions reflow against their split or resizable pane width. Rendered audits add diagnostics for control-label overflow, bordered summary cells without minimum inline insets, and nested responsive regions wider than their pane. Storybook composition stories retain their rendered output while exposing generated full implementation source.",
+  "sourceEdits": [
+    "src/components/button",
+    "src/patterns/consumer-pages.stories.tsx",
+    ".storybook",
+    "scripts",
+    ".agents/skills/en-ui-consumer"
+  ],
+  "consumerEdits": [],
+  "requestedMaturity": null,
+  "targetRuleIds": [
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "component.colocation",
+    "visual.composition-spacing",
+    "visual.responsive-geometry",
+    "visual.typography-density"
+  ],
+  "requiredEvidence": ["accessibility", "contract", "docs", "implementation", "stories", "tests"],
+  "commands": {
+    "check": "pnpm check",
+    "test": "pnpm test",
+    "typecheck": "pnpm typecheck",
+    "build": "pnpm build",
+    "storybook": "pnpm dev"
+  },
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-31"
+  }
+}

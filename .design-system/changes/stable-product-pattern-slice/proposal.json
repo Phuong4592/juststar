@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "changeId": "stable-product-pattern-slice",
+  "category": "pattern",
+  "summary": "Ship stable list, data-grid, filter, and login page patterns with contracts, stories, tests, package exports, documentation, and AI-agent usage rules.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "impact": {
+    "accessibilityContract": "additive",
+    "behaviorContract": "additive",
+    "publicApi": "additive",
+    "tokenContract": "none",
+    "consumerMigrationRequired": false
+  },
+  "contractImpact": "Adds stable responsive page-pattern contracts and public exports while preserving all current component and token contracts.",
+  "sourceEdits": ["src/components", "contracts", "docs", ".storybook", ".design-system/rules"],
+  "consumerEdits": [],
+  "requestedMaturity": null,
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "visual.wcag-aa-contrast",
+    "visual.composition-spacing",
+    "visual.responsive-geometry",
+    "visual.baseline-review"
+  ],
+  "requiredEvidence": ["contract", "docs", "implementation", "tests"],
+  "commands": {
+    "check": "pnpm check",
+    "test": "pnpm test",
+    "typecheck": "pnpm typecheck",
+    "build": "pnpm build",
+    "storybook": "pnpm dev"
+  },
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  }
+}

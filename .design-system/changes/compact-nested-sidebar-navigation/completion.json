@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "changeId": "compact-nested-sidebar-navigation",
+  "evidence": {
+    "contract": [
+      "The SidebarNavigation contract declares compact primary and secondary list geometry, nested navigation, and unavailable-item reasons.",
+      "pnpm contract:validate sidebar-navigation and generated contract checks passed."
+    ],
+    "implementation": [
+      "SidebarNavigation uses 32px primary rows, 28px secondary rows, smaller token-backed insets, and a compact icon-label gap.",
+      "SidebarNavigationList level=secondary preserves nested list semantics and is hidden when the application rail collapses.",
+      "SidebarNavigationItem disabledReason provides an accessible description while disabled links continue to block navigation."
+    ],
+    "docs": [
+      "The component README documents nested navigation, permission filtering, known unavailable destinations, and coming-soon states.",
+      "docs/ai-composition.md directs consumers to keep product permissions outside the package while using the documented disabled pattern."
+    ],
+    "stories": [
+      "Default, Collapsed, States, and TwoLevel Storybook stories cover the contract states.",
+      "Two-level and unavailable-item stories were rendered and inspected at 375px, 768px, and 1280px without overflow or hierarchy issues."
+    ],
+    "tests": [
+      "Four focused SidebarNavigation tests cover landmarks, current page, disabled navigation, disabled reasons, nested list semantics, and collapsed labels.",
+      "pnpm check passed 72 unit tests, three deterministic browser checks, contract validation, lint, formatting, type checking, builds, and package smoke testing."
+    ]
+  },
+  "checks": [
+    { "command": "pnpm check", "status": "passed" },
+    { "command": "pnpm test", "status": "passed" },
+    { "command": "pnpm typecheck", "status": "passed" },
+    { "command": "pnpm build", "status": "passed" },
+    { "command": "pnpm dev", "status": "passed" }
+  ],
+  "migration": [],
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-31"
+  }
+}

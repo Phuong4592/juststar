@@ -1,0 +1,15 @@
+node_modules
+dist
+storybook-static
+site-static
+pages-static
+coverage
+playwright-report
+test-results
+.DS_Store
+*.tgz
+
+.zed/
+
+.playwright-mcp
+crush.json

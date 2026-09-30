@@ -1,0 +1,115 @@
+{
+  "id": "component.sheet",
+  "family": "en-ui",
+  "status": "experimental",
+  "maturity": { "previousStatus": "planned", "since": "1.3.1" },
+  "documentation": "src/components/sheet/README.md",
+  "exports": [
+    "sheetVariants",
+    "Sheet",
+    "SheetPortal",
+    "SheetTrigger",
+    "SheetClose",
+    "SheetBackdrop",
+    "SheetPopupProps",
+    "SheetPopup",
+    "SheetHeader",
+    "SheetFooterProps",
+    "SheetFooter",
+    "SheetTitle",
+    "SheetDescription",
+    "SheetPanelProps",
+    "SheetPanel",
+    "SheetOverlay",
+    "SheetContent"
+  ],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics", "keyboard-interaction"]
+  },
+  "anatomy": {
+    "structure": "<Sheet><SheetTrigger /><SheetPopup side=\"right\"><SheetHeader><SheetTitle /><SheetDescription /></SheetHeader><SheetPanel /><SheetFooter /></SheetPopup></Sheet>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Component content where supported."
+    }
+  ],
+  "props": [
+    {
+      "name": "side",
+      "kind": "enum",
+      "description": "Screen edge the sheet opens from.",
+      "values": ["right", "left", "top", "bottom"],
+      "default": "right"
+    },
+    {
+      "name": "variant",
+      "kind": "enum",
+      "description": "SheetPopup treatment. inset floats the sheet with spacing and rounded corners on desktop screens.",
+      "values": ["default", "inset"],
+      "default": "default"
+    },
+    {
+      "name": "showCloseButton",
+      "kind": "boolean",
+      "description": "Renders a ghost icon close button in the popup's top corner.",
+      "default": true
+    },
+    {
+      "name": "variant",
+      "kind": "enum",
+      "description": "SheetFooter treatment. default renders a separated footer surface; bare renders actions without separation.",
+      "values": ["default", "bare"],
+      "default": "default"
+    },
+    {
+      "name": "scrollFade",
+      "kind": "boolean",
+      "description": "SheetPanel scroll fade effect on overflowing content.",
+      "default": true
+    }
+  ],
+  "states": ["default"],
+  "requiredStories": ["Overview", "Basic", "Sides", "Inset", "BareFooter", "Scrollable"],
+  "requiredTests": ["renders", "class-name", "sides", "footer-variant", "close-button"],
+  "tokens": {
+    "required": [
+      "color.neutral.200",
+      "color.neutral.50",
+      "color.neutral.500",
+      "color.neutral.900",
+      "color.on.surface",
+      "color.surface",
+      "radius.overlay",
+      "shadow.hairline",
+      "shadow.overlay",
+      "space.3xl",
+      "space.4xl",
+      "space.md",
+      "space.sm",
+      "space.xl",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": ["--nested-dialogs"]
+  },
+  "rules": ["component.sheet.preserve-semantics"],
+  "migration": {
+    "introducedIn": "1.3.1",
+    "classification": "compatible",
+    "notes": "Introduces Sheet as a dialog-based edge flyout mapped to En UI theme variables."
+  }
+}

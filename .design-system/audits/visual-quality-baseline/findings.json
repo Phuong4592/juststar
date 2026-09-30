@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "auditId": "visual-quality-baseline",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "commands": [
+    {
+      "name": "check",
+      "command": "pnpm check",
+      "status": "recorded",
+      "exitCode": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "test",
+      "command": "pnpm test",
+      "status": "recorded",
+      "exitCode": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "typecheck",
+      "command": "pnpm typecheck",
+      "status": "recorded",
+      "exitCode": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "build",
+      "command": "pnpm build",
+      "status": "recorded",
+      "exitCode": null,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "storybook",
+      "command": "pnpm dev",
+      "status": "recorded",
+      "exitCode": null,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "findings": [
+    {
+      "ruleId": "review.weak-page-hierarchy",
+      "severity": "observation",
+      "kind": "review",
+      "source": "src/components/experimental-list-page/experimental-list-page.stories.tsx",
+      "message": "The page header, filter panel, results heading, and result cards use nearly identical surface and border treatments, so primary task, supporting controls, and content have weak visual hierarchy.",
+      "remediation": "Establish a deliberate page composition with a distinct masthead, compact task-focused filter region, and a single structured results surface rather than isolated generic cards.",
+      "documentation": "En UI visual-quality review rubric"
+    },
+    {
+      "ruleId": "review.monotone-spacing-rhythm",
+      "severity": "observation",
+      "kind": "review",
+      "source": "src/components/experimental-list-page/experimental-list-page.tsx",
+      "message": "Most relationships reuse 16px or 24px spacing without distinguishing tightly related content, component internals, section boundaries, and page-level rhythm.",
+      "remediation": "Define named composition spacing roles and verify rendered relationships at mobile, tablet, and desktop widths.",
+      "documentation": "En UI visual-quality review rubric"
+    },
+    {
+      "ruleId": "review.filter-action-misalignment",
+      "severity": "observation",
+      "kind": "review",
+      "source": "src/components/experimental-list-page/experimental-list-page.stories.tsx",
+      "message": "The clear action is visually detached from the fields and aligns with the control edge rather than the filter task, producing an accidental floating-button appearance.",
+      "remediation": "Give the toolbar explicit anatomy for search, secondary filters, result count, and reset action with breakpoint-specific alignment.",
+      "documentation": "En UI visual-quality review rubric"
+    },
+    {
+      "ruleId": "review.unowned-result-layout",
+      "severity": "observation",
+      "kind": "review",
+      "source": "src/components/experimental-list-page/experimental-list-page.stories.tsx",
+      "message": "Result cards are authored directly in the story, leaving identity, metadata, status, action alignment, truncation, and responsive behavior outside the pattern contract.",
+      "remediation": "Move result-row anatomy into the experimental pattern so consumers and AI agents cannot invent these relationships independently.",
+      "documentation": "En UI composition contract guidance"
+    },
+    {
+      "ruleId": "review.aa-contrast-risk",
+      "severity": "observation",
+      "kind": "review",
+      "source": "src/tokens/tokens.css",
+      "message": "The danger action color is approximately 4.26:1 on the default surface and the strong control border is approximately 2.79:1 on a raised surface, below WCAG AA expectations for normal text and required UI boundaries.",
+      "remediation": "Adopt explicit semantic contrast pairs, darken the danger text role and control-boundary role, and enforce their ratios with deterministic token tests.",
+      "documentation": "WCAG 2.2 SC 1.4.3 and SC 1.4.11"
+    },
+    {
+      "ruleId": "review.missing-visual-quality-gate",
+      "severity": "observation",
+      "kind": "review",
+      "source": ".design-system/project.json",
+      "message": "Current checks validate code, contracts, packaging, and accessibility semantics but have no approved screenshot baseline, rendered geometry assertions, or token contrast audit.",
+      "remediation": "Add a design-check command covering WCAG AA token pairs, AAA reporting, responsive geometry, overflow, target sizes, and approved visual snapshots.",
+      "documentation": "En UI visual-quality governance"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "id": "component.card",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/card/README.md",
+  "exports": [
+    "cardVariants",
+    "CardProps",
+    "Card",
+    "CardHeader",
+    "CardTitle",
+    "CardDescription",
+    "CardAction",
+    "CardPanel",
+    "CardFooter",
+    "CardFrame",
+    "CardFrameHeader",
+    "CardFrameTitle",
+    "CardFrameDescription",
+    "CardFrameAction",
+    "CardFrameFooter",
+    "CardContent"
+  ],
+  "publicParts": [
+    "root",
+    "header",
+    "title",
+    "description",
+    "action",
+    "panel",
+    "footer",
+    "frame",
+    "frame-header",
+    "frame-title",
+    "frame-description",
+    "frame-action",
+    "frame-footer"
+  ],
+  "behaviorOwner": {
+    "kind": "native",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics"]
+  },
+  "anatomy": {
+    "structure": "<Card><CardHeader><CardTitle /><CardDescription /><CardAction /></CardHeader><CardPanel /><CardFooter /></Card>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root surface that groups related card content."
+      },
+      {
+        "part": "header",
+        "description": "Header region containing the title, description, and optional action."
+      },
+      {
+        "part": "title",
+        "description": "Card title content."
+      },
+      {
+        "part": "description",
+        "description": "Supporting description for the card title."
+      },
+      {
+        "part": "action",
+        "description": "Optional action aligned opposite the card heading."
+      },
+      {
+        "part": "panel",
+        "description": "Primary content region, also exported as CardContent."
+      },
+      {
+        "part": "footer",
+        "description": "Footer region for supporting actions or metadata."
+      },
+      {
+        "part": "frame",
+        "description": "Framed container that groups a heading with cards or tabular content."
+      },
+      {
+        "part": "frame-header",
+        "description": "Header region for a framed card layout."
+      },
+      {
+        "part": "frame-title",
+        "description": "Title content for a framed card layout."
+      },
+      {
+        "part": "frame-description",
+        "description": "Supporting description for a framed card title."
+      },
+      {
+        "part": "frame-action",
+        "description": "Optional action aligned opposite the frame heading."
+      },
+      {
+        "part": "frame-footer",
+        "description": "Footer region for a framed card layout."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Card parts, framed cards, tabular content, or consumer content."
+    }
+  ],
+  "props": [],
+  "states": ["default"],
+  "requiredStories": ["Overview", "Basic", "WithActions", "CardFrame"],
+  "requiredTests": ["renders", "class-name", "render", "preserve-semantics"],
+  "tokens": {
+    "required": [
+      "color.neutral.100",
+      "color.neutral.200",
+      "color.neutral.500",
+      "color.neutral.900",
+      "color.surface",
+      "radius.overlay",
+      "radius.surface",
+      "shadow.hairline",
+      "shadow.none",
+      "shadow.surface",
+      "space.3xl",
+      "space.4xl",
+      "space.sm"
+    ]
+  },
+  "componentVariables": {
+    "customizable": ["--clip-bottom", "--clip-top"],
+    "protected": []
+  },
+  "rules": ["component.card.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Styles mapped to En UI theme variables and render supports element composition."
+  }
+}

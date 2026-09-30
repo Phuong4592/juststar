@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "evolutionId": "visual-quality-redesign",
+  "type": "visual-direction",
+  "scope": "focused",
+  "summary": "Redesign the experimental list-page vertical slice into an intentional operational roster and establish visual-quality governance with semantic contrast pairs, WCAG 2.2 AA gates, AAA reporting, responsive geometry assertions, and approved screenshot baselines.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "impact": {
+    "accessibilityContract": "additive",
+    "behaviorContract": "additive",
+    "maturity": "none",
+    "placement": "none",
+    "publicApi": "additive",
+    "tokenContract": "additive"
+  },
+  "compatibility": "compatible",
+  "impactMap": {
+    "components": [
+      "Preserve stable component APIs while validating danger-action text and control boundaries against WCAG 2.2 AA."
+    ],
+    "consumers": [
+      "Provide an opt-in visual-audit skill and design-check commands; no consumer migration is required while the pattern remains experimental."
+    ],
+    "contracts": [
+      "Expand the experimental list-page contract with owned result-row anatomy and add a visual-quality contract for contrast, geometry, viewport, and screenshot evidence."
+    ],
+    "documentation": [
+      "Document the visual QA rubric, AA versus AAA policy, baseline approval workflow, and remediation format for AI agents and maintainers."
+    ],
+    "foundations": [
+      "Add semantic composition-spacing and control-boundary roles, and correct AA contrast risks without renaming or removing existing tokens."
+    ],
+    "patterns": [
+      "Replace the generic card gallery with a deliberate masthead, filter rail, result ledger, responsive row anatomy, empty state, and long-content behavior."
+    ],
+    "screenshots": [
+      "Create candidate reference screenshots at 375px, 768px, and 1280px plus empty and long-content states; future diffs require explicit baseline review."
+    ]
+  },
+  "releaseClassification": "minor",
+  "decisionRefs": [".design-system/decisions/001-standalone-extraction.md"],
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard"
+  ],
+  "verticalSlice": {
+    "name": "Operational people roster",
+    "workflow": "Search and filter people, scan identity and assignment metadata, distinguish status, inspect long content, recover from empty results, and act at mobile, tablet, and desktop widths.",
+    "evidence": "Experimental contract, redesigned Storybook stories, WCAG AA token audit, AAA report, responsive geometry tests, accessibility scan, candidate screenshot baselines, and human visual review.",
+    "review": {
+      "approved": true,
+      "by": "User",
+      "date": "2026-08-25"
+    }
+  },
+  "migration": null,
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  }
+}

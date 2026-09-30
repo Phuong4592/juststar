@@ -1,0 +1,26 @@
+{
+  "components": [
+    "Add semantic compound presets to Typography and migrate component-owned headings, descriptions, labels, and technical text to the shared scale.",
+    "Remove the overlapping Text component export and source contract, and add alternating row surfaces to every Table variant while preserving selected and hover emphasis."
+  ],
+  "consumers": [
+    "New UI must use Typography compound presets instead of ad hoc font family, size, weight, line-height, or tracking utilities.",
+    "Composition guidance uses typography and semantic spacing before separators, independent surfaces, or tabular structure."
+  ],
+  "contracts": [
+    "Declare Typography compound anatomy, compact type roles, purposeful mono usage, and Table row differentiation in component and theme contracts.",
+    "Remove component.text from the generated design-system contract."
+  ],
+  "documentation": [
+    "Update foundations, component guidance, catalog references, AI consumer instructions, and migration notes around the canonical Typography API."
+  ],
+  "foundations": [
+    "Publish semantic font-size, line-height, and weight tokens with Nunito as the primary interface family and Geist Mono reserved for code and technical identifiers."
+  ],
+  "patterns": [
+    "Review PageHeader, PageSection, cards, overlays, navigation, authentication, operational pages, and AI workspaces as the representative typography and separator slice."
+  ],
+  "screenshots": [
+    "Run responsive layout and Storybook visual checks without updating any baseline; intentional screenshot changes remain subject to human approval."
+  ]
+}

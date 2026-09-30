@@ -1,0 +1,95 @@
+{
+  "id": "component.split-layout",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": { "previousStatus": "planned", "since": "0.4.0" },
+  "documentation": "src/components/split-layout/README.md",
+  "exports": ["splitLayoutVariants", "SplitLayoutProps", "SplitLayout"],
+  "publicParts": ["split-layout", "split-layout-primary", "split-layout-secondary"],
+  "behaviorOwner": {
+    "kind": "package-managed",
+    "owner": "@enosta/en-ui",
+    "capabilities": [
+      "responsive-two-region-layout",
+      "desktop-region-position",
+      "sticky-secondary-region"
+    ]
+  },
+  "anatomy": {
+    "structure": "<SplitLayout primary={...} secondary={...} ratio=\"primary\" secondaryPosition=\"end\" />",
+    "parts": [
+      { "part": "split-layout", "description": "Responsive two-region grid boundary." },
+      {
+        "part": "split-layout-primary",
+        "description": "Primary workflow content, first in mobile and document order."
+      },
+      {
+        "part": "split-layout-secondary",
+        "description": "Supporting content that may move to either desktop side or remain sticky."
+      }
+    ]
+  },
+  "slots": [
+    { "name": "primary", "required": true, "description": "Primary workflow content." },
+    { "name": "secondary", "required": true, "description": "Supporting or contextual content." }
+  ],
+  "props": [
+    { "name": "primary", "kind": "node", "description": "Primary workflow content." },
+    { "name": "secondary", "kind": "node", "description": "Supporting or contextual content." },
+    {
+      "name": "ratio",
+      "kind": "enum",
+      "description": "Relative desktop width of the primary and secondary regions.",
+      "values": ["balanced", "primary", "secondary"],
+      "default": "primary"
+    },
+    {
+      "name": "secondaryPosition",
+      "kind": "enum",
+      "description": "Desktop side used by the secondary region; mobile keeps primary content first.",
+      "values": ["start", "end"],
+      "default": "end"
+    },
+    {
+      "name": "stickySecondary",
+      "kind": "boolean",
+      "description": "Keeps the secondary region visible within the desktop viewport.",
+      "default": false
+    },
+    {
+      "name": "density",
+      "kind": "enum",
+      "description": "Spacing density between the primary and secondary regions.",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable"
+    }
+  ],
+  "states": [
+    "balanced",
+    "primary-wide",
+    "secondary-wide",
+    "secondary-start",
+    "compact",
+    "sticky",
+    "mobile-stack"
+  ],
+  "requiredStories": ["Default", "Compact", "SecondaryStart", "StickyAside"],
+  "requiredTests": [
+    "responsive-grid",
+    "density",
+    "secondary-position",
+    "sticky-secondary",
+    "content-slots"
+  ],
+  "tokens": { "required": ["space.lg", "space.xl", "space.2xl"] },
+  "rules": [
+    "component.split-layout.primary-first-mobile",
+    "component.split-layout.declared-ratios",
+    "component.split-layout.sticky-boundary"
+  ],
+  "migration": {
+    "introducedIn": "0.4.0",
+    "classification": "compatible",
+    "notes": "Adds a responsive main-and-aside layout primitive with additive comfortable or compact density."
+  }
+}

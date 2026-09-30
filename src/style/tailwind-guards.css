@@ -1,0 +1,25 @@
+/* Tailwind default-utility guards for the library build. Runs before tailwind-theme.css
+ * so the resets wipe Tailwind defaults and not the En UI aliases. Not exported to consumers:
+ * consumer apps decide their own defaults. */
+@theme {
+  /* Use only colors from themes/default.css; disable the entire Tailwind default palette. */
+  --color-*: initial;
+
+  /* Use only radius from themes/default.css; disable all default Tailwind radius utilities. */
+  --radius-*: initial;
+
+  /* Use only shadows from themes/default.css; disable all default Tailwind shadow utilities. */
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+
+  /* Use only the named --spacing-* tokens below; disable Tailwind's numeric spacing
+     multiplier (p-4, gap-2, w-72, translate-x-1, ...). Zero (p-0, inset-0) stays via --spacing-0. */
+  --spacing: initial;
+
+  /* Use only typography tokens from themes/default.css; disable all default Tailwind font-size,
+     line-height, font-weight, and letter-spacing utilities. */
+  --text-*: initial;
+  --leading-*: initial;
+  --font-weight-*: initial;
+  --tracking-*: initial;
+}

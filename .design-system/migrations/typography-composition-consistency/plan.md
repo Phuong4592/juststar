@@ -1,0 +1,14 @@
+# Migration: typography-composition-consistency
+
+Consumers replace Text with Typography compound presets and remove direct typography utility overrides from generated UI.
+
+## Steps
+
+- Replace Text display, headline, title, body, caption, and label usage with the matching Typography compound preset.
+- Use Typography.Mono or Typography.Code only for identifiers, code, timestamps, and other deliberately technical values.
+- Remove consumer-authored font family, size, weight, line-height, and tracking utilities where Typography owns the role.
+
+## Affected Consumers
+
+- All applications importing Text from @enosta/en-ui.
+- AI-generated and hand-authored En UI consumers that currently compose typography with raw utility classes.

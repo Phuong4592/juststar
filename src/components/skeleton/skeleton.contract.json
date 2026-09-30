@@ -1,0 +1,50 @@
+{
+  "id": "component.skeleton",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/skeleton/README.md",
+  "exports": ["Skeleton"],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "native",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics"]
+  },
+  "anatomy": {
+    "structure": "<Skeleton>Content</Skeleton>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Component content where supported."
+    }
+  ],
+  "props": [],
+  "states": ["default"],
+  "requiredStories": ["Overview", "Basic", "Text", "Profile", "Card", "TableRows", "ToggleLoading"],
+  "requiredTests": ["renders", "class-name"],
+  "tokens": {
+    "required": ["color.neutral.100", "color.white", "radius.control"]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": ["--skeleton-highlight"]
+  },
+  "rules": ["component.skeleton.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Styles mapped to En UI theme variables."
+  }
+}

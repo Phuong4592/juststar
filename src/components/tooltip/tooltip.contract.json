@@ -1,0 +1,111 @@
+{
+  "id": "component.tooltip",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/tooltip/README.md",
+  "exports": [
+    "TooltipProps",
+    "Tooltip",
+    "tooltipVariants",
+    "TooltipProvider",
+    "TooltipRoot",
+    "TooltipCreateHandle",
+    "TooltipTriggerProps",
+    "TooltipTrigger",
+    "TooltipPopupProps",
+    "TooltipPopup"
+  ],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics", "keyboard-interaction"]
+  },
+  "anatomy": {
+    "structure": "<Tooltip>Content</Tooltip>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Component content where supported."
+    }
+  ],
+  "props": [
+    {
+      "name": "trigger",
+      "kind": "node",
+      "description": "Trigger content. An element renders as-is; otherwise a default focusable button wraps the content."
+    },
+    {
+      "name": "popup",
+      "kind": "node",
+      "description": "Tooltip content shown on hover or keyboard focus."
+    },
+    {
+      "name": "side",
+      "kind": "enum",
+      "values": ["top", "bottom", "left", "right"],
+      "default": "top",
+      "description": "Preferred side of the trigger to position the popup."
+    },
+    {
+      "name": "align",
+      "kind": "enum",
+      "values": ["start", "center", "end"],
+      "default": "center",
+      "description": "Alignment of the popup relative to the trigger on the chosen side."
+    },
+    {
+      "name": "sideOffset",
+      "kind": "number",
+      "default": 4,
+      "description": "Distance in pixels between the popup and the trigger along the side axis."
+    },
+    {
+      "name": "anchor",
+      "kind": "node",
+      "description": "Element or virtual element the popup anchors to instead of the trigger."
+    }
+  ],
+  "states": ["default"],
+  "requiredStories": ["Basic", "Grouped", "Animated"],
+  "requiredTests": ["renders", "class-name", "grouped", "animated"],
+  "tokens": {
+    "required": [
+      "color.neutral.200",
+      "color.neutral.900",
+      "color.surface",
+      "radius.control",
+      "shadow.hairline",
+      "shadow.raised",
+      "space.md",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": [
+      "--available-width",
+      "--positioner-height",
+      "--positioner-width",
+      "--transform-origin"
+    ]
+  },
+  "rules": ["component.tooltip.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Styles mapped to En UI theme variables."
+  }
+}

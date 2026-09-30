@@ -1,0 +1,109 @@
+{
+  "id": "component.toast",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/toast/README.md",
+  "exports": [
+    "ToastPosition",
+    "ToastsProps",
+    "toast",
+    "ToastProviderProps",
+    "ToastProvider",
+    "Toast"
+  ],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics", "keyboard-interaction"]
+  },
+  "anatomy": {
+    "structure": "<ToastProvider>Content</ToastProvider>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Component content where supported."
+    }
+  ],
+  "props": [
+    {
+      "name": "position",
+      "kind": "enum",
+      "description": "position option for the component.",
+      "values": [
+        "top-left",
+        "top-center",
+        "top-right",
+        "bottom-left",
+        "bottom-center",
+        "bottom-right"
+      ],
+      "default": "bottom-right"
+    }
+  ],
+  "states": ["default"],
+  "requiredStories": ["Basic"],
+  "requiredTests": ["renders", "class-name"],
+  "tokens": {
+    "required": [
+      "color.error.500",
+      "color.info.500",
+      "color.neutral.200",
+      "color.neutral.400",
+      "color.neutral.50",
+      "color.neutral.500",
+      "color.neutral.600",
+      "color.neutral.900",
+      "color.success.500",
+      "color.surface",
+      "color.warning.500",
+      "radius.control",
+      "shadow.overlay",
+      "space.2xl",
+      "space.2xs",
+      "space.3xl",
+      "space.4xl",
+      "space.6xl",
+      "space.lg",
+      "space.md",
+      "space.xl",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [
+      "--toast-calc-height",
+      "--toast-calc-offset-y",
+      "--toast-frontmost-height",
+      "--toast-gap",
+      "--toast-height",
+      "--toast-index",
+      "--toast-inset",
+      "--toast-offset-y",
+      "--toast-peek",
+      "--toast-scale",
+      "--toast-shrink",
+      "--toast-swipe-movement-x",
+      "--toast-swipe-movement-y"
+    ],
+    "protected": []
+  },
+  "rules": ["component.toast.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "breaking",
+    "notes": "Styles mapped to En UI theme variables."
+  }
+}

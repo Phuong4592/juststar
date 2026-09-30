@@ -1,0 +1,47 @@
+# Evolution Impact Map: application-ai-workspace-patterns
+
+## Components
+
+- Add the first public layout slice: ApplicationShell, SidebarNavigation, ApplicationHeader, PageContainer, PageHeader, PageSection, and SplitLayout.
+- Provide token-backed container widths and gutters, explicit main-and-aside geometry, sticky-region behavior, accessible navigation collapse, and mobile transformations rather than a generic unrestricted grid.
+- Evaluate StickyActionBar as a follow-up component after FormPage and long-detail workflows establish its protected behavior.
+
+## Consumers
+
+- Consumers can compose application navigation, headers, page widths, sections, responsive splits, conversations, and previews from package exports while retaining ownership of routing and domain state.
+- Existing consumers require no migration because all APIs are additive and existing component behavior remains unchanged.
+- The packaged consumer guidance will prefer these APIs only when the installed package version exports their authoritative contracts.
+
+## Contracts
+
+- Add authoritative beta contracts for ApplicationShell, SidebarNavigation, ApplicationHeader, PageContainer, PageHeader, PageSection, SplitLayout, AIChatPage, and AIWorkspace before implementation.
+- Define protected landmarks, heading ownership, navigation disclosure, keyboard resizing, focus movement, streaming announcements, responsive transformations, loading, empty, error, and preview states.
+- Keep provider, model, message transport, persistence, artifact rendering, routing, and product permissions outside the package contracts.
+
+## Documentation
+
+- Extend the AI-safe composition guide with a three-layer model: structural layout components, operational page patterns, and AI workflow patterns.
+- Document selection guidance, slot boundaries, responsive transformations, accessibility ownership, and provider-neutral examples for the shell and AI patterns.
+- Record that LoginPage remains the only currently exported page pattern until each new contract, implementation, story, test, export, and Changeset passes the package workflow.
+
+## Foundations
+
+- Reuse the approved dense typography, semantic spacing, elevation, focus, contrast, target-size, and responsive foundations without adding raw values or changing the default theme.
+- Use borders as the default structural separator and reserve raised elevation for sticky or temporarily elevated shell regions.
+
+## Patterns
+
+- Add AIChatPage for a full-page conversation and AIWorkspace for a resizable parallel conversation-and-artifact-preview workflow.
+- Use an approximately 400px conversation region at wide viewports, allow keyboard-accessible resizing, and transform to an explicit Chat/Preview switcher on narrow viewports instead of stacking cramped panels.
+- Sequence follow-up operational patterns as DetailPage, FormPage, SettingsPage, DashboardPage, MasterDetailPage, and WizardPage after the shell slice is reviewed.
+- Sequence follow-up AI patterns as AssistantPanel, AgentRunPage, AIReviewPage, and PromptLibraryPage after the AIWorkspace interaction model is reviewed.
+- Complete the previously approved ListPage and DataGrid commitment alongside this work rather than introducing overlapping application-owned list anatomy.
+
+## Screenshots
+
+- Add reviewed mobile, tablet, desktop, narrow-content, collapsed-navigation, resized-workspace, empty-preview, streaming, error, and long-content baselines for the representative slice.
+- Require explicit human approval before accepting new pixel baselines and retain deterministic WCAG 2.2 AA and responsive-geometry gates.
+
+## Release Classification
+
+`minor`

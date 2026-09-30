@@ -1,0 +1,66 @@
+{
+  "id": "component.checkbox",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/checkbox/README.md",
+  "exports": ["checkboxVariants", "CheckboxProps", "Checkbox", "CheckboxGroupProps"],
+  "publicParts": ["root", "group"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics", "keyboard-interaction"]
+  },
+  "anatomy": {
+    "structure": "<Checkbox.Group><Checkbox /></Checkbox.Group>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Checkbox control with a built-in check and indeterminate indicator."
+      },
+      {
+        "part": "group",
+        "description": "Compound part (Checkbox.Group) sharing value and disabled state across child checkboxes."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Component content where supported."
+    }
+  ],
+  "props": [],
+  "states": ["default", "checked", "indeterminate", "disabled", "invalid"],
+  "requiredStories": ["Overview", "Basic", "Indeterminate", "GroupBasic", "GroupDisabled"],
+  "requiredTests": ["renders", "class-name", "group-renders", "group-class-name"],
+  "tokens": {
+    "required": [
+      "color.brand.500",
+      "color.error.400",
+      "color.error.500",
+      "color.neutral.300",
+      "color.neutral.900",
+      "color.on.brand",
+      "color.surface",
+      "radius.control",
+      "shadow.hairline",
+      "shadow.surface",
+      "space.xl"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": []
+  },
+  "rules": ["component.checkbox.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "breaking",
+    "notes": "CheckboxGroup merged into Checkbox as the compound part Checkbox.Group; the standalone CheckboxGroup export and the component.checkbox-group contract are removed."
+  }
+}

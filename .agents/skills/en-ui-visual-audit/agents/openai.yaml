@@ -1,0 +1,4 @@
+interface:
+  display_name: "En UI Visual Audit"
+  short_description: "Audit visual quality and WCAG conformance"
+  default_prompt: "Use $en-ui-visual-audit to review this En UI composition and report actionable visual and accessibility findings."

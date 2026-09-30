@@ -1,0 +1,97 @@
+{
+  "id": "component.badge",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/badge/README.md",
+  "exports": ["badgeVariants", "BadgeProps", "Badge"],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics"]
+  },
+  "anatomy": {
+    "structure": "<Badge>Content</Badge>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Compact text, count, or inline icon content."
+    }
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "kind": "enum",
+      "description": "Visual and semantic color style.",
+      "values": [
+        "default",
+        "secondary",
+        "outline",
+        "success",
+        "warning",
+        "error",
+        "info",
+        "destructive"
+      ],
+      "default": "default"
+    },
+    {
+      "name": "size",
+      "kind": "enum",
+      "description": "Badge size.",
+      "values": ["sm", "md", "lg"],
+      "default": "md"
+    }
+  ],
+  "states": ["default"],
+  "requiredStories": ["Overview", "Basic", "Variants", "Sizes", "WithIcon", "Link", "Count"],
+  "requiredTests": ["renders", "class-name", "variants", "sizes", "render", "preserve-semantics"],
+  "tokens": {
+    "required": [
+      "color.brand.500",
+      "color.error.500",
+      "color.error.600",
+      "color.error.700",
+      "color.info.500",
+      "color.info.700",
+      "color.neutral.100",
+      "color.neutral.300",
+      "color.neutral.50",
+      "color.neutral.900",
+      "color.on.brand",
+      "color.success.500",
+      "color.success.900",
+      "color.surface",
+      "color.warning.500",
+      "color.warning.800",
+      "radius.control",
+      "space.2xl",
+      "space.4xl",
+      "space.sm",
+      "space.xl",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": []
+  },
+  "rules": ["component.badge.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Styles mapped to En UI theme variables and render supports element composition."
+  }
+}

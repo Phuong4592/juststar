@@ -1,0 +1,116 @@
+{
+  "id": "component.application-shell",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": { "previousStatus": "planned", "since": "0.4.0" },
+  "documentation": "src/components/application-shell/README.md",
+  "exports": ["applicationShellVariants", "ApplicationShellProps", "ApplicationShell"],
+  "publicParts": [
+    "application-shell",
+    "application-shell-skip-link",
+    "application-shell-sidebar",
+    "application-shell-backdrop",
+    "application-shell-workspace",
+    "application-shell-header",
+    "application-shell-main"
+  ],
+  "behaviorOwner": {
+    "kind": "package-managed",
+    "owner": "@enosta/en-ui",
+    "capabilities": [
+      "main-landmark",
+      "skip-link",
+      "mobile-navigation-dialog",
+      "escape-dismissal",
+      "focus-restoration",
+      "desktop-sidebar-collapse"
+    ]
+  },
+  "anatomy": {
+    "structure": "<ApplicationShell navigation={...} header={...}>Page content</ApplicationShell>",
+    "parts": [
+      { "part": "application-shell", "description": "Full-height application layout boundary." },
+      {
+        "part": "application-shell-skip-link",
+        "description": "Keyboard shortcut to the main content."
+      },
+      {
+        "part": "application-shell-sidebar",
+        "description": "Desktop rail and mobile navigation dialog."
+      },
+      { "part": "application-shell-backdrop", "description": "Mobile dismissal surface." },
+      { "part": "application-shell-workspace", "description": "Header and main-content column." },
+      { "part": "application-shell-header", "description": "Application header slot." },
+      { "part": "application-shell-main", "description": "Single application main landmark." }
+    ]
+  },
+  "slots": [
+    { "name": "navigation", "required": true, "description": "Sidebar navigation content." },
+    { "name": "header", "required": true, "description": "ApplicationHeader content." },
+    {
+      "name": "children",
+      "required": true,
+      "description": "Page content inside the main landmark."
+    }
+  ],
+  "props": [
+    { "name": "navigation", "kind": "node", "description": "Sidebar navigation content." },
+    { "name": "header", "kind": "node", "description": "ApplicationHeader content." },
+    {
+      "name": "defaultSidebarCollapsed",
+      "kind": "boolean",
+      "description": "Initial desktop sidebar rail state.",
+      "default": false
+    },
+    {
+      "name": "navigationLabel",
+      "kind": "string",
+      "description": "Accessible name for the mobile navigation dialog.",
+      "default": "Application navigation"
+    },
+    {
+      "name": "skipLinkLabel",
+      "kind": "string",
+      "description": "Visible label for the keyboard skip link.",
+      "default": "Skip to content"
+    }
+  ],
+  "states": ["desktop", "desktop-collapsed", "mobile-closed", "mobile-open"],
+  "requiredStories": ["Default", "Collapsed", "MobileNavigation"],
+  "requiredTests": [
+    "main-landmark",
+    "skip-link",
+    "mobile-toggle",
+    "sidebar-collapse",
+    "escape-focus"
+  ],
+  "tokens": {
+    "required": [
+      "color.canvas",
+      "color.container",
+      "color.neutral.200",
+      "color.neutral.900",
+      "focus.ring.color",
+      "font.family.sans",
+      "radius.control",
+      "shadow.overlay",
+      "shadow.none",
+      "space.sm",
+      "space.md"
+    ]
+  },
+  "componentVariables": {
+    "customizable": ["--application-shell-sidebar-width", "--application-shell-rail-width"],
+    "protected": []
+  },
+  "rules": [
+    "component.application-shell.single-main",
+    "component.application-shell.mobile-focus",
+    "component.application-shell.primary-navigation"
+  ],
+  "migration": {
+    "introducedIn": "0.4.0",
+    "classification": "compatible",
+    "notes": "Adds the responsive application shell and navigation state owner."
+  }
+}

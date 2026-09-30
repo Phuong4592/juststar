@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "evolutionId": "tailwind-token-mapping",
+  "type": "token-taxonomy",
+  "scope": "catalog-wide",
+  "summary": "Introduce a Tailwind CSS v4 semantic mapping layer and tailwind-variants implementation pattern while preserving En UI CSS variables, public APIs, visuals, behavior, and accessibility.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "impact": {
+    "accessibilityContract": "none",
+    "behaviorContract": "none",
+    "maturity": "none",
+    "placement": "none",
+    "publicApi": "none",
+    "tokenContract": "additive"
+  },
+  "compatibility": "compatible",
+  "impactMap": {
+    "components": ["Prove Button, Field/Input, and Alert before any later catalog migration."],
+    "consumers": [
+      "Consumers continue importing one compiled @enosta/en-ui stylesheet and do not install Tailwind."
+    ],
+    "contracts": [
+      "Record component styling variables and generated variant metadata without changing consumer-facing React contracts."
+    ],
+    "documentation": [
+      "Document the hybrid CSS-variable, Tailwind v4, and tailwind-variants authoring model for maintainers and AI agents."
+    ],
+    "foundations": [
+      "Map existing semantic CSS variables into Tailwind CSS v4 theme utilities; CSS variables remain the customization authority."
+    ],
+    "patterns": [
+      "Keep current compositions and interaction behavior unchanged while validating the new styling implementation pattern."
+    ],
+    "screenshots": [
+      "Use Storybook builds and existing stories to review visual parity for the vertical slice."
+    ]
+  },
+  "releaseClassification": "minor",
+  "decisionRefs": [".design-system/decisions/001-standalone-extraction.md"],
+  "targetRuleIds": [
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "component.colocation",
+    "package.single-boundary"
+  ],
+  "verticalSlice": {
+    "name": "Core action and form feedback",
+    "workflow": "Enter a labelled value, submit an action, and receive persistent feedback through Button, Field/Input, and Alert.",
+    "evidence": "Existing component tests, required Storybook stories, contract checks, package archive smoke tests, and live Storybook startup.",
+    "review": {
+      "approved": true,
+      "by": "User",
+      "date": "2026-08-24"
+    }
+  },
+  "migration": null,
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-24"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "id": "component.dialog",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/dialog/README.md",
+  "exports": [
+    "dialogVariants",
+    "Dialog",
+    "DialogCreateHandle",
+    "DialogPortal",
+    "DialogTrigger",
+    "DialogClose",
+    "DialogBackdrop",
+    "DialogViewport",
+    "DialogPopupProps",
+    "DialogPopup",
+    "DialogHeader",
+    "DialogFooterProps",
+    "DialogFooter",
+    "DialogTitle",
+    "DialogDescription",
+    "DialogPanelProps",
+    "DialogPanel",
+    "DialogOverlay",
+    "DialogContent"
+  ],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics", "keyboard-interaction"]
+  },
+  "anatomy": {
+    "structure": "<Dialog><DialogTrigger /><DialogPopup><DialogHeader><DialogTitle /><DialogDescription /></DialogHeader><DialogPanel /><DialogFooter /></DialogPopup></Dialog>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Component content where supported."
+    }
+  ],
+  "props": [
+    {
+      "name": "showCloseButton",
+      "kind": "boolean",
+      "description": "Renders a ghost icon close button in the popup's top corner.",
+      "default": true
+    },
+    {
+      "name": "bottomStickOnMobile",
+      "kind": "boolean",
+      "description": "Anchors the popup to the viewport bottom on small screens with a slide-up transition.",
+      "default": true
+    },
+    {
+      "name": "variant",
+      "kind": "enum",
+      "description": "DialogFooter treatment. default renders a separated footer surface; bare renders actions without separation.",
+      "values": ["default", "bare"],
+      "default": "default"
+    },
+    {
+      "name": "scrollFade",
+      "kind": "boolean",
+      "description": "DialogPanel scroll fade effect on overflowing content.",
+      "default": true
+    }
+  ],
+  "states": ["default"],
+  "requiredStories": ["Overview", "Basic"],
+  "requiredTests": ["renders", "class-name", "footer-variant", "close-button"],
+  "tokens": {
+    "required": [
+      "color.neutral.200",
+      "color.neutral.50",
+      "color.neutral.500",
+      "color.neutral.900",
+      "color.on.surface",
+      "color.surface",
+      "radius.none",
+      "radius.overlay",
+      "shadow.hairline",
+      "shadow.overlay",
+      "space.3xl",
+      "space.4xl",
+      "space.md",
+      "space.sm",
+      "space.xl",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": ["--nested-dialogs"]
+  },
+  "rules": ["component.dialog.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Styles mapped to En UI theme variables."
+  }
+}

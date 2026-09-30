@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "changeId": "separate-visual-checks",
+  "evidence": {
+    "implementation": [
+      "package.json keeps deterministic Playwright checks in design:layout and exposes visual:check plus visual:update for screenshot baselines",
+      "tests/visual/snapshots.visual.spec.ts owns all 15 @visual screenshot comparisons while the existing browser specs retain accessibility, contrast, responsive geometry, overflow, target-size, and interaction assertions",
+      ".github/workflows/visual-review.yml runs the opt-in screenshot review in a pinned Playwright 1.48.2 container and remains advisory"
+    ],
+    "docs": [
+      "README.md and docs/ai-composition.md distinguish blocking deterministic checks from explicit pixel review",
+      "AGENTS.md and the packaged en-ui-visual-audit skill direct AI agents to visual:check and require human approval before visual:update"
+    ],
+    "tests": [
+      "pnpm design:layout passed 16 deterministic browser tests without screenshot comparisons",
+      "pnpm visual:check passed all 15 approved screenshot baselines",
+      "pnpm check passed contract validation, formatting, lint, type checking, 75 unit tests, deterministic design checks, library build, Storybook build, documentation build, Pages assembly, and package archive verification"
+    ]
+  },
+  "checks": [
+    { "command": "pnpm check", "status": "passed" },
+    { "command": "pnpm test", "status": "passed" },
+    { "command": "pnpm typecheck", "status": "passed" },
+    { "command": "pnpm build", "status": "passed" },
+    { "command": "pnpm dev", "status": "passed" },
+    { "command": "pnpm design:layout", "status": "passed" },
+    { "command": "pnpm visual:check", "status": "passed" }
+  ],
+  "migration": [],
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  }
+}

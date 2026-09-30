@@ -1,0 +1,144 @@
+{
+  "id": "component.ai-chat-page",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": { "previousStatus": "planned", "since": "0.4.0" },
+  "documentation": "src/patterns/ai-chat-page/README.md",
+  "exports": ["AIChatPageProps", "AIChatPage"],
+  "publicParts": [
+    "ai-chat-page",
+    "ai-chat-page-header",
+    "ai-chat-page-messages",
+    "ai-chat-page-empty",
+    "ai-chat-page-status",
+    "ai-chat-page-suggestions",
+    "ai-chat-page-composer"
+  ],
+  "behaviorOwner": {
+    "kind": "package-managed",
+    "owner": "@enosta/en-ui",
+    "capabilities": [
+      "page-heading",
+      "conversation-log",
+      "keyboard-scrollable-log",
+      "bounded-announcements",
+      "sticky-composer",
+      "empty-conversation"
+    ]
+  },
+  "anatomy": {
+    "structure": "<AIChatPage title={...} messages={...} status={...} suggestions={...} composer={...} />",
+    "parts": [
+      {
+        "part": "ai-chat-page",
+        "description": "Bounded page region for a full conversation workflow."
+      },
+      { "part": "ai-chat-page-header", "description": "Conversation title, context, and actions." },
+      {
+        "part": "ai-chat-page-messages",
+        "description": "Conversation log inside the pattern-owned vertical scroll region."
+      },
+      {
+        "part": "ai-chat-page-empty",
+        "description": "Recovery and prompt-starting content before messages exist."
+      },
+      {
+        "part": "ai-chat-page-status",
+        "description": "Concise polite announcement for generation state."
+      },
+      {
+        "part": "ai-chat-page-suggestions",
+        "description": "Optional prompt starters near the composer."
+      },
+      {
+        "part": "ai-chat-page-composer",
+        "description": "Consumer-owned prompt composer kept visible at the bottom of the chat panel."
+      }
+    ]
+  },
+  "slots": [
+    { "name": "title", "required": true, "description": "Single h1 conversation heading." },
+    { "name": "description", "required": false, "description": "Conversation context." },
+    { "name": "actions", "required": false, "description": "Thread-level actions." },
+    { "name": "messages", "required": false, "description": "Consumer-rendered message sequence." },
+    {
+      "name": "emptyState",
+      "required": false,
+      "description": "Content shown before messages exist."
+    },
+    {
+      "name": "status",
+      "required": false,
+      "description": "Concise generation or tool status announcement."
+    },
+    { "name": "suggestions", "required": false, "description": "Prompt starter controls." },
+    {
+      "name": "composer",
+      "required": true,
+      "description": "Consumer-owned prompt composer pinned to the chat-panel bottom."
+    }
+  ],
+  "props": [
+    { "name": "title", "kind": "node", "description": "Single h1 conversation heading." },
+    {
+      "name": "composer",
+      "kind": "node",
+      "description": "Consumer-owned prompt composer pinned to the chat-panel bottom."
+    },
+    {
+      "name": "messagesLabel",
+      "kind": "string",
+      "description": "Accessible name for the focusable conversation scroll region.",
+      "default": "Conversation history"
+    },
+    {
+      "name": "busy",
+      "kind": "boolean",
+      "description": "Marks the conversation log as generating.",
+      "default": false
+    }
+  ],
+  "states": ["empty", "ready", "streaming", "tool-status", "error", "long-content"],
+  "requiredStories": ["Empty", "Conversation", "Streaming"],
+  "requiredTests": [
+    "page-heading",
+    "conversation-log",
+    "bounded-status",
+    "busy-state",
+    "empty-state",
+    "panel-bottom-composer",
+    "keyboard-scrollable-log"
+  ],
+  "tokens": {
+    "required": [
+      "color.canvas",
+      "color.container",
+      "color.neutral.200",
+      "color.neutral.600",
+      "color.neutral.900",
+      "focus.ring.color",
+      "shadow.raised",
+      "space.sm",
+      "space.md",
+      "space.lg",
+      "space.xl",
+      "space.2xl"
+    ]
+  },
+  "componentVariables": {
+    "customizable": ["--ai-chat-page-height", "--ai-chat-page-measure"],
+    "protected": []
+  },
+  "rules": [
+    "pattern.ai-chat-page.single-heading",
+    "pattern.ai-chat-page.consumer-owned-messages",
+    "pattern.ai-chat-page.bounded-announcements",
+    "pattern.ai-chat-page.panel-bottom-composer",
+    "pattern.ai-chat-page.keyboard-scrollable-log"
+  ],
+  "migration": {
+    "introducedIn": "0.4.0",
+    "classification": "compatible",
+    "notes": "Adds a provider-neutral full-page AI conversation pattern."
+  }
+}

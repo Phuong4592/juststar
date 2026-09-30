@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "changeId": "minor-ui-release-fixes",
+  "category": "tooling",
+  "summary": "Correct documentation-site button foreground colors, keep Alert Dialog stories closed until viewers trigger them, and apply the queued minor release version.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "impact": {
+    "accessibilityContract": "none",
+    "behaviorContract": "none",
+    "publicApi": "none",
+    "tokenContract": "none",
+    "consumerMigrationRequired": false
+  },
+  "contractImpact": "No component, token, behavior, or accessibility contract changes. The fixes affect repository documentation styling, Storybook presentation defaults, and release metadata only.",
+  "sourceEdits": ["docs/site/src", "src/components/alert-dialog/alert-dialog.stories.tsx"],
+  "consumerEdits": [],
+  "requestedMaturity": null,
+  "targetRuleIds": ["package.single-boundary", "visual.wcag-aa-contrast"],
+  "requiredEvidence": ["docs", "implementation", "tests"],
+  "commands": {
+    "check": "pnpm check",
+    "test": "pnpm test",
+    "typecheck": "pnpm typecheck",
+    "build": "pnpm build",
+    "storybook": "pnpm dev"
+  },
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  }
+}

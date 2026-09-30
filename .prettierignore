@@ -1,0 +1,6 @@
+dist
+storybook-static
+site-static
+pages-static
+coverage
+pnpm-lock.yaml

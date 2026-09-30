@@ -1,0 +1,67 @@
+{
+  "id": "component.field",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/field/README.md",
+  "exports": [
+    "Field",
+    "FieldLabel",
+    "FieldItem",
+    "FieldDescription",
+    "FieldError",
+    "FieldControl",
+    "FieldValidity",
+    "FieldProps",
+    "fieldVariants"
+  ],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics"]
+  },
+  "anatomy": {
+    "structure": "<Field><FieldLabel /><FieldControl /><FieldDescription /><FieldError /></Field>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Field label, control, description, error, or validity content."
+    }
+  ],
+  "props": [],
+  "states": ["default", "disabled", "invalid", "valid"],
+  "requiredStories": ["Overview", "Basic", "Required", "Disabled", "Invalid", "Validity", "Item"],
+  "requiredTests": [
+    "renders",
+    "class-name",
+    "label-association",
+    "invalid",
+    "disabled",
+    "validity"
+  ],
+  "tokens": {
+    "required": ["color.error.600", "color.neutral.500", "color.neutral.900", "space.md"]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": []
+  },
+  "rules": ["component.field.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Styles mapped to En UI theme variables."
+  }
+}

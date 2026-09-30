@@ -1,0 +1,113 @@
+{
+  "id": "component.alert",
+  "family": "en-ui",
+  "status": "experimental",
+  "maturity": {
+    "previousStatus": "planned",
+    "since": "1.1.0"
+  },
+  "documentation": "src/components/alert/README.md",
+  "exports": [
+    "alertVariants",
+    "AlertProps",
+    "Alert",
+    "AlertTitle",
+    "AlertDescription",
+    "AlertAction"
+  ],
+  "publicParts": ["root", "title", "description", "action"],
+  "behaviorOwner": {
+    "kind": "native",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["content-rendering"]
+  },
+  "anatomy": {
+    "structure": "<Alert><AlertTitle>Title</AlertTitle><AlertDescription>Description</AlertDescription></Alert>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Callout grid container with the alert role and the variant color scheme; adapts columns when a leading icon or AlertAction is present."
+      },
+      {
+        "part": "title",
+        "description": "Short heading for the alert message."
+      },
+      {
+        "part": "description",
+        "description": "Supporting body text below the title."
+      },
+      {
+        "part": "action",
+        "description": "Container for action buttons pinned to the end and vertically centered on larger screens, below the text column on small screens."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Alert content: title, description, an optional leading icon, and optional actions."
+    }
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "kind": "enum",
+      "description": "Semantic color scheme rendered with the matching tinted token pair.",
+      "values": ["default", "info", "success", "warning", "error"],
+      "default": "default"
+    }
+  ],
+  "states": ["default"],
+  "requiredStories": [
+    "Overview",
+    "Basic",
+    "Info",
+    "Success",
+    "Warning",
+    "Error",
+    "WithIcon",
+    "WithActions"
+  ],
+  "requiredTests": ["renders-content", "variants", "class-name"],
+  "tokens": {
+    "required": [
+      "color.error.200",
+      "color.error.25",
+      "color.error.800",
+      "color.error.900",
+      "color.info.200",
+      "color.info.25",
+      "color.info.800",
+      "color.info.900",
+      "color.neutral.200",
+      "color.neutral.600",
+      "color.neutral.900",
+      "color.success.200",
+      "color.success.25",
+      "color.success.800",
+      "color.success.900",
+      "color.surface",
+      "color.warning.200",
+      "color.warning.25",
+      "color.warning.800",
+      "color.warning.900",
+      "radius.surface",
+      "space.3xl",
+      "space.lg",
+      "space.md",
+      "space.sm",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": []
+  },
+  "rules": ["component.alert.preserve-semantics", "component.colocation"],
+  "migration": {
+    "introducedIn": "1.1.0",
+    "classification": "compatible",
+    "notes": "Introduces Alert."
+  }
+}

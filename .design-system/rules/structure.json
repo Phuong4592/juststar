@@ -1,0 +1,10 @@
+{
+  "component.colocation": {
+    "severity": "error",
+    "requirement": "Every public component colocates implementation, tests, stories, contract, documentation, and export. Component CSS is optional and reserved for styles that cannot be expressed safely with Tailwind CSS."
+  },
+  "package.single-boundary": {
+    "severity": "error",
+    "requirement": "The repository publishes one package named @enosta/en-ui."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "evolutionId": "dense-composition-anti-slop",
+  "type": "modes-density",
+  "scope": "focused",
+  "summary": "Tune En UI application compositions toward comfortable operational density and add a complete anti-slop prevention catalog for generated interfaces without shrinking readable type, controls, focus treatment, or narrow-screen gutters.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "impact": {
+    "accessibilityContract": "additive",
+    "behaviorContract": "none",
+    "maturity": "none",
+    "placement": "none",
+    "publicApi": "additive",
+    "tokenContract": "none"
+  },
+  "compatibility": "compatible",
+  "impactMap": {
+    "components": [
+      "Add optional comfortable and compact composition density to PageSection and SplitLayout while reusing PageContainer's existing gutter choices and preserving current public behavior."
+    ],
+    "consumers": [
+      "Ship the complete anti-slop catalog with the en-ui-consumer skill and require it for generated pages and material visual reviews.",
+      "Extend deterministic consumer checks only for high-confidence source patterns; keep layout defects in rendered validation and contextual judgments in human review."
+    ],
+    "contracts": [
+      "Add approved density declarations for PageSection and SplitLayout while retaining all existing variants and anatomy."
+    ],
+    "documentation": [
+      "Document comfortable-density values, surface-flattening rules, anti-slop exceptions, enforcement tiers, and the Impeccable source-version discrepancy."
+    ],
+    "foundations": [
+      "Reuse the existing tight, related, section, and page spacing roles; add no raw spacing, type, color, radius, or shadow values."
+    ],
+    "patterns": [
+      "Use Service Operations and AI Release Review as the representative slice: reduce repeated page gaps, flatten unnecessary surfaces, remove routine eyebrow labels and side-tab accents, and keep the primary work visible early."
+    ],
+    "screenshots": [
+      "Capture candidate narrow, medium, and wide screenshots for the two representative stories; do not update visual baselines without explicit human approval."
+    ]
+  },
+  "releaseClassification": "minor",
+  "decisionRefs": [
+    ".design-system/changes/dense-data-foundations/evolution.json",
+    ".design-system/changes/application-ai-workspace-patterns/evolution.json",
+    ".design-system/changes/visual-quality-redesign/evolution.json"
+  ],
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "visual.wcag-aa-contrast",
+    "visual.wcag-aaa-report",
+    "visual.composition-spacing",
+    "visual.responsive-geometry",
+    "visual.baseline-review",
+    "visual.typography-density",
+    "visual.elevation-hierarchy",
+    "visual.interaction-state-contrast"
+  ],
+  "verticalSlice": {
+    "name": "Comfortably dense operational and AI workspaces",
+    "workflow": "Triage incidents and release findings with realistic data while scanning the primary queue, supporting status, parallel AI conversation, and artifact preview at narrow, medium, and wide widths.",
+    "evidence": "Updated Storybook examples, source guardrails, accessibility checks, narrow/medium/wide screenshots, first-viewport review, overflow checks, and explicit human visual approval before any baseline or guarded contract change.",
+    "review": {
+      "approved": true,
+      "by": "User",
+      "date": "2026-08-31"
+    }
+  },
+  "migration": null,
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-31"
+  }
+}

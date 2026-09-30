@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "changeId": "minor-ui-release-fixes",
+  "evidence": {
+    "implementation": [
+      "docs/site/src/site.css makes button-styled anchors consume --en-button-foreground outside the Tailwind cascade layer",
+      "src/components/alert-dialog/alert-dialog.stories.tsx keeps Controlled and Protected Dismissal closed until the viewer activates their trigger",
+      "Changesets applied the queued minor release and updated @enosta/en-ui from 0.1.0 to 0.2.0",
+      "Version-facing documentation, aggregate contract metadata, and package verification now follow the 0.2.0 release"
+    ],
+    "docs": [
+      "The landing page and documentation header display 0.2.0",
+      "COMPONENTS.md, docs/maturity.md, llms.txt, and CHANGELOG.md describe the 0.2.0 catalog and release"
+    ],
+    "tests": [
+      "tests/visual/documentation-and-storybook.spec.ts protects primary-link contrast and viewer-triggered Alert Dialog stories",
+      "pnpm check passed 75 unit tests and 22 visual/browser tests",
+      "Library build, Storybook build, documentation-site build, Pages assembly, package archive inspection, clean install, and consumer smoke test passed"
+    ]
+  },
+  "checks": [
+    { "command": "pnpm check", "status": "passed" },
+    { "command": "pnpm test", "status": "passed" },
+    { "command": "pnpm typecheck", "status": "passed" },
+    { "command": "pnpm build", "status": "passed" },
+    { "command": "pnpm dev", "status": "passed" }
+  ],
+  "migration": [],
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  }
+}

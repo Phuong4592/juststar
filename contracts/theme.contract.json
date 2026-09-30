@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 2,
+  "standard": "WCAG 2.2",
+  "requiredConformance": "AA",
+  "advisoryConformance": "AAA",
+  "targetSizes": {
+    "requiredAA": 24,
+    "advisoryAAA": 44
+  },
+  "fontFamilies": {
+    "primary": {
+      "token": "--font-family-sans",
+      "family": "Nunito Variable",
+      "usage": "All interface copy, headings, labels, and prose."
+    },
+    "technical": {
+      "token": "--font-family-mono",
+      "family": "Geist Mono Variable",
+      "usage": "Code, commands, file paths, hashes, serialized values, and other machine-oriented text only."
+    }
+  },
+  "typographyRoles": {
+    "caption": {
+      "fontSize": { "token": "--font-size-caption", "expected": "12px" },
+      "lineHeight": { "token": "--line-height-caption", "expected": "16px" },
+      "fontWeight": { "token": "--font-weight-regular", "expected": "400" }
+    },
+    "body-small": {
+      "fontSize": { "token": "--font-size-body-small", "expected": "13px" },
+      "lineHeight": { "token": "--line-height-body-small", "expected": "20px" },
+      "fontWeight": { "token": "--font-weight-regular", "expected": "400" }
+    },
+    "body": {
+      "fontSize": { "token": "--font-size-body", "expected": "14px" },
+      "lineHeight": { "token": "--line-height-body", "expected": "21px" },
+      "fontWeight": { "token": "--font-weight-regular", "expected": "400" }
+    },
+    "body-large": {
+      "fontSize": { "token": "--font-size-body-large", "expected": "16px" },
+      "lineHeight": { "token": "--line-height-body-large", "expected": "24px" },
+      "fontWeight": { "token": "--font-weight-regular", "expected": "400" }
+    },
+    "heading-small": {
+      "fontSize": { "token": "--font-size-heading-small", "expected": "16px" },
+      "lineHeight": { "token": "--line-height-heading-small", "expected": "22px" },
+      "fontWeight": { "token": "--font-weight-emphasis", "expected": "600" }
+    },
+    "heading-medium": {
+      "fontSize": { "token": "--font-size-heading-medium", "expected": "20px" },
+      "lineHeight": { "token": "--line-height-heading-medium", "expected": "28px" },
+      "fontWeight": { "token": "--font-weight-emphasis", "expected": "600" }
+    },
+    "heading-large": {
+      "fontSize": { "token": "--font-size-heading-large", "expected": "28px" },
+      "lineHeight": { "token": "--line-height-heading-large", "expected": "36px" },
+      "fontWeight": { "token": "--font-weight-emphasis", "expected": "600" }
+    },
+    "display": {
+      "fontSize": { "token": "--font-size-display", "expected": "36px" },
+      "lineHeight": { "token": "--line-height-display", "expected": "44px" },
+      "fontWeight": { "token": "--font-weight-strong", "expected": "700" }
+    }
+  },
+  "contrastPairs": [
+    {
+      "id": "on-surface-surface",
+      "foreground": "--color-on-surface",
+      "background": "--color-surface",
+      "usage": "normal-text"
+    },
+    {
+      "id": "on-brand-brand",
+      "foreground": "--color-on-brand",
+      "background": "--color-bg-brand",
+      "usage": "normal-text",
+      "note": "Button solid."
+    },
+    {
+      "id": "on-brand-brand-hover",
+      "foreground": "--color-on-brand",
+      "background": "--color-brand-600",
+      "usage": "normal-text",
+      "note": "Button solid hover."
+    },
+    {
+      "id": "on-brand-brand-active",
+      "foreground": "--color-on-brand",
+      "background": "--color-brand-700",
+      "usage": "normal-text",
+      "note": "Button solid active."
+    },
+    {
+      "id": "brand-surface",
+      "foreground": "--color-bg-brand",
+      "background": "--color-surface",
+      "usage": "normal-text",
+      "note": "Button outline text and border."
+    },
+    {
+      "id": "brand-brand-50",
+      "foreground": "--color-bg-brand",
+      "background": "--color-brand-50",
+      "usage": "normal-text",
+      "note": "Button outline hover."
+    },
+    {
+      "id": "brand-700-brand-100",
+      "foreground": "--color-brand-700",
+      "background": "--color-brand-100",
+      "usage": "normal-text",
+      "note": "Button filled."
+    },
+    {
+      "id": "brand-700-brand-200",
+      "foreground": "--color-brand-700",
+      "background": "--color-brand-200",
+      "usage": "normal-text",
+      "note": "Button filled hover."
+    },
+    {
+      "id": "brand-700-brand-300",
+      "foreground": "--color-brand-700",
+      "background": "--color-brand-300",
+      "usage": "normal-text",
+      "note": "Button filled active."
+    },
+    {
+      "id": "on-surface-neutral-100",
+      "foreground": "--color-on-surface",
+      "background": "--color-neutral-100",
+      "usage": "normal-text",
+      "note": "Button ghost hover."
+    },
+    {
+      "id": "on-error-error",
+      "foreground": "--color-on-error",
+      "background": "--color-bg-error",
+      "usage": "normal-text",
+      "note": "Button danger."
+    },
+    {
+      "id": "on-error-error-700",
+      "foreground": "--color-on-error",
+      "background": "--color-error-700",
+      "usage": "normal-text",
+      "note": "Button danger hover."
+    },
+    {
+      "id": "on-error-error-800",
+      "foreground": "--color-on-error",
+      "background": "--color-error-800",
+      "usage": "normal-text",
+      "note": "Button danger active."
+    },
+    {
+      "id": "error-700-error-100",
+      "foreground": "--color-error-700",
+      "background": "--color-error-100",
+      "usage": "normal-text",
+      "note": "Button danger-soft."
+    },
+    {
+      "id": "error-700-error-200",
+      "foreground": "--color-error-700",
+      "background": "--color-error-200",
+      "usage": "normal-text",
+      "note": "Button danger-soft hover."
+    },
+    {
+      "id": "error-700-error-300",
+      "foreground": "--color-error-700",
+      "background": "--color-error-300",
+      "usage": "normal-text",
+      "note": "Button danger-soft active sits below AA until the error ramp is tuned.",
+      "blocking": false
+    },
+    {
+      "id": "on-accent-accent",
+      "foreground": "--color-on-accent",
+      "background": "--color-bg-accent",
+      "usage": "normal-text"
+    },
+    {
+      "id": "on-warning-warning",
+      "foreground": "--color-on-warning",
+      "background": "--color-bg-warning",
+      "usage": "normal-text"
+    },
+    {
+      "id": "on-success-success",
+      "foreground": "--color-on-success",
+      "background": "--color-bg-success",
+      "usage": "normal-text"
+    },
+    {
+      "id": "on-info-info",
+      "foreground": "--color-on-info",
+      "background": "--color-bg-info",
+      "usage": "normal-text"
+    },
+    {
+      "id": "focus-ring-surface",
+      "foreground": "--focus-ring-color",
+      "background": "--color-surface",
+      "usage": "non-text",
+      "note": "Focus ring sits below the 3:1 non-text minimum until the ring color is tuned.",
+      "blocking": false
+    }
+  ],
+  "shadowRoles": [
+    "--shadow-none",
+    "--shadow-surface",
+    "--shadow-raised",
+    "--shadow-overlay",
+    "--shadow-modal"
+  ],
+  "controlHeightRoles": {
+    "compact": { "token": "--height-control-sm", "expected": "28px" },
+    "comfortable": { "token": "--height-control-md", "expected": "32px" },
+    "spacious": { "token": "--height-control-lg", "expected": "36px" }
+  },
+  "spacingScale": {
+    "--space-2xs": "2px",
+    "--space-xs": "4px",
+    "--space-sm": "6px",
+    "--space-md": "8px",
+    "--space-lg": "10px",
+    "--space-xl": "12px",
+    "--space-2xl": "14px",
+    "--space-3xl": "16px",
+    "--space-4xl": "20px",
+    "--space-5xl": "24px",
+    "--space-6xl": "32px"
+  },
+  "fontSizes": {
+    "--font-size-display-2xl": "96px",
+    "--font-size-display-xl": "72px",
+    "--font-size-display-lg": "56px",
+    "--font-size-display-md": "48px",
+    "--font-size-display-sm": "40px",
+    "--font-size-heading-1": "32px",
+    "--font-size-heading-2": "28px",
+    "--font-size-heading-3": "24px",
+    "--font-size-heading-4": "20px",
+    "--font-size-heading-5": "16px",
+    "--font-size-heading-6": "14px",
+    "--font-size-body-xl": "20px",
+    "--font-size-body-lg": "18px",
+    "--font-size-body-md": "16px",
+    "--font-size-body-sm": "14px",
+    "--font-size-body-xs": "12px",
+    "--font-size-label-lg": "16px",
+    "--font-size-label-md": "14px",
+    "--font-size-label-sm": "12px",
+    "--font-size-mono-display": "24px",
+    "--font-size-mono-lg": "18px",
+    "--font-size-mono-md": "16px",
+    "--font-size-mono-sm": "14px",
+    "--font-size-mono-xs": "12px",
+    "--font-size-mono-2xs": "10px",
+    "--font-size-mono-caps": "12px",
+    "--font-size-mono-caps-xs": "10px",
+    "--font-size-eyebrow-lg": "13px",
+    "--font-size-eyebrow-md": "11px"
+  },
+  "lineHeights": {
+    "--line-height-none": "1",
+    "--line-height-display-2xl": "96px",
+    "--line-height-display-xl": "76px",
+    "--line-height-display-lg": "60px",
+    "--line-height-display-md": "53px",
+    "--line-height-display-sm": "46px",
+    "--line-height-heading-1": "38px",
+    "--line-height-heading-2": "34px",
+    "--line-height-heading-3": "29px",
+    "--line-height-heading-4": "25px",
+    "--line-height-heading-5": "21px",
+    "--line-height-heading-6": "18px",
+    "--line-height-body-xl": "32px",
+    "--line-height-body-lg": "28px",
+    "--line-height-body-md": "24px",
+    "--line-height-body-sm": "20px",
+    "--line-height-body-xs": "17px",
+    "--line-height-label-lg": "19px",
+    "--line-height-label-md": "17px",
+    "--line-height-label-sm": "14px",
+    "--line-height-mono-display": "31px",
+    "--line-height-mono-lg": "27px",
+    "--line-height-mono-md": "24px",
+    "--line-height-mono-sm": "21px",
+    "--line-height-mono-xs": "16px",
+    "--line-height-mono-2xs": "14px",
+    "--line-height-mono-caps": "14px",
+    "--line-height-mono-caps-xs": "12px",
+    "--line-height-eyebrow-lg": "16px",
+    "--line-height-eyebrow-md": "13px"
+  },
+  "fontWeights": {
+    "--font-weight-light": "300",
+    "--font-weight-normal": "400",
+    "--font-weight-medium": "500",
+    "--font-weight-semibold": "600",
+    "--font-weight-bold": "700"
+  },
+  "letterSpacings": {
+    "--letter-spacing-display-2xl": "-1px",
+    "--letter-spacing-display-xl": "-0.8px",
+    "--letter-spacing-display-lg": "-0.5px",
+    "--letter-spacing-display-md": "-0.3px",
+    "--letter-spacing-label-sm": "0.5px",
+    "--letter-spacing-mono-caps-xs": "1.2px",
+    "--letter-spacing-mono-caps": "1.5px",
+    "--letter-spacing-eyebrow-md": "1.75px",
+    "--letter-spacing-eyebrow-lg": "2px"
+  },
+  "viewports": [
+    { "name": "mobile", "width": 375, "height": 812, "minimumGutter": 16 },
+    { "name": "tablet", "width": 768, "height": 1024, "minimumGutter": 20 },
+    { "name": "desktop", "width": 1280, "height": 900, "minimumGutter": 20 }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "changeId": "ai-composition-vertical-slice",
+  "category": "pattern",
+  "summary": "Add an experimental responsive list-page composition, accessible truncation behavior, AI-consumer instructions, and deterministic guardrail checks without expanding the stable package API.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "impact": {
+    "accessibilityContract": "additive",
+    "behaviorContract": "additive",
+    "publicApi": "none",
+    "tokenContract": "none",
+    "consumerMigrationRequired": false
+  },
+  "contractImpact": "A colocated experimental contract defines the responsive list-page pattern and truncation accessibility behavior. Stable component contracts, exports, tokens, and package behavior remain unchanged.",
+  "sourceEdits": ["src/components/experimental-list-page", "docs", ".storybook"],
+  "consumerEdits": [],
+  "requestedMaturity": null,
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard"
+  ],
+  "requiredEvidence": ["contract", "docs", "implementation", "tests"],
+  "commands": {
+    "check": "pnpm check",
+    "test": "pnpm test",
+    "typecheck": "pnpm typecheck",
+    "build": "pnpm build",
+    "storybook": "pnpm dev"
+  },
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-24"
+  }
+}

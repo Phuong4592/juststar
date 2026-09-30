@@ -1,0 +1,62 @@
+{
+  "id": "component.kbd",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/kbd/README.md",
+  "exports": ["kbdVariants", "KbdProps", "Kbd", "KbdGroupProps"],
+  "publicParts": ["root", "group"],
+  "behaviorOwner": {
+    "kind": "native",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics"]
+  },
+  "anatomy": {
+    "structure": "<Kbd.Group><Kbd>⌘</Kbd><Kbd>K</Kbd></Kbd.Group>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Native kbd element that labels a single keyboard key."
+      },
+      {
+        "part": "group",
+        "description": "Non-interactive span that joins a sequence or combination of keys."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Single key label, such as a character, key name, or modifier."
+    }
+  ],
+  "props": [],
+  "states": ["default"],
+  "requiredStories": ["Overview", "Basic", "Shortcut"],
+  "requiredTests": ["renders", "class-name", "technical-font"],
+  "tokens": {
+    "required": [
+      "color.neutral.100",
+      "color.neutral.600",
+      "font.family.mono",
+      "radius.control",
+      "space.4xl",
+      "space.xl",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": []
+  },
+  "rules": ["component.kbd.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Keyboard keys use the mono technical typography role through theme tokens."
+  }
+}

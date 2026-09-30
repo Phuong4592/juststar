@@ -1,0 +1,157 @@
+{
+  "id": "component.sidebar-navigation",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": { "previousStatus": "planned", "since": "0.4.0" },
+  "documentation": "src/components/sidebar-navigation/README.md",
+  "exports": [
+    "sidebarNavigationVariants",
+    "SidebarNavigationProps",
+    "SidebarNavigation",
+    "SidebarNavigationGroupProps",
+    "SidebarNavigationGroup",
+    "SidebarNavigationGroupLabel",
+    "SidebarNavigationList",
+    "SidebarNavigationListProps",
+    "SidebarNavigationItemProps",
+    "SidebarNavigationItem",
+    "SidebarNavigationFooter"
+  ],
+  "publicParts": [
+    "sidebar-navigation",
+    "sidebar-navigation-header",
+    "sidebar-navigation-group",
+    "sidebar-navigation-group-label",
+    "sidebar-navigation-list",
+    "sidebar-navigation-item",
+    "sidebar-navigation-footer"
+  ],
+  "behaviorOwner": {
+    "kind": "package-managed",
+    "owner": "@enosta/en-ui",
+    "capabilities": [
+      "navigation-landmark",
+      "active-page-state",
+      "collapsed-rail",
+      "disabled-item",
+      "nested-navigation",
+      "unavailable-item-reason"
+    ]
+  },
+  "anatomy": {
+    "structure": "<SidebarNavigation label=\"Primary\"><SidebarNavigationGroup><SidebarNavigationList><SidebarNavigationItem><SidebarNavigationList level=\"secondary\"><SidebarNavigationItem /></SidebarNavigationList></SidebarNavigationItem></SidebarNavigationList></SidebarNavigationGroup></SidebarNavigation>",
+    "parts": [
+      { "part": "sidebar-navigation", "description": "Labelled vertical navigation landmark." },
+      {
+        "part": "sidebar-navigation-header",
+        "description": "Optional identity or workspace content."
+      },
+      { "part": "sidebar-navigation-group", "description": "Related navigation item group." },
+      { "part": "sidebar-navigation-group-label", "description": "Visible group label." },
+      { "part": "sidebar-navigation-list", "description": "Semantic navigation item list." },
+      {
+        "part": "sidebar-navigation-item",
+        "description": "Link with icon, label, badge, active state, and optional nested destinations."
+      },
+      {
+        "part": "sidebar-navigation-footer",
+        "description": "Supporting controls at the end of navigation."
+      }
+    ]
+  },
+  "slots": [
+    { "name": "children", "required": true, "description": "Navigation groups and lists." },
+    {
+      "name": "nestedItems",
+      "required": false,
+      "description": "Secondary SidebarNavigationList rendered inside a primary item."
+    },
+    { "name": "header", "required": false, "description": "Identity or workspace content." },
+    { "name": "footer", "required": false, "description": "Supporting navigation controls." },
+    { "name": "label", "required": true, "description": "Accessible navigation landmark name." }
+  ],
+  "props": [
+    { "name": "label", "kind": "string", "description": "Accessible navigation landmark name." },
+    {
+      "name": "collapsed",
+      "kind": "boolean",
+      "description": "Overrides the shell collapsed-rail state."
+    },
+    {
+      "name": "active",
+      "kind": "boolean",
+      "description": "Marks an item as the current page.",
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "kind": "boolean",
+      "description": "Prevents item navigation.",
+      "default": false
+    },
+    {
+      "name": "disabledReason",
+      "kind": "string",
+      "description": "Explains why a disabled destination is unavailable."
+    },
+    {
+      "name": "level",
+      "kind": "enum",
+      "description": "Primary or nested secondary list geometry.",
+      "values": ["primary", "secondary"],
+      "default": "primary"
+    }
+  ],
+  "states": [
+    "default",
+    "active",
+    "hover",
+    "focus-visible",
+    "disabled",
+    "unavailable-reason",
+    "nested",
+    "collapsed"
+  ],
+  "requiredStories": ["Default", "Collapsed", "States", "TwoLevel"],
+  "requiredTests": [
+    "navigation-landmark",
+    "active-page",
+    "disabled-item",
+    "disabled-reason",
+    "nested-navigation",
+    "collapsed-labels"
+  ],
+  "tokens": {
+    "required": [
+      "color.brand.50",
+      "color.brand.700",
+      "color.container",
+      "color.neutral.50",
+      "color.neutral.200",
+      "color.neutral.500",
+      "color.neutral.600",
+      "color.neutral.900",
+      "height.control.md",
+      "height.control.sm",
+      "focus.ring.color",
+      "radius.control",
+      "space.xs",
+      "space.sm",
+      "space.md",
+      "space.lg",
+      "space.3xl"
+    ]
+  },
+  "rules": [
+    "component.sidebar-navigation.current-page",
+    "component.sidebar-navigation.collapsed-accessible-name",
+    "component.sidebar-navigation.disabled-navigation",
+    "component.sidebar-navigation.nested-list-semantics",
+    "component.sidebar-navigation.unavailable-reason"
+  ],
+  "migration": {
+    "introducedIn": "0.4.0",
+    "classification": "compatible",
+    "notes": "Adds grouped application navigation with an accessible collapsed rail, compact default geometry, semantic two-level lists, and unavailable-item guidance."
+  }
+}

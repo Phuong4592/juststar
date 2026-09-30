@@ -1,0 +1,83 @@
+{
+  "id": "component.calendar",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "planned",
+    "since": "1.4.0"
+  },
+  "documentation": "src/components/calendar/README.md",
+  "exports": ["Calendar", "CalendarProps"],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics", "keyboard-interaction"]
+  },
+  "anatomy": {
+    "structure": "<Calendar mode=\"single\" selected={date} onSelect={setDate} />",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "caption",
+      "required": true,
+      "description": "Month caption: the month label, or month and year dropdowns with captionLayout=\"dropdown\"."
+    },
+    {
+      "name": "nav",
+      "required": true,
+      "description": "Previous and next month navigation buttons rendered as icon buttons."
+    },
+    {
+      "name": "day",
+      "required": true,
+      "description": "Day cells with selected, today, outside, disabled, and range states."
+    },
+    {
+      "name": "footer",
+      "required": false,
+      "description": "Optional footer content announced by screen readers via the footer prop."
+    }
+  ],
+  "props": [],
+  "states": ["default", "selected", "today", "outside", "disabled"],
+  "requiredStories": ["Overview", "Basic", "Multiple", "Range", "DropdownNavigation"],
+  "requiredTests": ["renders", "class-name", "selection", "navigation"],
+  "tokens": {
+    "required": [
+      "color.brand.500",
+      "color.neutral.100",
+      "color.neutral.200",
+      "color.neutral.600",
+      "color.neutral.900",
+      "color.on.brand",
+      "color.surface",
+      "radius.control",
+      "radius.none",
+      "radius.pill",
+      "shadow.surface",
+      "space.3xl",
+      "space.6xl",
+      "space.md",
+      "space.sm",
+      "space.xl",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": ["--cell-size"],
+    "protected": []
+  },
+  "rules": ["component.calendar.preserve-semantics"],
+  "migration": {
+    "introducedIn": "1.4.0",
+    "classification": "compatible",
+    "notes": "Introduces Calendar built on @daypicker/react."
+  }
+}

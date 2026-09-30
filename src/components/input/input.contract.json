@@ -1,0 +1,104 @@
+{
+  "id": "component.input",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/input/README.md",
+  "exports": ["inputVariants", "InputProps", "Input"],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics", "keyboard-interaction"]
+  },
+  "anatomy": {
+    "structure": "<Input />",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "prefix",
+      "required": false,
+      "description": "Decorative content before the input. A string renders an icon, a ReactNode renders as-is."
+    },
+    {
+      "name": "suffix",
+      "required": false,
+      "description": "Decorative content after the input. A string renders an icon, a ReactNode renders as-is."
+    }
+  ],
+  "props": [
+    {
+      "name": "size",
+      "kind": "enum",
+      "description": "Control height and text size.",
+      "values": ["sm", "md", "lg"],
+      "default": "md"
+    },
+    {
+      "name": "unstyled",
+      "kind": "boolean",
+      "description": "Removes surface styling while keeping layout and the input element.",
+      "default": false
+    },
+    {
+      "name": "prefix",
+      "kind": "node",
+      "description": "Decorative content before the input. A string renders an icon."
+    },
+    {
+      "name": "suffix",
+      "kind": "node",
+      "description": "Decorative content after the input. A string renders an icon."
+    }
+  ],
+  "states": ["default", "disabled", "readonly", "invalid", "autofill"],
+  "requiredStories": [
+    "Overview",
+    "Basic",
+    "Sizes",
+    "WithAffixes",
+    "Disabled",
+    "Invalid",
+    "InputTypes",
+    "Unstyled"
+  ],
+  "requiredTests": ["renders", "class-name"],
+  "tokens": {
+    "required": [
+      "color.brand.400",
+      "color.brand.500",
+      "color.error.400",
+      "color.error.500",
+      "color.neutral.200",
+      "color.neutral.400",
+      "color.neutral.50",
+      "color.neutral.500",
+      "color.neutral.900",
+      "color.surface",
+      "radius.control",
+      "shadow.surface",
+      "space.3xl",
+      "space.6xl",
+      "space.md"
+    ]
+  },
+  "componentVariables": {
+    "customizable": ["--input-autofill-bg"],
+    "protected": []
+  },
+  "rules": ["component.input.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "breaking",
+    "notes": "Styles mapped to En UI theme variables."
+  }
+}

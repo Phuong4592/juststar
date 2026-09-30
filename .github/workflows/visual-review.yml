@@ -1,0 +1,39 @@
+name: Advisory visual review
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".storybook/**"
+      - "contracts/theme.contract.json"
+      - "src/components/**"
+      - "src/tokens/**"
+      - "tests/visual/**"
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.48.2-jammy
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm visual:check
+
+      - name: Upload visual diff evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-review-results
+          path: test-results
+          if-no-files-found: ignore

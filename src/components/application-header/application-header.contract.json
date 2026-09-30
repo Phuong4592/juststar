@@ -1,0 +1,94 @@
+{
+  "id": "component.application-header",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": { "previousStatus": "planned", "since": "0.4.0" },
+  "documentation": "src/components/application-header/README.md",
+  "exports": ["applicationHeaderVariants", "ApplicationHeaderProps", "ApplicationHeader"],
+  "publicParts": [
+    "application-header",
+    "application-header-navigation-toggle",
+    "application-header-brand",
+    "application-header-context",
+    "application-header-search",
+    "application-header-actions"
+  ],
+  "behaviorOwner": {
+    "kind": "package-managed",
+    "owner": "@enosta/en-ui",
+    "capabilities": [
+      "responsive-header-layout",
+      "mobile-navigation-trigger",
+      "sidebar-collapse-trigger"
+    ]
+  },
+  "anatomy": {
+    "structure": "<ApplicationHeader brand={...} context={...} search={...} actions={...} />",
+    "parts": [
+      { "part": "application-header", "description": "Application-level top header." },
+      {
+        "part": "application-header-navigation-toggle",
+        "description": "Shell-connected mobile navigation and desktop collapse controls."
+      },
+      { "part": "application-header-brand", "description": "Product or organization identity." },
+      {
+        "part": "application-header-context",
+        "description": "Current workspace or product context."
+      },
+      { "part": "application-header-search", "description": "Optional global search region." },
+      {
+        "part": "application-header-actions",
+        "description": "Global actions and account controls."
+      }
+    ]
+  },
+  "slots": [
+    { "name": "brand", "required": true, "description": "Product or organization identity." },
+    { "name": "context", "required": false, "description": "Current workspace context." },
+    { "name": "search", "required": false, "description": "Global search control." },
+    { "name": "actions", "required": false, "description": "Global actions and account controls." }
+  ],
+  "props": [
+    { "name": "brand", "kind": "node", "description": "Product or organization identity." },
+    {
+      "name": "sticky",
+      "kind": "boolean",
+      "description": "Keeps the header visible above scrolling page content.",
+      "default": true
+    },
+    {
+      "name": "navigationLabel",
+      "kind": "string",
+      "description": "Accessible label used by the shell navigation trigger.",
+      "default": "Navigation"
+    }
+  ],
+  "states": ["default", "sticky", "mobile", "navigation-open", "sidebar-collapsed"],
+  "requiredStories": ["Default", "WithSearch", "Responsive"],
+  "requiredTests": ["header-landmark", "navigation-trigger", "sidebar-trigger", "optional-slots"],
+  "tokens": {
+    "required": [
+      "color.container",
+      "color.neutral.200",
+      "color.neutral.600",
+      "color.neutral.900",
+      "height.control.md",
+      "focus.ring.color",
+      "radius.control",
+      "shadow.raised",
+      "space.sm",
+      "space.md",
+      "space.lg",
+      "space.3xl"
+    ]
+  },
+  "rules": [
+    "component.application-header.shell-controls",
+    "component.application-header.responsive-slots"
+  ],
+  "migration": {
+    "introducedIn": "0.4.0",
+    "classification": "compatible",
+    "notes": "Adds an application-level header connected to ApplicationShell navigation state."
+  }
+}

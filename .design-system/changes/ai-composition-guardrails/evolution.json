@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "evolutionId": "ai-composition-guardrails",
+  "type": "public-anatomy",
+  "scope": "focused",
+  "summary": "Introduce an experimental layout and list-page composition slice with AI-consumer instructions and automated checks so teams assemble En UI pages using approved components, tokens, spacing, responsive behavior, truncation, and accessibility rules.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "impact": {
+    "accessibilityContract": "additive",
+    "behaviorContract": "additive",
+    "maturity": "additive",
+    "placement": "none",
+    "publicApi": "additive",
+    "tokenContract": "none"
+  },
+  "compatibility": "compatible",
+  "impactMap": {
+    "components": [
+      "Add experimental layout primitives and TruncatedText without modifying existing stable component APIs."
+    ],
+    "consumers": [
+      "Add an opt-in AI skill and deterministic consumer checks; no migration is required."
+    ],
+    "contracts": [
+      "Add experimental layout and list-page composition contracts without changing stable component contracts."
+    ],
+    "documentation": [
+      "Document the composition-first workflow, allowed primitives, AI instructions, and guardrail diagnostics."
+    ],
+    "foundations": [
+      "Reuse current semantic spacing, color, typography, focus, mode, and density tokens; add no raw visual values."
+    ],
+    "patterns": [
+      "Prove a responsive list-page composition with PageHeader, FilterToolbar, and EmptyState."
+    ],
+    "screenshots": ["Review the list-page story at mobile, tablet, and desktop widths."]
+  },
+  "releaseClassification": "minor",
+  "decisionRefs": [".design-system/decisions/001-standalone-extraction.md"],
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard"
+  ],
+  "verticalSlice": {
+    "name": "Responsive list page",
+    "workflow": "Compose a page header, token-spaced filter toolbar, responsive results layout, accessible truncation, and empty state using En UI primitives.",
+    "evidence": "Experimental contracts, colocated tests and stories, mobile/tablet/desktop Storybook review, accessibility checks, and consumer guardrail fixtures.",
+    "review": {
+      "approved": true,
+      "by": "User",
+      "date": "2026-08-24"
+    }
+  },
+  "migration": null,
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-24"
+  }
+}

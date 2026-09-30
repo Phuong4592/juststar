@@ -1,0 +1,121 @@
+{
+  "id": "component.tabs",
+  "family": "en-ui",
+  "status": "experimental",
+  "maturity": { "previousStatus": "planned", "since": "1.1.0" },
+  "documentation": "src/components/tabs/README.md",
+  "exports": [
+    "tabsVariants",
+    "TabsProps",
+    "TabsListProps",
+    "TabsTabProps",
+    "TabsPanelProps",
+    "TabsSize",
+    "TabsVariant",
+    "Tabs",
+    "TabsList",
+    "TabsTab",
+    "TabsPanel"
+  ],
+  "publicParts": ["root", "list", "tab", "panel", "indicator"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics", "keyboard-interaction", "content-rendering"]
+  },
+  "anatomy": {
+    "structure": "<Tabs><TabsList><TabsTab /></TabsList><TabsPanel /></Tabs>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Groups the tab list and panels; owner of the tab semantics."
+      },
+      {
+        "part": "list",
+        "description": "Container for tab triggers; renders the active-tab indicator automatically."
+      },
+      {
+        "part": "tab",
+        "description": "Individual tab trigger button."
+      },
+      {
+        "part": "panel",
+        "description": "Content panel shown for the active tab."
+      },
+      {
+        "part": "indicator",
+        "description": "Animated active-tab indicator rendered internally by TabsList."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Tab triggers and panels composed inside the root."
+    }
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "kind": "enum",
+      "description": "Visual style of the tab list. underline renders a track line with a brand indicator; the track border comes from the consumer wrapper.",
+      "values": ["default", "underline"],
+      "default": "default"
+    },
+    {
+      "name": "size",
+      "kind": "enum",
+      "description": "Control size of all tab triggers. Set on TabsList and propagated through context; a single TabsTab may override it.",
+      "values": ["sm", "default", "lg"],
+      "default": "default"
+    }
+  ],
+  "states": ["default", "active", "disabled"],
+  "requiredStories": [
+    "Overview",
+    "Basic",
+    "Small",
+    "Large",
+    "Underline",
+    "Vertical",
+    "UnderlineVertical",
+    "Disabled"
+  ],
+  "requiredTests": ["renders", "class-name", "variants", "sizes", "keyboard"],
+  "tokens": {
+    "required": [
+      "color.brand.500",
+      "color.neutral.100",
+      "color.neutral.500",
+      "color.neutral.600",
+      "color.neutral.900",
+      "color.surface",
+      "radius.control",
+      "radius.surface",
+      "shadow.hairline",
+      "space.2xs",
+      "space.3xl",
+      "space.lg",
+      "space.md",
+      "space.sm",
+      "space.xl",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": [
+      "--active-tab-bottom",
+      "--active-tab-height",
+      "--active-tab-left",
+      "--active-tab-width"
+    ]
+  },
+  "rules": ["component.tabs.preserve-semantics", "component.colocation"],
+  "migration": {
+    "introducedIn": "1.1.0",
+    "classification": "compatible",
+    "notes": "Introduces Tabs."
+  }
+}

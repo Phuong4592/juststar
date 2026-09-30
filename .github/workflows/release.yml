@@ -1,0 +1,86 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: Version bump type
+        type: choice
+        required: true
+        options:
+          - patch
+          - minor
+          - major
+      title:
+        description: Release title (defaults to the version tag)
+        required: false
+      notes:
+        description: Release notes (falls back to the newest CHANGELOG section)
+        required: false
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+
+      - name: Force bump type on pending changesets
+        run: node scripts/release-bump.mjs "${{ inputs.type }}"
+
+      - name: Version
+        run: pnpm exec changeset version
+
+      - name: Commit, tag and push
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: release v${VERSION}"
+          git tag "v${VERSION}"
+          git push --atomic origin main "v${VERSION}"
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NOTES: ${{ inputs.notes }}
+          TITLE: ${{ inputs.title }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if [ -z "$NOTES" ]; then
+            NOTES=$(awk '/^## /{n++; if (n == 2) exit} n' CHANGELOG.md)
+          fi
+          gh release create "v${VERSION}" \
+            --title "${TITLE:-v${VERSION}}" \
+            --notes "$NOTES" \
+            --latest
+
+      - name: Trigger publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          gh workflow run publish.yml --ref "v${VERSION}"

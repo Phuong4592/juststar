@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "changeId": "style-maintenance-cleanup",
+  "category": "tooling",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "requestedMaturity": null,
+  "targetRuleIds": ["component.colocation", "package.single-boundary"],
+  "evidence": {
+    "docs": [
+      "AGENTS.md",
+      "DESIGN.md",
+      "README.md",
+      ".agents/skills/en-ui-component/SKILL.md",
+      ".design-system/rules/structure.json"
+    ],
+    "implementation": [
+      "Removed 17 empty component and internal CSS files; only Button, Dialog, Spinner, and Tooltip retain protected CSS",
+      "Removed migrated legacy BEM-style class names from public components, protected adapters, tests, and compiled CSS",
+      "Standardized tv() utility grouping by layout, surface, typography, interaction, and token defaults",
+      "Updated component scaffolding and verification so CSS files are optional"
+    ],
+    "tests": [
+      "pnpm check: 20 component boundaries, 52 tests, package build, Storybook build, and packed-consumer smoke test passed",
+      "pnpm dev: Storybook manager and preview started successfully on port 6006",
+      "Legacy class scan returned no BEM-style en-* matches in source or compiled CSS"
+    ]
+  },
+  "checks": [
+    {
+      "command": "pnpm check",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm test",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm build",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm dev",
+      "status": "passed"
+    }
+  ],
+  "migration": [],
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-24"
+  }
+}

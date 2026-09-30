@@ -1,0 +1,86 @@
+{
+  "id": "component.scroll-area",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/scroll-area/README.md",
+  "exports": ["scrollAreaVariants", "ScrollAreaProps", "ScrollBarProps", "ScrollArea"],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics", "keyboard-interaction"]
+  },
+  "anatomy": {
+    "structure": "<ScrollArea>Content</ScrollArea>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Root element or behavior owner for the component."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Component content where supported."
+    }
+  ],
+  "props": [
+    {
+      "name": "fill",
+      "kind": "boolean",
+      "description": "fill option for the component.",
+      "default": false
+    },
+    {
+      "name": "overscrollContain",
+      "kind": "boolean",
+      "description": "overscrollContain option for the component.",
+      "default": false
+    },
+    {
+      "name": "scrollFade",
+      "kind": "boolean",
+      "description": "scrollFade option for the component.",
+      "default": false
+    },
+    {
+      "name": "scrollbarGutter",
+      "kind": "boolean",
+      "description": "scrollbarGutter option for the component.",
+      "default": false
+    },
+    {
+      "name": "clampContentMinWidth",
+      "kind": "boolean",
+      "description": "clampContentMinWidth option for the component.",
+      "default": true
+    }
+  ],
+  "states": ["default"],
+  "requiredStories": ["Demo"],
+  "requiredTests": ["renders", "class-name"],
+  "tokens": {
+    "required": ["color.brand.500", "color.neutral.950", "radius.pill", "space.lg", "space.xs"]
+  },
+  "componentVariables": {
+    "customizable": ["--fade-size"],
+    "protected": [
+      "--scroll-area-overflow-x-end",
+      "--scroll-area-overflow-x-start",
+      "--scroll-area-overflow-y-end",
+      "--scroll-area-overflow-y-start"
+    ]
+  },
+  "rules": ["component.scroll-area.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "compatible",
+    "notes": "Styles mapped to En UI theme variables."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "changeId": "separate-visual-checks",
+  "category": "tooling",
+  "summary": "Keep deterministic browser quality checks in the default design-system gate while moving pixel screenshot comparisons and baseline updates to explicit visual-review commands.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "impact": {
+    "accessibilityContract": "none",
+    "behaviorContract": "none",
+    "publicApi": "none",
+    "tokenContract": "none",
+    "consumerMigrationRequired": false
+  },
+  "contractImpact": "No public component, token, behavior, or accessibility contract changes. Repository tooling continues to enforce WCAG 2.2 AA, contrast, responsive geometry, overflow, target sizes, and interaction behavior by default; pixel baselines become an explicit advisory review workflow.",
+  "sourceEdits": ["docs/ai-composition.md"],
+  "consumerEdits": [],
+  "requestedMaturity": null,
+  "targetRuleIds": [
+    "visual.wcag-aa-contrast",
+    "visual.wcag-aaa-report",
+    "visual.composition-spacing",
+    "visual.responsive-geometry",
+    "visual.baseline-review",
+    "visual.interaction-state-contrast"
+  ],
+  "requiredEvidence": ["docs", "implementation", "tests"],
+  "commands": {
+    "check": "pnpm check",
+    "test": "pnpm test",
+    "typecheck": "pnpm typecheck",
+    "build": "pnpm build",
+    "storybook": "pnpm dev"
+  },
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  }
+}

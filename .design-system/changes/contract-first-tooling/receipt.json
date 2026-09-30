@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "changeId": "contract-first-tooling",
+  "category": "tooling",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "requestedMaturity": null,
+  "targetRuleIds": ["component.colocation", "package.single-boundary"],
+  "evidence": {
+    "implementation": [
+      "contracts/component.schema.json",
+      "scripts/build-contract.mjs",
+      "scripts/verify-component.mjs",
+      "scripts/verify-package.mjs"
+    ],
+    "docs": ["README.md", "AGENTS.md", ".agents/skills/en-ui-component/SKILL.md"],
+    "tests": [
+      "pnpm check: 20 contract schemas, 20 components, 52 tests, library build, Storybook build, and clean packed-consumer smoke test passed"
+    ]
+  },
+  "checks": [
+    {
+      "command": "pnpm check",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm test",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm build",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm dev",
+      "status": "passed"
+    }
+  ],
+  "migration": [],
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-24"
+  }
+}

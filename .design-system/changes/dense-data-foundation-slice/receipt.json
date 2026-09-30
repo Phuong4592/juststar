@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "changeId": "dense-data-foundation-slice",
+  "category": "foundation",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "requestedMaturity": null,
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "visual.wcag-aa-contrast",
+    "visual.typography-density",
+    "visual.elevation-hierarchy",
+    "visual.interaction-state-contrast",
+    "visual.baseline-review"
+  ],
+  "evidence": {
+    "contract": [
+      "contracts/foundations.contract.json defines typography, spacing, elevation, density, and interactive contrast authority",
+      "contracts/design-system.contract.json was regenerated and verified current"
+    ],
+    "implementation": [
+      "src/tokens/tokens.css provides the dense type scale, semantic spacing roles, interaction sizes, elevation ladder, and explicit hover tokens",
+      "Button, IconButton, Checkbox, Switch, Link, and the representative roster consume the revised foundation values without breaking public props"
+    ],
+    "docs": [
+      "docs/foundations.md and README.md document package-delivered dense-data guidance",
+      "docs/site/src/docs.tsx presents typography, spacing, elevation, and density guidance in the documentation site"
+    ],
+    "stories": [
+      "src/foundations/foundations.stories.tsx exposes typography, spacing, and elevation for review",
+      "Button, IconButton, Checkbox, and Switch stories expose representative state matrices"
+    ],
+    "tests": [
+      "67 unit tests pass across 22 test files, including expanded state and keyboard coverage for Button, IconButton, Checkbox, and Switch",
+      "15 Playwright visual tests pass with a 100-pixel screenshot-difference budget"
+    ],
+    "accessibility": [
+      "Every stable Storybook story passes automated WCAG 2.2 AA scanning",
+      "Declared interactive contrast pairs pass AA; four normal-text AAA opportunities remain advisory"
+    ]
+  },
+  "checks": [
+    {
+      "command": "pnpm check",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm test",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm build",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm dev",
+      "status": "passed"
+    }
+  ],
+  "migration": [],
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  }
+}

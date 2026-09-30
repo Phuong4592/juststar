@@ -1,0 +1,203 @@
+{
+  "id": "component.typography",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/typography/README.md",
+  "exports": [
+    "typographyVariants",
+    "TypographyElement",
+    "TypographyVariant",
+    "TypographyProps",
+    "Typography"
+  ],
+  "publicParts": [
+    "root",
+    "display",
+    "heading-1",
+    "heading-2",
+    "heading-3",
+    "heading-4",
+    "heading-5",
+    "heading-6",
+    "lead",
+    "text",
+    "small",
+    "caption",
+    "label",
+    "mono",
+    "mono-strong",
+    "mono-small",
+    "mono-caption",
+    "code",
+    "eyebrow"
+  ],
+  "behaviorOwner": {
+    "kind": "native",
+    "owner": "@enosta/en-ui",
+    "capabilities": ["native-semantics"]
+  },
+  "anatomy": {
+    "structure": "<Typography.H1>Heading</Typography.H1><Typography.Text>Content</Typography.Text>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "Polymorphic escape hatch for an explicitly selected typography role."
+      },
+      {
+        "part": "display",
+        "description": "Rare 40px masthead text rendered in Nunito with strong emphasis."
+      },
+      {
+        "part": "heading-1",
+        "description": "Primary 32px page heading."
+      },
+      {
+        "part": "heading-2",
+        "description": "28px section or overlay heading."
+      },
+      {
+        "part": "heading-3",
+        "description": "24px card or panel heading."
+      },
+      {
+        "part": "heading-4",
+        "description": "20px compact subsection heading."
+      },
+      {
+        "part": "heading-5",
+        "description": "16px nested heading with preserved h5 semantics."
+      },
+      {
+        "part": "heading-6",
+        "description": "14px nested heading with preserved h6 semantics."
+      },
+      {
+        "part": "lead",
+        "description": "18px introductory or emphasized prose."
+      },
+      {
+        "part": "text",
+        "description": "Default 16px interface and body text."
+      },
+      {
+        "part": "small",
+        "description": "14px supporting text for dense interfaces."
+      },
+      {
+        "part": "caption",
+        "description": "12px short metadata or captions."
+      },
+      {
+        "part": "label",
+        "description": "14px control, field, or compact data label."
+      },
+      {
+        "part": "mono",
+        "description": "Purposeful 16px machine-oriented text such as code fragments, commands, file paths, hashes, or serialized values."
+      },
+      {
+        "part": "mono-strong",
+        "description": "Emphasized 18px machine-oriented text without consumer-authored font-weight overrides."
+      },
+      {
+        "part": "mono-small",
+        "description": "Compact 14px machine-oriented text."
+      },
+      {
+        "part": "mono-caption",
+        "description": "Compact 12px code-like or machine-oriented text."
+      },
+      {
+        "part": "code",
+        "description": "Inline 16px code rendered with code semantics and the technical mono family."
+      },
+      {
+        "part": "eyebrow",
+        "description": "Restrained 11px Nunito category label; not routine decoration."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": false,
+      "description": "Component content where supported."
+    }
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "kind": "enum",
+      "description": "Explicit visual role for Typography.Root; compound presets are preferred.",
+      "values": [
+        "display/2xl",
+        "display/xl",
+        "display/lg",
+        "display/md",
+        "display/sm",
+        "heading/1",
+        "heading/2",
+        "heading/3",
+        "heading/4",
+        "heading/5",
+        "heading/6",
+        "body/xl",
+        "body/lg",
+        "body/md",
+        "body/sm",
+        "body/xs",
+        "label/lg",
+        "label/md",
+        "label/sm",
+        "mono/display",
+        "mono/lg",
+        "mono/md",
+        "mono/sm",
+        "mono/xs",
+        "mono/2xs",
+        "mono/caps",
+        "mono/caps-xs",
+        "eyebrow/lg",
+        "eyebrow/md"
+      ],
+      "default": "body/md"
+    },
+    {
+      "name": "as",
+      "kind": "string",
+      "description": "Overrides the rendered semantic element when the document outline requires it."
+    }
+  ],
+  "states": ["default"],
+  "requiredStories": ["Demo", "Compound", "Scale", "Technical"],
+  "requiredTests": [
+    "renders",
+    "class-name",
+    "compound-semantics",
+    "compact-scale",
+    "nunito-default",
+    "purposeful-mono"
+  ],
+  "tokens": {
+    "required": ["font.family.sans", "font.family.mono"]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": []
+  },
+  "rules": [
+    "component.typography.preserve-semantics",
+    "component.typography.use-nunito-by-default",
+    "component.typography.use-compact-roles",
+    "component.typography.reserve-mono-for-technical-content"
+  ],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "breaking",
+    "notes": "Typography becomes the canonical public text API with compound presets and a compact Nunito scale; the overlapping Text export is removed."
+  }
+}

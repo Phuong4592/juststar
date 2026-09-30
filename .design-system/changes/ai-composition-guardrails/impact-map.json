@@ -1,0 +1,21 @@
+{
+  "components": [
+    "Add experimental layout primitives and TruncatedText without modifying existing stable component APIs."
+  ],
+  "consumers": [
+    "Add an opt-in AI skill and deterministic consumer checks; no migration is required."
+  ],
+  "contracts": [
+    "Add experimental layout and list-page composition contracts without changing stable component contracts."
+  ],
+  "documentation": [
+    "Document the composition-first workflow, allowed primitives, AI instructions, and guardrail diagnostics."
+  ],
+  "foundations": [
+    "Reuse current semantic spacing, color, typography, focus, mode, and density tokens; add no raw visual values."
+  ],
+  "patterns": [
+    "Prove a responsive list-page composition with PageHeader, FilterToolbar, and EmptyState."
+  ],
+  "screenshots": ["Review the list-page story at mobile, tablet, and desktop widths."]
+}

@@ -1,0 +1,21 @@
+# @enosta/en-ui
+
+Enosta React atom and interaction-primitive library. Package: @enosta/en-ui. Current version: the `version` field in package.json.
+
+Current development catalog: 25 public atomic components and interaction primitives.
+Contract schema: 2.0.0.
+
+Human authority: DESIGN.md
+Compact installed component index: contracts/component-index.md
+Aggregate machine contract: contracts/design-system.contract.json
+Per-component guidance: src/components/<name>/README.md
+Per-component contract: src/components/<name>/<name>.contract.json
+Application shells, headers, sidebars, pages, workspaces, and layout patterns are consumer-owned and are not package exports.
+AI consumer workflow: .agents/skills/en-ui-consumer/SKILL.md
+Component context command: en-ui-context
+
+Import components from @enosta/en-ui. Import @enosta/en-ui/styles.css once. The stylesheet includes Tailwind Preflight, component utilities, theme variables, animations, and bundled fonts. Individual component CSS entry points are not provided.
+
+Typography is the only public text API. Use Typography compound presets; Text has been removed. Nunito is the interface family, and mono presets are reserved for purposeful code and technical values. Use spacing and type hierarchy before separators or cards. En UI Table differentiates odd and even records by default.
+
+Do not copy internal adapters or override focus, keyboard, dismissal, accessible naming, or minimum target behavior.

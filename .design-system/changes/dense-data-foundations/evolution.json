@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "evolutionId": "dense-data-foundations",
+  "type": "modes-density",
+  "scope": "focused",
+  "summary": "Tune En UI for dense operational products with a documented compact typography scale, semantic spacing roles, a complete elevation ladder, explicit interaction-state contrast pairs, and improved selection-control anatomy.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "impact": {
+    "accessibilityContract": "additive",
+    "behaviorContract": "additive",
+    "maturity": "none",
+    "placement": "none",
+    "publicApi": "none",
+    "tokenContract": "additive"
+  },
+  "compatibility": "compatible",
+  "impactMap": {
+    "components": [
+      "Use Button, IconButton, Checkbox, and Switch as the representative state and control-anatomy slice; preserve public props and keyboard behavior."
+    ],
+    "consumers": [
+      "Existing CSS variable names remain supported. Consumers receive denser default values and new optional semantic roles without a code migration."
+    ],
+    "contracts": [
+      "Add an AI-readable foundations contract and declare interactive default/hover color pairs and density expectations."
+    ],
+    "documentation": [
+      "Add Storybook foundation pages and package-delivered Markdown guidance for typography, spacing, elevation, and density."
+    ],
+    "foundations": [
+      "Tune the default type scale for data density, add semantic inset/stack spacing, and complete low-to-dragged elevation roles."
+    ],
+    "patterns": [
+      "Recheck the experimental operational roster against the denser foundation values and reduce oversized display treatment."
+    ],
+    "screenshots": [
+      "Add reviewed foundation and interaction-state screenshots and regenerate the operational-roster baselines."
+    ]
+  },
+  "releaseClassification": "minor",
+  "decisionRefs": [
+    ".design-system/decisions/001-standalone-extraction.md",
+    ".design-system/changes/visual-quality-redesign/evolution.json"
+  ],
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "visual.wcag-aa-contrast",
+    "visual.wcag-aaa-report",
+    "visual.typography-density",
+    "visual.elevation-hierarchy",
+    "visual.interaction-state-contrast",
+    "visual.baseline-review"
+  ],
+  "verticalSlice": {
+    "name": "Dense operational foundations",
+    "workflow": "Scan foundation roles, operate primary and destructive actions, select rows, toggle settings, and review the people roster across supported density and viewport settings.",
+    "evidence": "Foundation contract and Storybook stories, token audit, component unit tests, catalog accessibility scan, state screenshots, and responsive roster baselines.",
+    "review": {
+      "approved": true,
+      "by": "User",
+      "date": "2026-08-25"
+    }
+  },
+  "migration": null,
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  }
+}

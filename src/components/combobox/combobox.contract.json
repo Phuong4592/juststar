@@ -1,0 +1,182 @@
+{
+  "id": "component.combobox",
+  "family": "en-ui",
+  "status": "beta",
+  "maturity": {
+    "previousStatus": "external",
+    "since": "0.3.0"
+  },
+  "documentation": "src/components/combobox/README.md",
+  "exports": [
+    "comboboxVariants",
+    "Combobox",
+    "ComboboxChipsInputProps",
+    "ComboboxChipsInput",
+    "ComboboxTrigger",
+    "ComboboxClear",
+    "ComboboxInputProps",
+    "ComboboxInput",
+    "ComboboxPopupProps",
+    "ComboboxPopup",
+    "ComboboxItem",
+    "ComboboxSeparator",
+    "ComboboxGroup",
+    "ComboboxGroupLabel",
+    "ComboboxEmpty",
+    "ComboboxRow",
+    "ComboboxStatus",
+    "ComboboxList",
+    "ComboboxChipRemove",
+    "ComboboxChipProps",
+    "ComboboxChip",
+    "ComboboxChipsProps",
+    "ComboboxChips",
+    "ComboboxValue",
+    "ComboboxCollection",
+    "useComboboxFilter"
+  ],
+  "publicParts": ["root"],
+  "behaviorOwner": {
+    "kind": "protected-adapter",
+    "owner": "@enosta/en-ui",
+    "capabilities": [
+      "native-semantics",
+      "keyboard-interaction",
+      "filterable-listbox",
+      "multiple-selection",
+      "form-integration"
+    ]
+  },
+  "anatomy": {
+    "structure": "<Combobox items={items}><ComboboxInput /><ComboboxPopup><ComboboxEmpty /><ComboboxList><ComboboxItem /></ComboboxList></ComboboxPopup></Combobox>",
+    "parts": [
+      {
+        "part": "root",
+        "description": "State root managing value, open state, and item filtering for every part."
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "children",
+      "required": true,
+      "description": "Input part plus popup parts (empty state, list, items) composed by the consumer."
+    }
+  ],
+  "props": [
+    {
+      "name": "size",
+      "kind": "enum",
+      "description": "Control height of ComboboxInput and ComboboxChipsInput, aligned with Input sizes.",
+      "values": ["sm", "md", "lg"],
+      "default": "md"
+    },
+    {
+      "name": "startAddon",
+      "kind": "node",
+      "description": "Leading addon inside ComboboxInput or ComboboxChips, typically a search icon. A string renders as an Iconify icon name."
+    },
+    {
+      "name": "showTrigger",
+      "kind": "boolean",
+      "description": "Renders the chevron trigger that opens the popup at the end of ComboboxInput.",
+      "default": true
+    },
+    {
+      "name": "showClear",
+      "kind": "boolean",
+      "description": "Renders a clear selection button at the end of ComboboxInput.",
+      "default": false
+    },
+    {
+      "name": "side",
+      "kind": "enum",
+      "description": "Preferred side of the input to position the popup.",
+      "values": ["top", "bottom", "left", "right"],
+      "default": "bottom"
+    },
+    {
+      "name": "align",
+      "kind": "enum",
+      "description": "Alignment of the popup relative to the anchor on the chosen side.",
+      "values": ["start", "center", "end"],
+      "default": "start"
+    },
+    {
+      "name": "sideOffset",
+      "kind": "number",
+      "description": "Distance in pixels between the popup and the anchor along the side axis.",
+      "default": 4
+    },
+    {
+      "name": "alignOffset",
+      "kind": "number",
+      "description": "Offset in pixels along the alignment axis."
+    },
+    {
+      "name": "anchor",
+      "kind": "node",
+      "description": "Element or ref the popup anchors to. Defaults to the chips container in multiple selection mode."
+    }
+  ],
+  "states": ["default", "disabled", "invalid", "empty", "multiple-selection"],
+  "requiredStories": [
+    "Overview",
+    "Basic",
+    "Sizes",
+    "Disabled",
+    "ClearButton",
+    "StartAddon",
+    "Groups",
+    "Multiple",
+    "InputInsidePopup",
+    "Form"
+  ],
+  "requiredTests": [
+    "renders",
+    "class-name",
+    "single-selection",
+    "multiple-selection",
+    "sizes",
+    "disabled"
+  ],
+  "tokens": {
+    "required": [
+      "color.brand.400",
+      "color.brand.500",
+      "color.error.400",
+      "color.error.500",
+      "color.neutral.100",
+      "color.neutral.200",
+      "color.neutral.400",
+      "color.neutral.50",
+      "color.neutral.500",
+      "color.neutral.900",
+      "color.surface",
+      "radius.control",
+      "shadow.hairline",
+      "shadow.overlay",
+      "shadow.surface",
+      "space.2xs",
+      "space.3xl",
+      "space.4xl",
+      "space.5xl",
+      "space.6xl",
+      "space.lg",
+      "space.md",
+      "space.sm",
+      "space.xl",
+      "space.xs"
+    ]
+  },
+  "componentVariables": {
+    "customizable": [],
+    "protected": ["--anchor-width", "--available-height", "--available-width", "--transform-origin"]
+  },
+  "rules": ["component.combobox.preserve-semantics"],
+  "migration": {
+    "introducedIn": "0.3.0",
+    "classification": "breaking",
+    "notes": "Styles mapped to En UI theme variables; ComboboxInput size value default renamed to md."
+  }
+}

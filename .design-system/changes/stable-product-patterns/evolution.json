@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "evolutionId": "stable-product-patterns",
+  "type": "maturity",
+  "scope": "focused",
+  "summary": "Promote the reviewed operational list pattern and add stable data-grid and authentication compositions so product teams and AI agents can assemble mature pages from En UI-owned responsive anatomy.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "impact": {
+    "accessibilityContract": "additive",
+    "behaviorContract": "additive",
+    "maturity": "additive",
+    "placement": "none",
+    "publicApi": "additive",
+    "tokenContract": "none"
+  },
+  "compatibility": "compatible",
+  "impactMap": {
+    "components": [
+      "Add stable ListPage, DataGrid, FilterPanel, and LoginPage composition APIs without changing existing component props."
+    ],
+    "consumers": [
+      "Teams can import mature page patterns from the package root and direct AI agents to prefer them over application-owned shells."
+    ],
+    "contracts": [
+      "Add stable contracts for list-page, data-grid, and login-page anatomy, states, responsiveness, and accessibility."
+    ],
+    "documentation": [
+      "Update the landing page, installation/customization documentation, and packaged consumer skill with pattern selection guidance."
+    ],
+    "foundations": [
+      "Reuse the approved dense typography, semantic spacing, elevation, target-size, and contrast foundations without new raw values."
+    ],
+    "patterns": [
+      "Promote the reviewed operational list page and add data-management and authentication reference patterns."
+    ],
+    "screenshots": [
+      "Add desktop and mobile baselines for the data-grid and login patterns and retain catalog-wide WCAG 2.2 AA scanning."
+    ]
+  },
+  "releaseClassification": "minor",
+  "decisionRefs": [
+    ".design-system/changes/ai-composition-guardrails/evolution.json",
+    ".design-system/changes/dense-data-foundations/evolution.json"
+  ],
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "visual.wcag-aa-contrast",
+    "visual.composition-spacing",
+    "visual.responsive-geometry",
+    "visual.baseline-review"
+  ],
+  "verticalSlice": {
+    "name": "Operational data and authentication",
+    "workflow": "Filter and scan a dense column-based people data set, then review sign-in, validation, recovery, and responsive behavior.",
+    "evidence": "Stable contracts, package exports, Storybook stories, unit tests, responsive screenshots, catalog accessibility scanning, and consumer skill guidance.",
+    "review": {
+      "approved": true,
+      "by": "User",
+      "date": "2026-08-25"
+    }
+  },
+  "migration": null,
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  }
+}

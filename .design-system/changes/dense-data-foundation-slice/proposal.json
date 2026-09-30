@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "changeId": "dense-data-foundation-slice",
+  "category": "foundation",
+  "summary": "Implement the approved dense operational foundation slice across tokens, documentation, Button, IconButton, Checkbox, Switch, and representative visual tests.",
+  "placement": {
+    "mode": "standalone",
+    "layout": "workspace-packages"
+  },
+  "compatibility": "compatible",
+  "impact": {
+    "accessibilityContract": "additive",
+    "behaviorContract": "additive",
+    "publicApi": "none",
+    "tokenContract": "additive",
+    "consumerMigrationRequired": false
+  },
+  "contractImpact": "Adds a foundations contract, interaction-state contrast pairs, semantic density roles, and stronger test evidence without removing public APIs or existing token names.",
+  "sourceEdits": [
+    "src/tokens",
+    "src/components/button",
+    "src/components/icon-button",
+    "src/components/checkbox",
+    "src/components/switch",
+    "src/components/experimental-list-page",
+    "contracts",
+    "docs",
+    ".storybook",
+    ".design-system/rules"
+  ],
+  "consumerEdits": [],
+  "requestedMaturity": null,
+  "targetRuleIds": [
+    "package.single-boundary",
+    "component.colocation",
+    "a11y.accessible-name",
+    "a11y.focus-visible",
+    "a11y.keyboard",
+    "visual.wcag-aa-contrast",
+    "visual.typography-density",
+    "visual.elevation-hierarchy",
+    "visual.interaction-state-contrast",
+    "visual.baseline-review"
+  ],
+  "requiredEvidence": ["contract", "docs", "implementation", "tests"],
+  "commands": {
+    "check": "pnpm check",
+    "test": "pnpm test",
+    "typecheck": "pnpm typecheck",
+    "build": "pnpm build",
+    "storybook": "pnpm dev"
+  },
+  "approval": {
+    "approved": true,
+    "by": "User",
+    "date": "2026-08-25"
+  }
+}

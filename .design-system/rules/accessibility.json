@@ -1,0 +1,14 @@
+{
+  "a11y.accessible-name": {
+    "severity": "error",
+    "requirement": "Interactive components expose an accessible name."
+  },
+  "a11y.focus-visible": {
+    "severity": "error",
+    "requirement": "Interactive components preserve visible focus treatment."
+  },
+  "a11y.keyboard": {
+    "severity": "error",
+    "requirement": "Keyboard behavior declared by a component contract remains protected."
+  }
+}

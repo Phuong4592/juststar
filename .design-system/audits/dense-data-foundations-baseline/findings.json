@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "auditId": "dense-data-foundations-baseline",
+  "date": "2026-08-25",
+  "findings": [
+    { "id": "foundation.typography-coverage", "severity": "error", "status": "open" },
+    { "id": "foundation.spacing-semantics", "severity": "warning", "status": "open" },
+    { "id": "foundation.elevation-ladder", "severity": "warning", "status": "open" },
+    { "id": "component.interaction-state-contrast", "severity": "error", "status": "open" },
+    { "id": "component.selection-anatomy", "severity": "warning", "status": "open" },
+    { "id": "tooling.component-state-coverage", "severity": "warning", "status": "open" }
+  ]
+}
