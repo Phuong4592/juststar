@@ -19,7 +19,7 @@
     "target": "ES2022",
     "types": ["vitest/globals"]
   },
-  "include": ["src", ".storybook", "docs/site", "vitest.setup.ts"],
+  "include": ["src", ".storybook", "docs/site", "examples", "vitest.setup.ts"],
   "exclude": [
     "src/components/application-header/application-header.stories.tsx",
     "src/components/application-shell/application-shell.stories.tsx",

@@ -9,7 +9,14 @@ import tseslint from "typescript-eslint"
 
 export default tseslint.config(
   {
-    ignores: ["dist/**", "storybook-static/**", "site-static/**", "pages-static/**", "coverage/**"],
+    ignores: [
+      "dist/**",
+      "examples/*/dist/**",
+      "storybook-static/**",
+      "site-static/**",
+      "pages-static/**",
+      "coverage/**",
+    ],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
