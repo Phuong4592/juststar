@@ -81,6 +81,8 @@
     "contract:generate": "node scripts/build-contract.mjs",
     "contract:validate": "node scripts/validate-contracts.mjs",
     "dev": "pnpm story:source:generate && storybook dev -p 6006",
+    "example:build": "vite build --config examples/enpath/vite.config.ts",
+    "example:dev": "vite --config examples/enpath/vite.config.ts",
     "design:check": "pnpm design:tokens && pnpm design:layout",
     "design:layout": "playwright test --grep-invert @visual",
     "design:tokens": "node scripts/audit-visual-tokens.mjs",
